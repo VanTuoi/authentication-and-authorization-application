@@ -39,6 +39,18 @@ const sales = {
     flag: BR,
   },
 };
+
+import { computed, watch } from 'vue';
+import { useCounterStore } from '../store/useStore'; // Adjust path as needed
+
+const counterStore = useCounterStore();
+const count = computed(() => counterStore.count);
+
+watch(count, (newCount) => {
+  console.log('Count has changed:', newCount);
+});
+
+
 </script>
 <template>
   <div class="py-4 container-fluid">
@@ -46,7 +58,7 @@ const sales = {
       <div class="col-lg-12">
         <div class="row">
           <div class="col-lg-3 col-md-6 col-12">
-            <mini-statistics-card title="Today's Money" value="$53,000" description="<span
+            <mini-statistics-card title="Today's Money" :value="count + ''" description="<span
                 class='text-sm font-weight-bolder text-success'
                 >+55%</span> since yesterday" :icon="{
                   component: 'ni ni-money-coins',
