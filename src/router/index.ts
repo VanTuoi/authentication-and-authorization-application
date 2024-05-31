@@ -1,13 +1,13 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Dashboard from "../views/Dashboard.vue";
-import Tables from "../views/Tables.vue";
-import Billing from "../views/Billing.vue";
-import VirtualReality from "../views/VirtualReality.vue";
-import RTL from "../views/Rtl.vue";
-import Profile from "../views/Profile.vue";
-import Signup from "../views/Signup.vue";
-import Signin from "../views/Signin.vue";
-import MiniGame from "../views/MiniGame.vue";
+import Dashboard from "@/views/Dashboard.vue";
+import Tables from "@/views/Tables.vue";
+import Billing from "@/views/Billing.vue";
+import VirtualReality from "@/views/VirtualReality.vue";
+import RTL from "@/views/Rtl.vue";
+import Profile from "@/views/Profile.vue";
+import Signup from "@/views/Signup.vue";
+import Signin from "@/views/Signin.vue";
+import MiniGame from "@/views/MiniGame.vue";
 
 const routes = [
   {
