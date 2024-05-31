@@ -44,8 +44,12 @@
                   </label>
                 </argon-checkbox>
                 <div class="text-center">
-                  <argon-button @click="abc" fullWidth color="dark" variant="gradient" class="my-4 mb-2">Sign
+                  <argon-button @click="login" fullWidth color="dark" variant="gradient" class="my-4 mb-2">Sign
                     up</argon-button>
+                </div>
+                <div class="text-center">
+                  <argon-button @click="getUserInfo" class="mt-4" variant="gradient" color="success" fullWidth
+                    size="lg">Get info</argon-button>
                 </div>
                 <p class="text-sm mt-3 mb-0">
                   Already have an account?
@@ -69,22 +73,28 @@ import AppFooter from "@/examples/PageLayout/Footer.vue";
 import ArgonInput from "@/components/ArgonInput.vue";
 import ArgonCheckbox from "@/components/ArgonCheckbox.vue";
 import ArgonButton from "@/components/ArgonButton.vue";
-import { computed } from 'vue'
-import { useCounterStore } from "../store/useStore"; // Adjust the path as needed
+// import { computed } from 'vue'
+// import { useCounterStore } from "../store/useStore"; // Adjust the path as needed
+
+import useAuth from "@/hook/useAuth";
+
+const { login, getUserInfo } = useAuth()
 
 const body = document.getElementsByTagName("body")[0];
 
-const counterStore = useCounterStore();
-const increment = counterStore.increment;
-const count = computed(() => counterStore.count);
-const name = computed(() => counterStore.name);
+// const counterStore = useCounterStore();
 
-function abc() {
-  increment()
-  console.log('run', count);
-}
+// // Lấy các hành động và trạng thái từ store
+// const increment = counterStore.increment;
+// const doubleCount = counterStore.doubleCount;
+// // const loadStateFromLocalStorage = counterStore.loadStateFromLocalStorage;
+// const count = computed(() => counterStore.count);
+// const name = computed(() => counterStore.name);
+
+
 
 const store = useStore();
+
 onBeforeMount(() => {
   store.state.hideConfigButton = true;
   store.state.showNavbar = false;
