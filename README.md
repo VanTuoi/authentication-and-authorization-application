@@ -25,30 +25,30 @@ View [example pages here](https://demos.creative-tim.com/vue-argon-dashboard/).
 
 **HELPFUL LINKS**
 
-- View [Github Repository](https://github.com/creativetimofficial/vue-argon-dashboard)
-- Check [FAQ Page](https://www.creative-tim.com/faq)
+-   View [Github Repository](https://github.com/creativetimofficial/vue-argon-dashboard)
+-   Check [FAQ Page](https://www.creative-tim.com/faq)
 
 #### Special thanks
 
 During the development of this dashboard, we have used many existing resources from awesome developers. We want to thank them for providing their tools open source:
 
-- [Popper.js](https://popper.js.org/) - Kickass library used to manage poppers
+-   [Popper.js](https://popper.js.org/) - Kickass library used to manage poppers
 
 Let us know your thoughts below. And good luck with development!
 
 ## Table of Contents
 
-- [Versions](#versions)
-- [Demo](#demo)
-- [Quick Start](#quick-start)
-- [Documentation](#documentation)
-- [File Structure](#file-structure)
-- [Browser Support](#browser-support)
-- [Resources](#resources)
-- [Reporting Issues](#reporting-issues)
-- [Technical Support or Questions](#technical-support-or-questions)
-- [Licensing](#licensing)
-- [Useful Links](#useful-links)
+-   [Versions](#versions)
+-   [Demo](#demo)
+-   [Quick Start](#quick-start)
+-   [Documentation](#documentation)
+-   [File Structure](#file-structure)
+-   [Browser Support](#browser-support)
+-   [Resources](#resources)
+-   [Reporting Issues](#reporting-issues)
+-   [Technical Support or Questions](#technical-support-or-questions)
+-   [Licensing](#licensing)
+-   [Useful Links](#useful-links)
 
 ## Versions
 
@@ -61,9 +61,9 @@ Let us know your thoughts below. And good luck with development!
 
 ## Demo
 
-- [Profile](https://demos.creative-tim.com/vue-argon-dashboard/#/profile?ref=readme-vad)
-- [Sign In](https://demos.creative-tim.com/vue-argon-dashboard/#/sign-in?ref=readme-vad)
-- [Sign Up](https://demos.creative-tim.com/vue-argon-dashboard/#/sign-up?ref=readme-vad)
+-   [Profile](https://demos.creative-tim.com/vue-argon-dashboard/#/profile?ref=readme-vad)
+-   [Sign In](https://demos.creative-tim.com/vue-argon-dashboard/#/sign-in?ref=readme-vad)
+-   [Sign Up](https://demos.creative-tim.com/vue-argon-dashboard/#/sign-up?ref=readme-vad)
 
 [View More](https://demos.creative-tim.com/vue-argon-dashboard/#/dashboard-default?ref=readme-vad).
 
@@ -71,7 +71,7 @@ Let us know your thoughts below. And good luck with development!
 
 Quick start options:
 
-- Download from [Creative Tim](https://www.creative-tim.com/product/vue-argon-dashboard?ref=readme-vad).
+-   Download from [Creative Tim](https://www.creative-tim.com/product/vue-argon-dashboard?ref=readme-vad).
 
 ## Terminal Commands
 
@@ -157,12 +157,12 @@ At present, we officially aim to support the last two versions of the following 
 
 ## Resources
 
-- [Live Preview](https://demos.creative-tim.com/vue-argon-dashboard/#/dashboard-default?ref=readme-vad)
-- [Download Page](https://www.creative-tim.com/product/vue-argon-dashboard?ref=readme-vad)
-- Documentation is [here](https://www.creative-tim.com/learning-lab/vue/overview/argon-dashboard/?ref=readme-vad)
-- [License Agreement](https://www.creative-tim.com/license?ref=readme-vad)
-- [Support](https://www.creative-tim.com/contact-us?ref=readme-vad)
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/vue-argon-dashboard/issues)
+-   [Live Preview](https://demos.creative-tim.com/vue-argon-dashboard/#/dashboard-default?ref=readme-vad)
+-   [Download Page](https://www.creative-tim.com/product/vue-argon-dashboard?ref=readme-vad)
+-   Documentation is [here](https://www.creative-tim.com/learning-lab/vue/overview/argon-dashboard/?ref=readme-vad)
+-   [License Agreement](https://www.creative-tim.com/license?ref=readme-vad)
+-   [Support](https://www.creative-tim.com/contact-us?ref=readme-vad)
+-   Issues: [Github Issues Page](https://github.com/creativetimofficial/vue-argon-dashboard/issues)
 
 ## Reporting Issues
 
@@ -178,18 +178,18 @@ If you have questions or need help integrating the product please [contact us](h
 
 ## Licensing
 
-- Copyright 2023 [Creative Tim](https://www.creative-tim.com?ref=readme-vad)
-- Creative Tim [license](https://www.creative-tim.com/license?ref=readme-vad)
+-   Copyright 2023 [Creative Tim](https://www.creative-tim.com?ref=readme-vad)
+-   Creative Tim [license](https://www.creative-tim.com/license?ref=readme-vad)
 
 ## Useful Links
 
-- [More products](https://www.creative-tim.com/templates?ref=readme-vad) from Creative Tim
+-   [More products](https://www.creative-tim.com/templates?ref=readme-vad) from Creative Tim
 
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
+-   [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
 
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-vad) from Creative Tim
+-   [Freebies](https://www.creative-tim.com/bootstrap-themes/free?ref=readme-vad) from Creative Tim
 
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-vad) (earn money)
+-   [Affiliate Program](https://www.creative-tim.com/affiliates/new?ref=readme-vad) (earn money)
 
 ##### Social Media
 

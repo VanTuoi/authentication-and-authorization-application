@@ -1,16 +1,16 @@
 // Text Border
 $text-border-bg-color: rgba($secondary, 0.5) !default;
 $text-border-bg-color-before: linear-gradient(
-  90deg,
-  transparent,
-  rgba(117, 117, 117, 0.4),
-  rgba(117, 117, 117, 0.4)
+    90deg,
+    transparent,
+    rgba(117, 117, 117, 0.4),
+    rgba(117, 117, 117, 0.4)
 ) !default;
 $text-border-bg-color-after: linear-gradient(
-  90deg,
-  rgba(117, 117, 117, 0.4),
-  rgba(117, 117, 117, 0.4),
-  transparent
+    90deg,
+    rgba(117, 117, 117, 0.4),
+    rgba(117, 117, 117, 0.4),
+    transparent
 ) !default;
 $text-border-display: inline-block !default;
 $text-border-width: 30% !default;
@@ -58,8 +58,8 @@ $round-slider-transition: all 0.5s ease-out 0s !default;
 // Perspective
 
 $transform-perspective-right: scale(1) perspective(2000px) rotateY(-35deg)
-  rotateX(2deg) rotate(0deg) !default;
+    rotateX(2deg) rotate(0deg) !default;
 $transform-perspective-right-sm: scale(0.7) perspective(2000px) rotateY(-32deg)
-  rotateX(2deg) rotate(0deg) !default;
+    rotateX(2deg) rotate(0deg) !default;
 $transform-perspective-right-xs: scale(0.5) perspective(2000px) rotateY(-30deg)
-  rotateX(2deg) rotate(0deg) !default;
+    rotateX(2deg) rotate(0deg) !default;

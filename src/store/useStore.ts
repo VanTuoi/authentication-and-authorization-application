@@ -1,18 +1,16 @@
 import { defineStore } from 'pinia';
 import useAuth from '@/hook/useAuth';
 
-const { getUserInfo } = useAuth()
+const { getUserInfo } = useAuth();
 export const useCounterStore = defineStore('counter', {
     state: () => ({
         name: '',
         role: 'user',
         jwt: '',
     }),
-    getters: {
-    },
+    getters: {},
     actions: {
         async getUserInfo() {
-
             await this.loadUserInfo();
             this.saveStateToLocalStorage();
         },

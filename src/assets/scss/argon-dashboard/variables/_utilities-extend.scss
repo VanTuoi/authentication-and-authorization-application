@@ -11,9 +11,9 @@ $card-project-hover-transform: translateY(-2px) !default;
 
 // Transform Perspective effect
 $transform-perspective: scale(1) perspective(1040px) rotateY(-11deg)
-  rotateX(2deg) rotate(2deg) !default;
+    rotateX(2deg) rotate(2deg) !default;
 $transform-perspective-inverse: scale(1) perspective(1040px) rotateY(11deg)
-  rotateX(-2deg) rotate(-2deg) !default;
+    rotateX(-2deg) rotate(-2deg) !default;
 
 // Z index
 $z-index2: 2 !default;

@@ -1,8 +1,7 @@
 import { ref } from 'vue';
-import { authDangNhap, authGetThongTin } from '@/constant/api'
+import { authDangNhap, authGetThongTin } from '@/constant/api';
 import axios from 'axios';
 // import { useCounterStore } from "../store/useStore";
-
 
 export default function useAuth() {
     // const counterStore = useCounterStore();
@@ -12,19 +11,18 @@ export default function useAuth() {
     const login = async () => {
         try {
             const data = {
-                username: "admin",
-                password: "admin"
-            }
+                username: 'admin',
+                password: 'admin',
+            };
             const response = await axios.post(`${authDangNhap}`, data);
             console.log('response', response);
             if (response.status === 200) {
-                localStorage.setItem('jwt', response.data.result.token)
+                localStorage.setItem('jwt', response.data.result.token);
             }
-
         } catch (e) {
-            console.error("Error: ", e);
+            console.error('Error: ', e);
         } finally {
-            ;
+            console.log('');
         }
     };
 
@@ -33,13 +31,13 @@ export default function useAuth() {
             const headers = { Authorization: `Bearer ${jwt.value}` };
             const response = await axios.get(`${authGetThongTin}`, { headers });
             console.log('response getUserInfo', response);
-
+            return {};
         } catch (e) {
-            console.error("Error: ", e);
+            console.error('Error: ', e);
         } finally {
-            ;
+            console.log('');
         }
-    }
+    };
 
     const logout = () => {
         jwt.value = '';

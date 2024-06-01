@@ -2,26 +2,26 @@
 $hr-bg: transparent !default;
 $hr-transform: rotate(90deg) !default;
 $hr-bg-image: linear-gradient(
-  to right,
-  rgba(255, 255, 255, 0),
-  rgba(255, 255, 255, 1),
-  rgba(255, 255, 255, 0)
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
 ) !default;
 $hr-bg-dark-image: linear-gradient(
-  to right,
-  rgba(0, 0, 0, 0),
-  rgba(0, 0, 0, 0.4),
-  rgba(0, 0, 0, 0)
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0)
 ) !default;
 
 // Gradient Animation
 $gradient-animation-background: linear-gradient(
-  -45deg,
-  $info-gradient,
-  $danger,
-  $warning,
-  $primary-gradient,
-  $dark
+    -45deg,
+    $info-gradient,
+    $danger,
+    $warning,
+    $primary-gradient,
+    $dark
 ) !default;
 $gradient-animation-bg-size: 400% 400% !default;
 
@@ -63,34 +63,34 @@ $hr-bg-color: transparent !default;
 $hr-width: 1px !default;
 $hr-margin: 0.75rem 0 !default;
 $hr-horizontal-bg-image-light: linear-gradient(
-  to right,
-  rgba(255, 255, 255, 0),
-  white,
-  rgba(255, 255, 255, 0)
+    to right,
+    rgba(255, 255, 255, 0),
+    white,
+    rgba(255, 255, 255, 0)
 ) !default;
 $hr-horizontal-bg-image-gray-light: linear-gradient(
-  to right,
-  rgba(0, 0, 0, 0),
-  rgba(0, 0, 0, 0.1),
-  rgba(0, 0, 0, 0)
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0)
 ) !default;
 $hr-horizontal-bg-image-dark: linear-gradient(
-  to right,
-  rgba(0, 0, 0, 0),
-  rgba(0, 0, 0, 0.4),
-  rgba(0, 0, 0, 0)
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0)
 ) !default;
 $hr-vertical-bg-image-light: linear-gradient(
-  to bottom,
-  rgba(255, 255, 255, 0),
-  white,
-  rgba(255, 255, 255, 0)
+    to bottom,
+    rgba(255, 255, 255, 0),
+    white,
+    rgba(255, 255, 255, 0)
 ) !default;
 $hr-vertical-bg-image-dark: linear-gradient(
-  to bottom,
-  rgba(0, 0, 0, 0),
-  rgba(0, 0, 0, 0.4),
-  rgba(0, 0, 0, 0)
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0)
 ) !default;
 
 // Skew Separator

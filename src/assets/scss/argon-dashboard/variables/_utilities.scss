@@ -6,7 +6,7 @@ $move-transform-origin: 50% 0 !default;
 $move-backface-visibility: hidden !default;
 $move-will-change: transform, box-shadow !default;
 $move-hover-transform: perspective(999px) rotateX(7deg)
-  translate3d(0px, -4px, 5px) !default;
+    translate3d(0px, -4px, 5px) !default;
 
 // Sections Height Utilities
 $section-height-25-min-height: 25vh !default;
@@ -123,57 +123,57 @@ $max-height-vh-100: 100vh !default;
 
 // Extra Padding values Map
 $paddings: (
-  "6": $padding-6,
-  "7": $padding-7,
-  "8": $padding-8,
-  "9": $padding-9,
-  "10": $padding-10,
-  "11": $padding-11,
-  "12": $padding-12,
+    '6': $padding-6,
+    '7': $padding-7,
+    '8': $padding-8,
+    '9': $padding-9,
+    '10': $padding-10,
+    '11': $padding-11,
+    '12': $padding-12,
 ) !default;
 
 // Extra Margins values Map
 $margins: (
-  "6": $margin-6,
-  "7": $margin-7,
-  "8": $margin-8,
-  "9": $margin-9,
-  "10": $margin-10,
-  "11": $margin-11,
-  "12": $margin-12,
+    '6': $margin-6,
+    '7': $margin-7,
+    '8': $margin-8,
+    '9': $margin-9,
+    '10': $margin-10,
+    '11': $margin-11,
+    '12': $margin-12,
 ) !default;
 
 $width: (
-  "0": $width-0,
-  "1": $width-1,
-  "2": $width-2,
-  "3": $width-3,
-  "4": $width-4,
-  "5": $width-5,
-  "6": $width-6,
-  "7": $width-7,
-  "8": $width-8,
-  "9": $width-9,
-  "10": $width-10,
-  "15": $width-15,
-  "20": $width-20,
-  "25": $width-25,
-  "30": $width-30,
-  "35": $width-35,
-  "40": $width-40,
-  "45": $width-45,
-  "50": $width-50,
-  "55": $width-55,
-  "60": $width-60,
-  "65": $width-65,
-  "70": $width-70,
-  "75": $width-75,
-  "80": $width-80,
-  "85": $width-85,
-  "90": $width-90,
-  "95": $width-95,
-  "100": $width-100,
-  "auto": auto,
+    '0': $width-0,
+    '1': $width-1,
+    '2': $width-2,
+    '3': $width-3,
+    '4': $width-4,
+    '5': $width-5,
+    '6': $width-6,
+    '7': $width-7,
+    '8': $width-8,
+    '9': $width-9,
+    '10': $width-10,
+    '15': $width-15,
+    '20': $width-20,
+    '25': $width-25,
+    '30': $width-30,
+    '35': $width-35,
+    '40': $width-40,
+    '45': $width-45,
+    '50': $width-50,
+    '55': $width-55,
+    '60': $width-60,
+    '65': $width-65,
+    '70': $width-70,
+    '75': $width-75,
+    '80': $width-80,
+    '85': $width-85,
+    '90': $width-90,
+    '95': $width-95,
+    '100': $width-100,
+    'auto': auto,
 ) !default;
 
 // blur effect variables
@@ -183,8 +183,8 @@ $blur-backdrop-filter: saturate(200%) blur(30px) !default;
 $blur-backdrop-filter-less: saturate(20%) blur(30px) !default;
 
 $shadow-blur-box-shadow:
-  inset 0 0px 1px 1px rgba(254, 254, 254, 0.9),
-  0 20px 27px 0 rgba(0, 0, 0, 0.05) !default;
+    inset 0 0px 1px 1px rgba(254, 254, 254, 0.9),
+    0 20px 27px 0 rgba(0, 0, 0, 0.05) !default;
 
 // sidebar variables
 
