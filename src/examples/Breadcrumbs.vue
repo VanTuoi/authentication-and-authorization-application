@@ -21,9 +21,7 @@ defineProps({
     <nav aria-label="breadcrumb">
         <ol
             class="px-0 pt-1 pb-0 mb-0 bg-transparent breadcrumb"
-            :class="`${isRTL ? '' : ' me-sm-6'} ${
-                isNavFixed ? 'text-dark' : 'text-white'
-            }`"
+            :class="`${isRTL ? '' : ' me-sm-6'} ${isNavFixed ? 'text-dark' : 'text-white'}`"
         >
             <li class="text-sm breadcrumb-item">
                 <a

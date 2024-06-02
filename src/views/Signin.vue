@@ -1,17 +1,38 @@
 <script setup>
-import { onBeforeUnmount, onBeforeMount } from 'vue';
+import { onBeforeUnmount, onBeforeMount, ref, computed } from 'vue';
 import { useStore } from 'vuex';
 import Navbar from '@/examples/PageLayout/Navbar.vue';
 import ArgonInput from '@/components/ArgonInput.vue';
 import ArgonSwitch from '@/components/ArgonSwitch.vue';
 import ArgonButton from '@/components/ArgonButton.vue';
-
+import ArgonInputPassword from '@/components/ArgonInputPassword.vue';
 import useAuth from '@/hook/useAuth';
-
-const { login } = useAuth();
+import notify from '@/lib/toast';
 const body = document.getElementsByTagName('body')[0];
-
 const store = useStore();
+
+import { useUserStore } from '@/store/useStore';
+const { loading, login } = useAuth();
+
+const userStore = useUserStore();
+const user = computed(() => userStore.getUser);
+
+const name = ref('admin');
+const password = ref('admin');
+
+const handleLogin = async () => {
+    const isSuccess = await login(name.value, password.value);
+    if (isSuccess) {
+        notify.success('Login is successful');
+        userStore.init();
+    } else {
+        notify.error('Login in failed. Please try again.');
+    }
+};
+
+const show = () => {
+    console.log('user', user.value);
+};
 
 onBeforeMount(() => {
     store.state.hideConfigButton = true;
@@ -28,6 +49,7 @@ onBeforeUnmount(() => {
     body.classList.add('bg-gray-100');
 });
 </script>
+
 <template>
     <div class="container top-0 position-sticky z-index-sticky">
         <div class="row">
@@ -56,19 +78,24 @@ onBeforeUnmount(() => {
                                     </p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form">
+                                    <form
+                                        role="form"
+                                        @submit.prevent="() => {}"
+                                    >
                                         <div class="mb-3">
                                             <argon-input
                                                 id="email"
-                                                type="email"
+                                                v-model="name"
+                                                type="text"
                                                 placeholder="Email"
                                                 name="email"
                                                 size="lg"
                                             />
                                         </div>
                                         <div class="mb-3">
-                                            <argon-input
+                                            <argon-input-password
                                                 id="password"
+                                                v-model="password"
                                                 type="password"
                                                 placeholder="Password"
                                                 name="password"
@@ -83,15 +110,28 @@ onBeforeUnmount(() => {
 
                                         <div class="text-center">
                                             <argon-button
+                                                :loading="loading"
                                                 class="mt-4"
                                                 variant="gradient"
                                                 color="success"
                                                 full-width
                                                 size="lg"
-                                                @click="login"
+                                                @click="handleLogin"
                                                 >Sign in</argon-button
                                             >
                                         </div>
+                                        <!-- <div class="text-center">
+                                            <argon-button
+                                                class="mt-4"
+                                                variant="gradient"
+                                                color="success"
+                                                full-width
+                                                size="lg"
+                                                @click="show"
+                                            >
+                                                Show pinia
+                                            </argon-button>
+                                        </div> -->
                                     </form>
                                 </div>
                                 <div

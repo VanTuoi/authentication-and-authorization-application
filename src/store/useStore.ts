@@ -1,37 +1,37 @@
 import { defineStore } from 'pinia';
 import useAuth from '@/hook/useAuth';
+import { User } from '@/interfaces/user';
 
 const { getUserInfo } = useAuth();
-export const useCounterStore = defineStore('counter', {
+
+const exampleUser: User = {
+    id: '',
+    username: '',
+    firstName: '',
+    lastName: '',
+    dob: '1900-01-01',
+    roles: [],
+};
+
+export const useUserStore = defineStore('user', {
     state: () => ({
-        name: '',
-        role: 'user',
-        jwt: '',
+        user: exampleUser as User,
     }),
-    getters: {},
+    getters: {
+        getUser(state): User {
+            return state.user;
+        },
+    },
     actions: {
-        async getUserInfo() {
-            await this.loadUserInfo();
-            this.saveStateToLocalStorage();
-        },
-        async loadUserInfo() {
-            const jwtFromLocalStorage = localStorage.getItem('jwt');
-            if (jwtFromLocalStorage) {
-                try {
-                    const userInfo: any = await getUserInfo();
-                    this.$patch({ jwt: jwtFromLocalStorage, ...userInfo });
-                } catch (error) {
-                    console.error('Error fetching user info:', error);
+        async init() {
+            console.log('khởi tạo');
+            try {
+                const info = await getUserInfo();
+                if (info !== null) {
+                    this.$patch({ user: info });
                 }
-            }
-        },
-        saveStateToLocalStorage() {
-            localStorage.setItem('counterState', JSON.stringify(this.$state));
-        },
-        loadStateFromLocalStorage() {
-            const state = localStorage.getItem('counterState');
-            if (state) {
-                this.$patch(JSON.parse(state));
+            } catch (error) {
+                console.error('Error fetching user info:', error);
             }
         },
     },

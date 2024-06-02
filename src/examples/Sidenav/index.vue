@@ -22,9 +22,7 @@ const darkMode = computed(() => store.state.darkMode);
         id="sidenav-main"
         class="my-3 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl"
         :class="`${isRTL ? 'me-3 rotate-caret fixed-end' : 'fixed-start ms-3'}    
-      ${
-          layout === 'landing' ? 'bg-transparent shadow-none' : ' '
-      } ${sidebarType}`"
+      ${layout === 'landing' ? 'bg-transparent shadow-none' : ' '} ${sidebarType}`"
     >
         <div class="sidenav-header">
             <i

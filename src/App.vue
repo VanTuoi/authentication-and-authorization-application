@@ -19,6 +19,11 @@ import Sidenav from './examples/Sidenav';
 import Configurator from '@/examples/Configurator.vue';
 import Navbar from '@/examples/Navbars/Navbar.vue';
 import AppFooter from '@/examples/Footer.vue';
+import { useUserStore } from '@/store/useStore';
+
+// Init store pinia
+const userStore = useUserStore();
+userStore.init();
 
 const store = useStore();
 const isNavFixed = computed(() => store.state.isNavFixed);
