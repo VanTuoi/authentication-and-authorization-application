@@ -54,9 +54,7 @@ defineProps({
     >
         <div class="colored-shadow"></div>
         <span
-            :class="`mask bg-gradient-${
-                typeof img === 'object' ? img.overlay : 'dark'
-            }`"
+            :class="`mask bg-gradient-${typeof img === 'object' ? img.overlay : 'dark'}`"
         ></span>
         <div class="card-body p-3 position-relative">
             <div class="row">

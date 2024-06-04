@@ -14,6 +14,19 @@ defineProps({
     },
     isBtn: { type: String, default: 'bg-gradient-light' },
 });
+
+import useAuth from '@/services/useAuth';
+import notify from '@/lib/toast';
+const { logout } = useAuth();
+
+const handleLogout = async () => {
+    let status = await logout();
+    if (status !== null) {
+        notify.success(`Logout is successfully`);
+    } else {
+        notify.error('Logout in failed');
+    }
+};
 </script>
 <template>
     <!-- Navbar -->
@@ -25,7 +38,7 @@ defineProps({
             <router-link
                 class="navbar-brand font-weight-bolder ms-lg-0 ms-3"
                 :class="darkMode ? 'text-black' : 'text-white'"
-                to="/"
+                to="/dashboard-default"
                 >Argon Dashboard 2</router-link
             >
             <button
@@ -88,6 +101,16 @@ defineProps({
                             ></i>
                             Sign In
                         </router-link>
+                    </li>
+                    <li class="nav-item" @click="handleLogout">
+                        <div style="cursor: pointer" class="nav-link me-2">
+                            <i
+                                class="fas fa-sign-out-alt opacity-6 me-1"
+                                aria-hidden="true"
+                                :class="isBlur ? 'text-dark' : 'text-white'"
+                            ></i>
+                            Log out
+                        </div>
                     </li>
                 </ul>
                 <ul class="navbar-nav d-lg-block d-none">

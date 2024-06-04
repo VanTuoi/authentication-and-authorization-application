@@ -1,29 +1,61 @@
 <script setup>
-import { onBeforeMount, onMounted, onBeforeUnmount } from 'vue';
+import { onBeforeMount, onMounted, onBeforeUnmount, ref } from 'vue';
 import { useStore } from 'vuex';
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 
 import setNavPills from '@/assets/ts/nav-pills';
 import setTooltip from '@/assets/ts/tooltip';
 import ProfileCard from './components/ProfileCard.vue';
 import ArgonInput from '@/components/ArgonInput.vue';
 import ArgonButton from '@/components/ArgonButton.vue';
+import { useUserStore } from '@/store-pinia/useUserStore';
+// import User from '@/interfaces/user';
+
+// const user2 =
+//     ref <
+//     User >
+//     {
+//         id: '',
+//         username: '',
+//         firstName: '',
+//         lastName: '',
+//         dob: '',
+//         roles: [],
+//     };
 
 const body = document.getElementsByTagName('body')[0];
 
 const store = useStore();
+const useUser = useUserStore();
+const router = useRouter();
 
-onMounted(() => {
-    store.state.isAbsolute = true;
-    setNavPills();
-    setTooltip();
+const user = ref(null);
+
+onBeforeMount(() => {
+    user.value = computed(() => {
+        return useUser.getUser;
+    });
 });
+
 onBeforeMount(() => {
     store.state.imageLayout = 'profile-overview';
     store.state.showNavbar = false;
     store.state.showFooter = true;
     store.state.hideConfigButton = true;
     body.classList.add('profile-overview');
+
+    if (user.value.name === '') {
+        router.push('/');
+    }
 });
+
+onMounted(() => {
+    store.state.isAbsolute = true;
+    setNavPills();
+    setTooltip();
+});
+
 onBeforeUnmount(() => {
     store.state.isAbsolute = false;
     store.state.imageLayout = 'default';
@@ -60,7 +92,9 @@ onBeforeUnmount(() => {
                         </div>
                         <div class="col-auto my-auto">
                             <div class="h-100">
-                                <h5 class="mb-1">Sayo Kravits</h5>
+                                <h5 class="mb-1">
+                                    {{ user?.value?.firstName }}
+                                </h5>
                                 <p class="mb-0 font-weight-bold text-sm">
                                     Public Relations
                                 </p>
@@ -273,6 +307,7 @@ onBeforeUnmount(() => {
                                         >Username</label
                                     >
                                     <argon-input
+                                        v-model="editUser"
                                         type="text"
                                         value="lucky.jesse"
                                     />
@@ -281,7 +316,7 @@ onBeforeUnmount(() => {
                                     <label
                                         for="example-text-input"
                                         class="form-control-label"
-                                        >Email address</label
+                                        >Date of birthday</label
                                     >
                                     <argon-input
                                         type="email"
