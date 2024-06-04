@@ -34,7 +34,7 @@ function delay(ms: number) {
 
 instance.interceptors.request.use(
     async (config) => {
-        await delay(1000);
+        await delay(500);
         const includeAccessToken = config.headers?.includeAccessToken || false;
         if (includeAccessToken) {
             const accessToken = localStorage.getItem('accessToken');

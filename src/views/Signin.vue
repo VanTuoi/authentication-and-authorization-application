@@ -1,21 +1,25 @@
 <script setup>
-import { onBeforeUnmount, onBeforeMount, ref, computed } from 'vue';
+import { onBeforeUnmount, onBeforeMount, ref } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+import { computed } from 'vue';
 import Navbar from '@/examples/PageLayout/Navbar.vue';
 import ArgonInput from '@/components/ArgonInput.vue';
 import ArgonSwitch from '@/components/ArgonSwitch.vue';
 import ArgonButton from '@/components/ArgonButton.vue';
 import ArgonInputPassword from '@/components/ArgonInputPassword.vue';
-import useAuth from '@/hook/useAuth';
 import notify from '@/lib/toast';
+import useAuth from '@/services/useAuth';
+import { useUserStore } from '@/store-pinia/useUserStore';
 const body = document.getElementsByTagName('body')[0];
+
+const router = useRouter();
+
 const store = useStore();
+const useUser = useUserStore();
+const user = ref(null);
 
-import { useUserStore } from '@/store/useStore';
-const { loading, login } = useAuth();
-
-const userStore = useUserStore();
-const user = computed(() => userStore.getUser);
+const { getUserInfo, loading, login } = useAuth();
 
 const name = ref('admin');
 const password = ref('admin');
@@ -23,16 +27,24 @@ const password = ref('admin');
 const handleLogin = async () => {
     const isSuccess = await login(name.value, password.value);
     if (isSuccess) {
-        notify.success('Login is successful');
-        userStore.init();
+        notify.success(`Login is successfully`);
+        router.push('/dashboard-default');
     } else {
-        notify.error('Login in failed. Please try again.');
+        notify.error('Login in failed');
     }
+    getUserInfo();
 };
 
-const show = () => {
-    console.log('user', user.value);
-};
+onBeforeMount(() => {
+    if (user?.value?.name !== '') {
+        // router.push('/');
+    }
+});
+onBeforeMount(() => {
+    user.value = computed(() => {
+        return useUser.getUser;
+    });
+});
 
 onBeforeMount(() => {
     store.state.hideConfigButton = true;
@@ -74,7 +86,9 @@ onBeforeUnmount(() => {
                                 <div class="pb-0 card-header text-start">
                                     <h4 class="font-weight-bolder">Sign In</h4>
                                     <p class="mb-0">
-                                        Enter your email and password to sign in
+                                        Enter your username and password to sign
+                                        in
+                                        <!-- |{{ user?.value?.firstName }}| -->
                                     </p>
                                 </div>
                                 <div class="card-body">
@@ -114,6 +128,7 @@ onBeforeUnmount(() => {
                                                 class="mt-4"
                                                 variant="gradient"
                                                 color="success"
+                                                :is-required="true"
                                                 full-width
                                                 size="lg"
                                                 @click="handleLogin"

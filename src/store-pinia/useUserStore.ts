@@ -1,8 +1,5 @@
 import { defineStore } from 'pinia';
-import useAuth from '@/hook/useAuth';
 import { User } from '@/interfaces/user';
-
-const { getUserInfo } = useAuth();
 
 const exampleUser: User = {
     id: '',
@@ -13,7 +10,7 @@ const exampleUser: User = {
     roles: [],
 };
 
-export const useUserStore = defineStore('user', {
+export const useUserStore = defineStore('useUserStore', {
     state: () => ({
         user: exampleUser as User,
     }),
@@ -23,16 +20,15 @@ export const useUserStore = defineStore('user', {
         },
     },
     actions: {
-        async init() {
-            console.log('khởi tạo');
+        async init(user: User) {
             try {
-                const info = await getUserInfo();
-                if (info !== null) {
-                    this.$patch({ user: info });
+                if (user !== null) {
+                    this.$patch({ user: user });
                 }
             } catch (error) {
                 console.error('Error fetching user info:', error);
             }
         },
     },
+    persist: true, // save on localstorage
 });

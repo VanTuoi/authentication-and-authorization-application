@@ -127,13 +127,9 @@ import AppFooter from '@/examples/PageLayout/Footer.vue';
 import ArgonInput from '@/components/ArgonInput.vue';
 import ArgonCheckbox from '@/components/ArgonCheckbox.vue';
 import ArgonButton from '@/components/ArgonButton.vue';
-import useAuth from '@/hook/useAuth';
+import useAuth from '@/services/useAuth';
 
 const { login, getUserInfo } = useAuth();
-import { useUserStore } from '@/store/useStore';
-
-const userStore = useUserStore();
-const user = computed(() => userStore.getUser);
 
 const name = ref('admin');
 const email = ref('');
@@ -152,10 +148,6 @@ const handleSignUp = async () => {
     } else {
         alert('Sign up failed. Please try again.');
     }
-};
-
-const show = () => {
-    console.log('user', user.value);
 };
 
 const body = document.getElementsByTagName('body')[0];

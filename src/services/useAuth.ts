@@ -1,11 +1,11 @@
 import { ref } from 'vue';
 import { authDangNhap, authGetThongTin } from '@/constant/api';
 import axios from '@/lib/axios';
-import { User } from '@/interfaces/user';
-// import { useUserStore } from '@/store/useStore';
+import { useUserStore } from '@/store-pinia/useUserStore';
 
 export default function useAuth() {
-    // const useUser = useUserStore();
+    const userStore = useUserStore();
+
     const loading = ref(false);
     const login = async (username: string, password: string) => {
         try {
@@ -21,13 +21,15 @@ export default function useAuth() {
                     'refreshToken',
                     response.data.result.token
                 );
-                console.log('response', response);
+                const info = await getUserInfo();
+                userStore.init(info);
                 return true;
             } else {
                 return false;
             }
         } catch (e) {
             console.error('Error: ', e);
+            return false;
         } finally {
             loading.value = false;
         }
@@ -40,15 +42,15 @@ export default function useAuth() {
                     includeAccessToken: true,
                 },
             });
+            console.log('run hàm bạn êi', response);
             if (response.status === 200) {
-                const data: User = response.data.result;
+                const data = response.data.result;
                 return data;
-            } else console.log('response getUserInfo', response);
+            }
             return null;
         } catch (e) {
             console.error('Error: ', e);
-        } finally {
-            console.log('');
+            return null;
         }
     };
 
