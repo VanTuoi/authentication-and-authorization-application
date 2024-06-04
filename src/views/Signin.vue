@@ -11,6 +11,7 @@ import ArgonInputPassword from '@/components/ArgonInputPassword.vue';
 import notify from '@/lib/toast';
 import useAuth from '@/services/useAuth';
 import { useUserStore } from '@/store-pinia/useUserStore';
+import { useRememberAccountStore } from '@/store-pinia/useAuth';
 const body = document.getElementsByTagName('body')[0];
 
 const router = useRouter();
@@ -23,16 +24,33 @@ const { getUserInfo, loading, login } = useAuth();
 
 const name = ref('admin');
 const password = ref('admin');
+const isCheck = ref(false);
+
+const useRemember = useRememberAccountStore();
+
+const handleChange = () => {
+    useRemember.toggleRememberAccount();
+};
 
 const handleLogin = async () => {
     const isSuccess = await login(name.value, password.value);
     if (isSuccess) {
         notify.success(`Login is successfully`);
-        router.push('/dashboard-default');
+        // router.push('/dashboard-default');
     } else {
         notify.error('Login in failed');
     }
     getUserInfo();
+};
+
+const show = async () => {
+    const isSuccess = await getUserInfo();
+    console.log('isSuccess', isSuccess);
+    if (isSuccess !== null) {
+        notify.success(`Get info is successfully`);
+    } else {
+        notify.error('Get info in failed');
+    }
 };
 
 onBeforeMount(() => {
@@ -40,9 +58,13 @@ onBeforeMount(() => {
         // router.push('/');
     }
 });
+
 onBeforeMount(() => {
     user.value = computed(() => {
         return useUser.getUser;
+    });
+    isCheck.value = computed(() => {
+        return useRemember.getStatus;
     });
 });
 
@@ -118,7 +140,9 @@ onBeforeUnmount(() => {
                                         </div>
                                         <argon-switch
                                             id="rememberMe"
+                                            :checked="isCheck"
                                             name="remember-me"
+                                            @change="handleChange"
                                             >Remember me</argon-switch
                                         >
 
@@ -135,7 +159,7 @@ onBeforeUnmount(() => {
                                                 >Sign in</argon-button
                                             >
                                         </div>
-                                        <!-- <div class="text-center">
+                                        <div class="text-center">
                                             <argon-button
                                                 class="mt-4"
                                                 variant="gradient"
@@ -144,9 +168,9 @@ onBeforeUnmount(() => {
                                                 size="lg"
                                                 @click="show"
                                             >
-                                                Show pinia
+                                                Get my info
                                             </argon-button>
-                                        </div> -->
+                                        </div>
                                     </form>
                                 </div>
                                 <div
@@ -154,11 +178,12 @@ onBeforeUnmount(() => {
                                 >
                                     <p class="mx-auto mb-4 text-sm">
                                         Don't have an account?
-                                        <a
-                                            href="javascript:;"
+                                        <router-link
+                                            to="/signup"
                                             class="text-success text-gradient font-weight-bold"
-                                            >Sign up</a
                                         >
+                                            Sign up
+                                        </router-link>
                                     </p>
                                 </div>
                             </div>

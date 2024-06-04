@@ -1,18 +1,19 @@
 import { defineStore } from 'pinia';
 import { User } from '@/interfaces/user';
 
-const exampleUser: User = {
+// Khai báo một object rỗng để xóa thông tin của user
+const emptyUser: User = {
     id: '',
     username: '',
     firstName: '',
     lastName: '',
-    dob: '1900-01-01',
+    dob: '',
     roles: [],
 };
 
 export const useUserStore = defineStore('useUserStore', {
     state: () => ({
-        user: exampleUser as User,
+        user: emptyUser,
     }),
     getters: {
         getUser(state): User {
@@ -23,12 +24,12 @@ export const useUserStore = defineStore('useUserStore', {
         async init(user: User) {
             try {
                 if (user !== null) {
-                    this.$patch({ user: user });
+                    this.$patch({ user });
                 }
             } catch (error) {
                 console.error('Error fetching user info:', error);
             }
         },
     },
-    persist: true, // save on localstorage
+    // persist: true, // save on localstorage
 });

@@ -1,4 +1,4 @@
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { authDangNhap, authGetThongTin } from '@/constant/api';
 import axios from '@/lib/axios';
 import { useUserStore } from '@/store-pinia/useUserStore';
@@ -21,6 +21,7 @@ export default function useAuth() {
                     'refreshToken',
                     response.data.result.token
                 );
+
                 const info = await getUserInfo();
                 userStore.init(info);
                 return true;
@@ -42,7 +43,6 @@ export default function useAuth() {
                     includeAccessToken: true,
                 },
             });
-            console.log('run hàm bạn êi', response);
             if (response.status === 200) {
                 const data = response.data.result;
                 return data;
@@ -55,7 +55,10 @@ export default function useAuth() {
     };
 
     const logout = () => {
-        localStorage.removeItem('jwt');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('refreshToken');
+        userStore.$reset;
+        return true;
     };
 
     return { loading, getUserInfo, login, logout };

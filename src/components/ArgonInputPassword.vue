@@ -138,6 +138,6 @@ const inputType = computed(() => {
     position: absolute;
     right: 30px;
     top: 50%;
-    transform: translateY(-100%);
+    transform: translateY(-220%);
 }
 </style>

@@ -316,7 +316,7 @@ onBeforeUnmount(() => {
                                     <label
                                         for="example-text-input"
                                         class="form-control-label"
-                                        >Email address</label
+                                        >Date of birthday</label
                                     >
                                     <argon-input
                                         type="email"

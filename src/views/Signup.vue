@@ -76,7 +76,7 @@
                                             Sign up
                                         </argon-button>
                                     </div>
-                                    <div class="text-center">
+                                    <!-- <div class="text-center">
                                         <argon-button
                                             class="mt-4"
                                             variant="gradient"
@@ -87,8 +87,8 @@
                                         >
                                             Get info
                                         </argon-button>
-                                    </div>
-                                    <div class="text-center">
+                                    </div> -->
+                                    <!-- <div class="text-center">
                                         <argon-button
                                             class="mt-4"
                                             variant="gradient"
@@ -99,14 +99,15 @@
                                         >
                                             Show pinia
                                         </argon-button>
-                                    </div>
+                                    </div> -->
                                     <p class="text-sm mt-3 mb-0">
                                         Already have an account?
-                                        <a
-                                            href="javascript:;"
-                                            class="text-dark font-weight-bolder"
-                                            >Sign in</a
+                                        <router-link
+                                            to="/signin"
+                                            class="text-success text-gradient font-weight-bold"
                                         >
+                                            Sign in
+                                        </router-link>
                                     </p>
                                 </div>
                             </div>
@@ -131,9 +132,9 @@ import useAuth from '@/services/useAuth';
 
 const { login, getUserInfo } = useAuth();
 
-const name = ref('admin');
+const name = ref('');
 const email = ref('');
-const password = ref('admin');
+const password = ref('');
 const agree = ref(true);
 const store = useStore();
 
