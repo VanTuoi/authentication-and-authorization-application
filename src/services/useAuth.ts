@@ -4,7 +4,7 @@ import axios from '@/lib/axios';
 import { useUserStore } from '@/store-pinia/useUserStore';
 
 export default function useAuth() {
-    const userStore = useUserStore();
+    const { user, init, reset } = useUserStore();
 
     const loading = ref(false);
     const login = async (username: string, password: string) => {
@@ -23,7 +23,7 @@ export default function useAuth() {
                 );
 
                 const info = await getUserInfo();
-                userStore.init(info);
+                init(info);
                 return true;
             } else {
                 return false;
@@ -57,7 +57,7 @@ export default function useAuth() {
     const logout = () => {
         localStorage.removeItem('accessToken');
         localStorage.removeItem('refreshToken');
-        userStore.$reset;
+        reset();
         return true;
     };
 

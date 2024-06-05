@@ -17,8 +17,8 @@ const body = document.getElementsByTagName('body')[0];
 const router = useRouter();
 
 const store = useStore();
-const useUser = useUserStore();
-const user = ref(null);
+
+const { user, getUser, init, reset } = useUserStore();
 
 const { getUserInfo, loading, login } = useAuth();
 
@@ -36,7 +36,7 @@ const handleLogin = async () => {
     const isSuccess = await login(name.value, password.value);
     if (isSuccess) {
         notify.success(`Login is successfully`);
-        // router.push('/dashboard-default');
+        router.push('/dashboard-default');
     } else {
         notify.error('Login in failed');
     }
@@ -54,15 +54,12 @@ const show = async () => {
 };
 
 onBeforeMount(() => {
-    if (user?.value?.name !== '') {
-        // router.push('/');
+    if (user?.username !== '') {
+        // router.push('/dashboard-default');
     }
 });
 
 onBeforeMount(() => {
-    user.value = computed(() => {
-        return useUser.getUser;
-    });
     isCheck.value = computed(() => {
         return useRemember.getStatus;
     });
