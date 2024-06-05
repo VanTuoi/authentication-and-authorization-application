@@ -20,6 +20,10 @@ defineProps({
         type: Boolean,
         default: false,
     },
+    loading: {
+        type: Boolean,
+        default: false,
+    },
 });
 const getClasses = (variant, color, size, fullWidth, active) => {
     let colorValue, sizeValue, fullWidthValue, activeValue;
@@ -44,9 +48,19 @@ const getClasses = (variant, color, size, fullWidth, active) => {
 </script>
 <template>
     <button
+        :disabled="loading"
         class="btn mb-0"
         :class="getClasses(variant, color, size, fullWidth, active)"
     >
-        <slot />
+        <span
+            v-if="loading"
+            class="spinner-border spinner-border-sm"
+            style="width: 1.2rem; height: 1.2rem"
+            role="status"
+            aria-hidden="true"
+        ></span>
+        <span v-else>
+            <slot></slot>
+        </span>
     </button>
 </template>

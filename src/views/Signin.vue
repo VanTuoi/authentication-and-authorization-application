@@ -1,17 +1,69 @@
 <script setup>
-import { onBeforeUnmount, onBeforeMount } from 'vue';
+import { onBeforeUnmount, onBeforeMount, ref } from 'vue';
 import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+import { computed } from 'vue';
 import Navbar from '@/examples/PageLayout/Navbar.vue';
 import ArgonInput from '@/components/ArgonInput.vue';
 import ArgonSwitch from '@/components/ArgonSwitch.vue';
 import ArgonButton from '@/components/ArgonButton.vue';
-
-import useAuth from '@/hook/useAuth';
-
-const { login } = useAuth();
+import ArgonInputPassword from '@/components/ArgonInputPassword.vue';
+import notify from '@/lib/toast';
+import useAuth from '@/services/useAuth';
+import { useUserStore } from '@/store-pinia/useUserStore';
+import { useRememberAccountStore } from '@/store-pinia/useAuth';
 const body = document.getElementsByTagName('body')[0];
 
+const router = useRouter();
+
 const store = useStore();
+
+const { user, getUser, init, reset } = useUserStore();
+
+const { getUserInfo, loading, login } = useAuth();
+
+const name = ref('admin');
+const password = ref('admin');
+const isCheck = ref(false);
+
+const useRemember = useRememberAccountStore();
+
+const handleChange = () => {
+    useRemember.toggleRememberAccount();
+};
+
+const handleLogin = async () => {
+    const isSuccess = await login(name.value, password.value);
+    if (isSuccess) {
+        notify.success(`Login is successfully`);
+        router.push('/dashboard-default');
+    } else {
+        notify.error('Login in failed');
+    }
+    getUserInfo();
+};
+
+const show = async () => {
+    const isSuccess = await getUserInfo();
+    console.log('isSuccess', isSuccess);
+    if (isSuccess !== null) {
+        notify.success(`Get info is successfully`);
+    } else {
+        notify.error('Get info in failed');
+    }
+};
+
+onBeforeMount(() => {
+    if (user?.username !== '') {
+        // router.push('/dashboard-default');
+    }
+});
+
+onBeforeMount(() => {
+    isCheck.value = computed(() => {
+        return useRemember.getStatus;
+    });
+});
 
 onBeforeMount(() => {
     store.state.hideConfigButton = true;
@@ -28,6 +80,7 @@ onBeforeUnmount(() => {
     body.classList.add('bg-gray-100');
 });
 </script>
+
 <template>
     <div class="container top-0 position-sticky z-index-sticky">
         <div class="row">
@@ -52,23 +105,30 @@ onBeforeUnmount(() => {
                                 <div class="pb-0 card-header text-start">
                                     <h4 class="font-weight-bolder">Sign In</h4>
                                     <p class="mb-0">
-                                        Enter your email and password to sign in
+                                        Enter your username and password to sign
+                                        in
+                                        <!-- |{{ user?.value?.firstName }}| -->
                                     </p>
                                 </div>
                                 <div class="card-body">
-                                    <form role="form">
+                                    <form
+                                        role="form"
+                                        @submit.prevent="() => {}"
+                                    >
                                         <div class="mb-3">
                                             <argon-input
                                                 id="email"
-                                                type="email"
+                                                v-model="name"
+                                                type="text"
                                                 placeholder="Email"
                                                 name="email"
                                                 size="lg"
                                             />
                                         </div>
                                         <div class="mb-3">
-                                            <argon-input
+                                            <argon-input-password
                                                 id="password"
+                                                v-model="password"
                                                 type="password"
                                                 placeholder="Password"
                                                 name="password"
@@ -77,10 +137,25 @@ onBeforeUnmount(() => {
                                         </div>
                                         <argon-switch
                                             id="rememberMe"
+                                            :checked="isCheck"
                                             name="remember-me"
+                                            @change="handleChange"
                                             >Remember me</argon-switch
                                         >
 
+                                        <div class="text-center">
+                                            <argon-button
+                                                :loading="loading"
+                                                class="mt-4"
+                                                variant="gradient"
+                                                color="success"
+                                                :is-required="true"
+                                                full-width
+                                                size="lg"
+                                                @click="handleLogin"
+                                                >Sign in</argon-button
+                                            >
+                                        </div>
                                         <div class="text-center">
                                             <argon-button
                                                 class="mt-4"
@@ -88,9 +163,10 @@ onBeforeUnmount(() => {
                                                 color="success"
                                                 full-width
                                                 size="lg"
-                                                @click="login"
-                                                >Sign in</argon-button
+                                                @click="show"
                                             >
+                                                Get my info
+                                            </argon-button>
                                         </div>
                                     </form>
                                 </div>
@@ -99,11 +175,12 @@ onBeforeUnmount(() => {
                                 >
                                     <p class="mx-auto mb-4 text-sm">
                                         Don't have an account?
-                                        <a
-                                            href="javascript:;"
+                                        <router-link
+                                            to="/signup"
                                             class="text-success text-gradient font-weight-bold"
-                                            >Sign up</a
                                         >
+                                            Sign up
+                                        </router-link>
                                     </p>
                                 </div>
                             </div>
