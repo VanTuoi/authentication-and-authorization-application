@@ -17,10 +17,11 @@ const notify = {
         toast.success(message, {
             autoClose: 3000,
             progressStyle: {
-                backgroundImage: 'linear-gradient(310deg, #2dce89 0%, #2dcecc 100%)'
+                backgroundImage:
+                    'linear-gradient(310deg, #2dce89 0%, #2dcecc 100%)',
             },
             ...options,
-        });        
+        });
     },
     error: (message: string, options: ToastOptions = {}) => {
         toast.error(message, {
