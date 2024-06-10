@@ -1,7 +1,6 @@
 <script setup>
 import { onBeforeMount, onMounted, onBeforeUnmount, ref } from 'vue';
 import { useStore } from 'vuex';
-import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 
 import setNavPills from '@/assets/ts/nav-pills';
@@ -9,34 +8,40 @@ import setTooltip from '@/assets/ts/tooltip';
 import ProfileCard from './components/ProfileCard.vue';
 import ArgonInput from '@/components/ArgonInput.vue';
 import ArgonButton from '@/components/ArgonButton.vue';
+import ArgonDatepicker from '@/components/ArgonDatepicker.vue';
 import { useUserStore } from '@/store-pinia/useUserStore';
-// import User from '@/interfaces/user';
-
-// const user2 =
-//     ref <
-//     User >
-//     {
-//         id: '',
-//         username: '',
-//         firstName: '',
-//         lastName: '',
-//         dob: '',
-//         roles: [],
-//     };
+import useAuth from '@/services/useAuth';
+import notify from '@/lib/toast';
 
 const body = document.getElementsByTagName('body')[0];
-
+const { updateUserInfo } = useAuth();
 const store = useStore();
-const useUser = useUserStore();
+const { user } = useUserStore();
 const router = useRouter();
 
-const user = ref(null);
+const isLoading = ref(false);
 
-onBeforeMount(() => {
-    user.value = computed(() => {
-        return useUser.getUser;
-    });
+const InfoUserChange = ref({
+    id: '',
+    username: '',
+    firstName: '',
+    lastName: '',
+    dob: '',
 });
+
+InfoUserChange.value = { ...user };
+
+const handleUpdate = async () => {
+    isLoading.value = true;
+    const isSuccess = await updateUserInfo(InfoUserChange.value);
+    if (isSuccess) {
+        notify.success(`Update info is successfully`);
+    } else {
+        notify.error('Update info is failed');
+        InfoUserChange.value = { ...user };
+    }
+    isLoading.value = false;
+};
 
 onBeforeMount(() => {
     store.state.imageLayout = 'profile-overview';
@@ -44,10 +49,6 @@ onBeforeMount(() => {
     store.state.showFooter = true;
     store.state.hideConfigButton = true;
     body.classList.add('profile-overview');
-
-    if (user.value.name === '') {
-        router.push('/');
-    }
 });
 
 onMounted(() => {
@@ -71,12 +72,13 @@ onBeforeUnmount(() => {
             <div
                 class="page-header min-height-300"
                 style="
-                    background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+                    background-image: url('https://mega.com.vn/media/news/0107_hinh-nen-may-tinh-4k45.jpg');
+                    /* background-image: url('https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80'); */
                     margin-right: -24px;
                     margin-left: -34%;
                 "
             >
-                <span class="mask bg-gradient-success opacity-6"></span>
+                <!-- <span class="mask bg-gradient-success opacity-6"></span> -->
             </div>
             <div class="card shadow-lg mt-n6">
                 <div class="card-body p-3">
@@ -93,7 +95,11 @@ onBeforeUnmount(() => {
                         <div class="col-auto my-auto">
                             <div class="h-100">
                                 <h5 class="mb-1">
-                                    {{ user?.value?.firstName }}
+                                    {{
+                                        InfoUserChange?.firstName +
+                                        ' ' +
+                                        InfoUserChange.lastName
+                                    }}
                                 </h5>
                                 <p class="mb-0 font-weight-bold text-sm">
                                     Public Relations
@@ -307,9 +313,10 @@ onBeforeUnmount(() => {
                                         >Username</label
                                     >
                                     <argon-input
-                                        v-model="editUser"
+                                        v-model="InfoUserChange.username"
+                                        :is-disabled="true"
                                         type="text"
-                                        value="lucky.jesse"
+                                        placeholder=""
                                     />
                                 </div>
                                 <div class="col-md-6">
@@ -318,9 +325,9 @@ onBeforeUnmount(() => {
                                         class="form-control-label"
                                         >Date of birthday</label
                                     >
-                                    <argon-input
-                                        type="email"
-                                        value="jesse@example.com"
+                                    <argon-datepicker
+                                        v-model="InfoUserChange.dob"
+                                        type="text"
                                     />
                                 </div>
                                 <div class="col-md-6">
@@ -330,9 +337,10 @@ onBeforeUnmount(() => {
                                         >First name</label
                                     >
                                     <input
+                                        v-model="InfoUserChange.firstName"
                                         class="form-control"
                                         type="text"
-                                        value="Jesse"
+                                        placeholder="First name of your"
                                     />
                                 </div>
                                 <div class="col-md-6">
@@ -341,7 +349,11 @@ onBeforeUnmount(() => {
                                         class="form-control-label"
                                         >Last name</label
                                     >
-                                    <argon-input type="text" value="Lucky" />
+                                    <argon-input
+                                        v-model="InfoUserChange.lastName"
+                                        type="text"
+                                        value="Lucky"
+                                    />
                                 </div>
                             </div>
                             <hr class="horizontal dark" />
@@ -401,6 +413,18 @@ onBeforeUnmount(() => {
                                         type="text"
                                         value="A beautiful Dashboard for Bootstrap 5. It is Free and Open Source."
                                     />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div
+                                    class="col-md-12 d-flex justify-content-center"
+                                >
+                                    <argon-button
+                                        :loading="isLoading"
+                                        full-width
+                                        @click="handleUpdate"
+                                        >Update info
+                                    </argon-button>
                                 </div>
                             </div>
                         </div>

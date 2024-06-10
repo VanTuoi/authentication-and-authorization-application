@@ -11,6 +11,7 @@ const layout = computed(() => store.state.layout);
 const sidebarType = computed(() => store.state.sidebarType);
 const darkMode = computed(() => store.state.darkMode);
 </script>
+
 <template>
     <div
         v-show="layout === 'default'"
@@ -53,3 +54,16 @@ const darkMode = computed(() => store.state.darkMode);
         <sidenav-list />
     </aside>
 </template>
+
+<style scoped>
+#sidenav-main {
+    /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+</style>

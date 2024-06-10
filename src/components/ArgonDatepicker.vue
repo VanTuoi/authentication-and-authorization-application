@@ -1,7 +1,11 @@
 <script setup>
+import { ref } from 'vue';
+import Datepicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css';
+
 const emit = defineEmits(['update:modelValue']);
 
-defineProps({
+const props = defineProps({
     size: {
         type: String,
         default: 'default',
@@ -31,7 +35,7 @@ defineProps({
         default: '',
     },
     modelValue: {
-        type: String,
+        type: [String, Date],
         default: '',
     },
     placeholder: {
@@ -43,10 +47,6 @@ defineProps({
         default: 'text',
     },
     isRequired: {
-        type: Boolean,
-        default: false,
-    },
-    isDisabled: {
         type: Boolean,
         default: false,
     },
@@ -67,26 +67,28 @@ const getClasses = (size, success, error) => {
 
     return `${sizeValue} ${isValidValue}`;
 };
+
 const getIcon = (icon) => (icon ? icon : null);
 const hasIcon = (icon) => (icon ? 'input-group' : null);
 </script>
+
 <template>
     <div class="form-group">
         <div :class="hasIcon(icon)">
             <span v-if="iconDir === 'left'" class="input-group-text">
                 <i :class="getIcon(icon)"></i>
             </span>
-            <input
+            <Datepicker
                 :id="id"
-                :disabled="isDisabled"
-                :type="type"
-                class="form-control"
+                class="custom"
                 :class="getClasses(size, success, error)"
                 :name="name"
-                :value="modelValue"
                 :placeholder="placeholder"
-                :isRequired="isRequired"
-                @input="emit('update:modelValue', $event.target.value)"
+                :is-required="isRequired"
+                :model-value="modelValue"
+                :format="'yyyy-MM-dd'"
+                :enable-time-picker="false"
+                @update:model-value="emit('update:modelValue', $event)"
             />
             <span v-if="iconDir === 'right'" class="input-group-text">
                 <i :class="getIcon(icon)"></i>
@@ -94,3 +96,11 @@ const hasIcon = (icon) => (icon ? 'input-group' : null);
         </div>
     </div>
 </template>
+
+<style scoped>
+.custom {
+    --dp-font-size: 0.9rem;
+    --dp-border-radius: 0.5rem;
+    --dp-input-padding: 8px 30px 8px 12px;
+}
+</style>

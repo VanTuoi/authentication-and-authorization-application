@@ -25,9 +25,13 @@ const notify = {
     error: (message: string, options: ToastOptions = {}) => {
         toast.error(message, {
             autoClose: 3000,
+            progressStyle: {
+                backgroundImage: 'linear-gradient(310deg, #ff9999 0%, #cc0000 100%)'
+            },
             ...options,
         });
     },
+    
     warn: (message: string, options: ToastOptions = {}) => {
         toast.warn(message, {
             autoClose: 3000,

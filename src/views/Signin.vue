@@ -36,9 +36,9 @@ const handleLogin = async () => {
     const isSuccess = await login(name.value, password.value);
     if (isSuccess) {
         notify.success(`Login is successfully`);
-        router.push('/dashboard-default');
+        // router.push('/dashboard-default');
     } else {
-        notify.error('Login in failed');
+        notify.error('Login is failed');
     }
     getUserInfo();
 };
@@ -103,7 +103,9 @@ onBeforeUnmount(() => {
                         >
                             <div class="card card-plain">
                                 <div class="pb-0 card-header text-start">
-                                    <h4 class="font-weight-bolder">Sign In</h4>
+                                    <h4 class="font-weight-bolder">
+                                        Name:{{ user.firstName }}
+                                    </h4>
                                     <p class="mb-0">
                                         Enter your username and password to sign
                                         in

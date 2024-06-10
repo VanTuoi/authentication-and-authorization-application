@@ -41,6 +41,6 @@ export const useUserStore = defineStore(
         };
     },
     {
-        persist: true, // Enable persistence
+        // persist: true, // Lưu xuống localstorage
     }
 );
