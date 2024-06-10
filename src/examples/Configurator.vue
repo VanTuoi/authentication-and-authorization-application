@@ -167,7 +167,7 @@ const darkMode = () => {
                         />
                     </div>
                 </div>
-                <a
+                <!-- <a
                     class="btn bg-gradient-dark w-100"
                     href="https://www.creative-tim.com/product/vue-argon-dashboard"
                     >Free Download</a
@@ -207,7 +207,7 @@ const darkMode = () => {
                         ></i>
                         Share
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

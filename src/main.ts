@@ -1,9 +1,9 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import { createPinia } from 'pinia';
+import store from './store';
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import router from './router';
-import store from './store';
 import './assets/css/nucleo-icons.css';
 import './assets/css/nucleo-svg.css';
 import Vue3Toastify, { type ToastContainerOptions } from 'vue3-toastify';

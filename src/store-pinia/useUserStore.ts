@@ -30,7 +30,9 @@ export const useUserStore = defineStore(
         };
 
         const reset = () => {
+            console.log('run');
             user.value = emptyUser;
+            sessionStorage.removeItem('useUserStore');
         };
 
         return {
@@ -41,6 +43,8 @@ export const useUserStore = defineStore(
         };
     },
     {
-        persist: true, // Enable persistence
+        // persist: {
+        //     storage: sessionStorage,
+        // },
     }
 );

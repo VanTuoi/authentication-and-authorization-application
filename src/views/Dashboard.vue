@@ -266,5 +266,10 @@ const sales = {
     </div>
 </template> -->
 <template>
-    <div>We are coding...</div>
+    <div class="h">We are coding...</div>
 </template>
+<style scoped>
+.h {
+    height: 100vh;
+}
+</style>

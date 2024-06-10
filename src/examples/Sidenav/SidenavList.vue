@@ -11,7 +11,7 @@ const isRTL = computed(() => store.state.isRTL);
 
 const getRoute = () => {
     const route = useRoute();
-    const routeArr = route.path.split('/');
+    const routeArr = route.path.split('/dashboard-default');
     return routeArr[1];
 };
 </script>
@@ -151,7 +151,7 @@ const getRoute = () => {
         </ul>
     </div>
 
-    <div class="pt-3 mx-3 mt-3 sidenav-footer">
+    <!-- <div class="pt-3 mx-3 mt-3 sidenav-footer">
         <sidenav-card
             :card="{
                 title: 'Need Help?',
@@ -170,5 +170,5 @@ const getRoute = () => {
                 ],
             }"
         />
-    </div>
+    </div> -->
 </template>

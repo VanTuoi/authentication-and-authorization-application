@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { ref } from 'vue';
 import { authRefreshToken } from '@/constant/api';
 
-export const apiPort = 'http://localhost:8080/identity';
+export const apiPort = process.env.VUE_APP_API_URL;
 
 const flag = ref(true);
 let isRefreshing = false;
@@ -34,7 +34,7 @@ function delay(ms: number) {
 
 instance.interceptors.request.use(
     async (config) => {
-        await delay(500);
+        await delay(100);
         const includeAccessToken = config.headers?.includeAccessToken || false;
         if (includeAccessToken) {
             const accessToken = localStorage.getItem('accessToken');
@@ -123,7 +123,8 @@ instance.interceptors.response.use(
             }
         }
 
-        return Promise.reject(error);
+        // return Promise.reject(error);
+        return error.response
     }
 );
 

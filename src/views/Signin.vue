@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeUnmount, onBeforeMount, ref } from 'vue';
+import { onBeforeUnmount, onBeforeMount, ref, watch } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import { computed } from 'vue';
@@ -17,13 +17,12 @@ const body = document.getElementsByTagName('body')[0];
 const router = useRouter();
 
 const store = useStore();
-
-const { user, getUser, init, reset } = useUserStore();
+const userStore = useUserStore();
 
 const { getUserInfo, loading, login } = useAuth();
 
-const name = ref('admin');
-const password = ref('admin');
+const name = ref('');
+const password = ref('');
 const isCheck = ref(false);
 
 const useRemember = useRememberAccountStore();
@@ -34,18 +33,17 @@ const handleChange = () => {
 
 const handleLogin = async () => {
     const isSuccess = await login(name.value, password.value);
-    if (isSuccess) {
+    if (isSuccess === true) {
         notify.success(`Login is successfully`);
-        router.push('/dashboard-default');
+        // router.push('/dashboard-default');
     } else {
-        notify.error('Login in failed');
+        notify.error(isSuccess.message);
     }
     getUserInfo();
 };
 
-const show = async () => {
+const showInfo = async () => {
     const isSuccess = await getUserInfo();
-    console.log('isSuccess', isSuccess);
     if (isSuccess !== null) {
         notify.success(`Get info is successfully`);
     } else {
@@ -54,7 +52,7 @@ const show = async () => {
 };
 
 onBeforeMount(() => {
-    if (user?.username !== '') {
+    if (userStore?.user.username !== '') {
         // router.push('/dashboard-default');
     }
 });
@@ -103,11 +101,9 @@ onBeforeUnmount(() => {
                         >
                             <div class="card card-plain">
                                 <div class="pb-0 card-header text-start">
-                                    <h4 class="font-weight-bolder">Sign In</h4>
                                     <p class="mb-0">
                                         Enter your username and password to sign
                                         in
-                                        <!-- |{{ user?.value?.firstName }}| -->
                                     </p>
                                 </div>
                                 <div class="card-body">
@@ -163,7 +159,7 @@ onBeforeUnmount(() => {
                                                 color="success"
                                                 full-width
                                                 size="lg"
-                                                @click="show"
+                                                @click="showInfo"
                                             >
                                                 Get my info
                                             </argon-button>
@@ -201,12 +197,15 @@ onBeforeUnmount(() => {
                                 <h4
                                     class="mt-5 text-white font-weight-bolder position-relative"
                                 >
-                                    "Attention is the new currency"
+                                    "Hello
+                                    {{
+                                        userStore.user.firstName +
+                                        ' ' +
+                                        userStore.user.lastName
+                                    }}"
                                 </h4>
                                 <p class="text-white position-relative">
-                                    The more effortless the writing looks, the
-                                    more effort the writer actually put into the
-                                    process.
+                                    Chúc bạn một ngày tốt lành 😜.
                                 </p>
                             </div>
                         </div>
