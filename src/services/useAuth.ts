@@ -21,12 +21,11 @@ export default function useAuth() {
                     'refreshToken',
                     response.data.result.token
                 );
-
                 const info = await getUserInfo();
                 init(info);
                 return true;
             } else {
-                return false;
+                return response.data;
             }
         } catch (e) {
             console.error('Error: ', e);

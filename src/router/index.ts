@@ -14,11 +14,6 @@ import MiniGame from '@/views/MiniGame.vue';
 const routes = [
     {
         path: '/',
-        name: '/',
-        redirect: '/',
-    },
-    {
-        path: '/',
         component: HomeLayout,
         children: [
             {
