@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import notify from '@/lib/toast';
 import { ref } from 'vue';
 import { authRefreshToken } from '@/constant/api';
 
@@ -124,6 +125,8 @@ instance.interceptors.response.use(
         }
 
         // return Promise.reject(error);
+        // console.log(error.response);
+        notify.error(error.response.data.message)
         return error.response
     }
 );
