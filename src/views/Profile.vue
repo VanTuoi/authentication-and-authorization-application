@@ -16,7 +16,7 @@ import notify from '@/lib/toast';
 const body = document.getElementsByTagName('body')[0];
 const { updateUserInfo } = useAuth();
 const store = useStore();
-const { user } = useUserStore();
+const userStore = useUserStore();
 const router = useRouter();
 
 const isLoading = ref(false);
@@ -29,7 +29,7 @@ const InfoUserChange = ref({
     dob: '',
 });
 
-InfoUserChange.value = { ...user };
+InfoUserChange.value = { ...userStore.user };
 
 const handleUpdate = async () => {
     isLoading.value = true;
@@ -38,7 +38,7 @@ const handleUpdate = async () => {
         notify.success(`Update info is successfully`);
     } else {
         notify.error('Update info is failed');
-        InfoUserChange.value = { ...user };
+        InfoUserChange.value = { ...userStore.user };
     }
     isLoading.value = false;
 };
@@ -67,7 +67,7 @@ onBeforeUnmount(() => {
 });
 </script>
 <template>
-    <main>
+    <main v-if="userStore.user.id !== ''">
         <div class="container-fluid">
             <div
                 class="page-header min-height-300"

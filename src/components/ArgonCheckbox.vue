@@ -1,5 +1,7 @@
 <script setup>
-defineProps({
+import { defineProps, defineEmits } from 'vue';
+
+const props = defineProps({
     name: {
         type: String,
         default: '',
@@ -8,12 +10,19 @@ defineProps({
         type: String,
         default: '',
     },
-    checked: {
+    modelValue: {
         type: Boolean,
         default: false,
     },
 });
+
+const emits = defineEmits(['update:modelValue']);
+
+const handleChange = (event) => {
+    emits('update:modelValue', event.target.checked);
+};
 </script>
+
 <template>
     <div class="form-check">
         <input
@@ -21,7 +30,8 @@ defineProps({
             class="form-check-input"
             type="checkbox"
             :name="name"
-            :checked="checked"
+            :checked="modelValue"
+            @change="handleChange"
         />
         <label :for="id" class="custom-control-label" :class="$attrs.class">
             <slot />

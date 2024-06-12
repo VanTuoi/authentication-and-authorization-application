@@ -43,8 +43,8 @@ export const useUserStore = defineStore(
         };
     },
     {
-        // persist: {
-        //     storage: sessionStorage,
-        // },
+        persist: {
+            storage: sessionStorage,
+        },
     }
 );

@@ -6,6 +6,7 @@ import Tables from '@/views/Tables.vue';
 import Billing from '@/views/Billing.vue';
 import VirtualReality from '@/views/VirtualReality.vue';
 import RTL from '@/views/Rtl.vue';
+import ManagerUser from '@/views/ManagerUser.vue';
 import Profile from '@/views/Profile.vue';
 import Signup from '@/views/Signup.vue';
 import Signin from '@/views/Signin.vue';
@@ -45,6 +46,11 @@ const routes = [
                 path: '/profile',
                 name: 'Profile',
                 component: Profile,
+            },
+            {
+                path: '/manager-user',
+                name: 'Manager user',
+                component: ManagerUser,
             },
             {
                 path: '/miniGame',

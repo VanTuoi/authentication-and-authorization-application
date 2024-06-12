@@ -103,6 +103,37 @@ const getRoute = () => {
                     class="text-xs ps-4 text-uppercase font-weight-bolder opacity-6"
                     :class="isRTL ? 'me-4' : 'ms-2'"
                 >
+                    MANAGER USER
+                </h6>
+            </li>
+
+            <li class="nav-item">
+                <sidenav-item
+                    to="/manager-user"
+                    :class="getRoute() === 'manager-user' ? 'active' : ''"
+                    :nav-text="isRTL ? 'حساب تعريفي' : 'Manager users'"
+                >
+                    <template #icon>
+                        <i
+                            class="ni ni-single-copy-04 text-dark text-sm opacity-10"
+                        ></i>
+                    </template>
+                </sidenav-item>
+            </li>
+            <li class="mt-3 nav-item">
+                <h6
+                    v-if="isRTL"
+                    class="text-xs ps-4 text-uppercase font-weight-bolder opacity-6"
+                    :class="isRTL ? 'me-4' : 'ms-2'"
+                >
+                    صفحات المرافق
+                </h6>
+
+                <h6
+                    v-else
+                    class="text-xs ps-4 text-uppercase font-weight-bolder opacity-6"
+                    :class="isRTL ? 'me-4' : 'ms-2'"
+                >
                     ACCOUNT PAGES
                 </h6>
             </li>
