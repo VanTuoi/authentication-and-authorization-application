@@ -1,10 +1,11 @@
-import { ref, onMounted } from 'vue';
-import { getAllRole } from '@/constant/api';
+import { ref, onMounted, reactive } from 'vue';
+import { getAllRole, createRoles } from '@/constant/api';
 import axios from '@/lib/axios';
+import { User, Role } from '@/interfaces/user';
 
 export default function useRoles() {
     const loading = ref(false);
-    const dataRoles = ref([]);
+    const dataRoles = reactive<Role[]>([]);
 
     const getAllRoles = async () => {
         try {
@@ -15,7 +16,7 @@ export default function useRoles() {
                 },
             });
             if (response.status === 200) {
-                dataRoles.value = response.data.result;
+                dataRoles.splice(0, dataRoles.length, ...response.data.result);
                 loading.value = false;
                 return true;
             }
@@ -28,9 +29,35 @@ export default function useRoles() {
         }
     };
 
+    const createRole = async (
+        name: string,
+        description: string,
+        permissions: any
+    ) => {
+        const data = {
+            name: name,
+            description: description,
+            permissions: Object.keys(permissions).filter(
+                (key) => permissions[key] === true
+            ),
+        };
+
+        try {
+            const response = await axios.post(`${createRoles}`, data, {
+                headers: {
+                    includeAccessToken: true,
+                },
+            });
+            return response.status === 200;
+        } catch (e) {
+            console.error('Error updating role: ', e);
+            return false;
+        }
+    };
+
     onMounted(() => {
         getAllRoles();
     });
 
-    return { loading, getAllRoles, dataRoles };
+    return { loading, getAllRoles, createRole, dataRoles };
 }

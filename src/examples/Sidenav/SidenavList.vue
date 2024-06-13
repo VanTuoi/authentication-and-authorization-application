@@ -103,7 +103,7 @@ const getRoute = () => {
                     class="text-xs ps-4 text-uppercase font-weight-bolder opacity-6"
                     :class="isRTL ? 'me-4' : 'ms-2'"
                 >
-                    MANAGER USER
+                    MANAGER
                 </h6>
             </li>
 
@@ -111,7 +111,7 @@ const getRoute = () => {
                 <sidenav-item
                     to="/manager-user"
                     :class="getRoute() === 'manager-user' ? 'active' : ''"
-                    :nav-text="isRTL ? 'حساب تعريفي' : 'Manager users'"
+                    :nav-text="isRTL ? 'حساب تعريفي' : 'Users'"
                 >
                     <template #icon>
                         <i
@@ -120,6 +120,21 @@ const getRoute = () => {
                     </template>
                 </sidenav-item>
             </li>
+
+            <li class="nav-item">
+                <sidenav-item
+                    to="/manager-role"
+                    :class="getRoute() === 'manager-role' ? 'active' : ''"
+                    :nav-text="isRTL ? 'حساب تعريفي' : 'Roles'"
+                >
+                    <template #icon>
+                        <i
+                            class="ni ni-single-copy-04 text-dark text-sm opacity-10"
+                        ></i>
+                    </template>
+                </sidenav-item>
+            </li>
+
             <li class="mt-3 nav-item">
                 <h6
                     v-if="isRTL"

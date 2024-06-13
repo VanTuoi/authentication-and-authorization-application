@@ -127,7 +127,7 @@
             v-model="selectedRoles[role.name]"
             :model-value="userHasRole(role.name)"
         >
-            {{ role.name }}
+            {{ role.name }} ({{ role.description }})
         </argon-checkbox>
     </argon-dialog>
 </template>
@@ -152,6 +152,11 @@ const updateModal = (value) => {
 const handleEditClick = (userId) => {
     updateModal(true);
     idUserSelect.value = userId;
+
+    for (const key in selectedRoles) {
+        selectedRoles[key] = false;
+    }
+
     const user = dataUsers.find((user) => user.id === userId);
     if (user) {
         user.roles.forEach((role) => {

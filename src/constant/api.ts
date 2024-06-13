@@ -11,4 +11,8 @@ export const getAllUser = '/users';
 
 // Quyền
 export const getAllRole = '/roles';
+export const createRoles = '/roles';
 export const updateRole = 'users/role';
+
+//
+export const getAllPermission = '/permissions';
