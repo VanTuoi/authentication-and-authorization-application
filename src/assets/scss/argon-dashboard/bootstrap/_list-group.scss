@@ -107,9 +107,7 @@
 
             > .list-group-item {
                 &:first-child {
-                    @include border-bottom-start-radius(
-                        $list-group-border-radius
-                    );
+                    @include border-bottom-start-radius($list-group-border-radius);
                     @include border-top-end-radius(0);
                 }
 
@@ -161,14 +159,8 @@
 
 @each $state, $value in $theme-colors {
     $list-group-variant-bg: shift-color($value, $list-group-item-bg-scale);
-    $list-group-variant-color: shift-color(
-        $value,
-        $list-group-item-color-scale
-    );
-    @if (
-        contrast-ratio($list-group-variant-bg, $list-group-variant-color) <
-            $min-contrast-ratio
-    ) {
+    $list-group-variant-color: shift-color($value, $list-group-item-color-scale);
+    @if (contrast-ratio($list-group-variant-bg, $list-group-variant-color) < $min-contrast-ratio) {
         $list-group-variant-color: mix(
             $value,
             color-contrast($list-group-variant-bg),
@@ -176,10 +168,6 @@
         );
     }
 
-    @include list-group-item-variant(
-        $state,
-        $list-group-variant-bg,
-        $list-group-variant-color
-    );
+    @include list-group-item-variant($state, $list-group-variant-bg, $list-group-variant-color);
 }
 // scss-docs-end list-group-modifiers

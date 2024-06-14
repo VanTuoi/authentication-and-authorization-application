@@ -83,8 +83,7 @@
                         min-height: 100%;
                         padding-left: 0;
                         padding-right: 0; // Target IE 10 & 11
-                        @media all and (-ms-high-contrast: none),
-                            (-ms-high-contrast: active) {
+                        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
                             min-height: none;
                             height: 100%;
                         }
@@ -152,8 +151,7 @@
                     // Second level
                     .navbar-nav .nav .nav-link {
                         padding-top: $navbar-vertical-nav-link-padding-y / 1.5;
-                        padding-bottom: $navbar-vertical-nav-link-padding-y /
-                            1.5;
+                        padding-bottom: $navbar-vertical-nav-link-padding-y / 1.5;
                         padding-left: 15px;
 
                         > span.sidenav-normal {
@@ -328,9 +326,7 @@
         background-color $transition-base-time ease-in;
 
     &.fixed-top {
-        width: calc(
-            100% - (#{$navbar-vertical-open-width} + #{$spacer * 1.5} * 3)
-        );
+        width: calc(100% - (#{$navbar-vertical-open-width} + #{$spacer * 1.5} * 3));
     }
 
     &.fixed-top + [class*='container'] {

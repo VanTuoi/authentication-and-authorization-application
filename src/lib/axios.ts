@@ -75,8 +75,7 @@ instance.interceptors.response.use(
                             failedQueue.push({ resolve, reject });
                         })
                             .then((token) => {
-                                originalRequest.headers.Authorization =
-                                    'Bearer ' + token;
+                                originalRequest.headers.Authorization = 'Bearer ' + token;
                                 return instance(originalRequest);
                             })
                             .catch((err) => {
@@ -93,18 +92,11 @@ instance.interceptors.response.use(
                                 token: refreshToken,
                             })
                             .then(({ data }) => {
-                                localStorage.setItem(
-                                    'accessToken',
-                                    data.result.token
-                                );
-                                localStorage.setItem(
-                                    'refreshToken',
-                                    data.result.token
-                                ); // Cập nhật refresh token mới nếu có
+                                localStorage.setItem('accessToken', data.result.token);
+                                localStorage.setItem('refreshToken', data.result.token); // Cập nhật refresh token mới nếu có
                                 flag.value = true;
-                                instance.defaults.headers.common[
-                                    'Authorization'
-                                ] = 'Bearer ' + data.result.token;
+                                instance.defaults.headers.common['Authorization'] =
+                                    'Bearer ' + data.result.token;
                                 originalRequest.headers.Authorization =
                                     'Bearer ' + data.result.token;
                                 processQueue(null, data.result.token);

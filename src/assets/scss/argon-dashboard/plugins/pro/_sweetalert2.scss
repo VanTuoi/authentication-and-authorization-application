@@ -82,14 +82,10 @@
     top: 0.875em;
     width: 1.375em;
 }
-.swal2-popup.swal2-toast
-    .swal2-icon.swal2-error
-    [class^='swal2-x-mark-line'][class$='left'] {
+.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='left'] {
     left: 0.3125em;
 }
-.swal2-popup.swal2-toast
-    .swal2-icon.swal2-error
-    [class^='swal2-x-mark-line'][class$='right'] {
+.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^='swal2-x-mark-line'][class$='right'] {
     right: 0.3125em;
 }
 .swal2-popup.swal2-toast .swal2-actions {
@@ -119,18 +115,14 @@
     transform: rotate(45deg);
     border-radius: 50%;
 }
-.swal2-popup.swal2-toast
-    .swal2-success
-    [class^='swal2-success-circular-line'][class$='left'] {
+.swal2-popup.swal2-toast .swal2-success [class^='swal2-success-circular-line'][class$='left'] {
     top: -0.8em;
     left: -0.5em;
     transform: rotate(-45deg);
     transform-origin: 2em 2em;
     border-radius: 4em 0 0 4em;
 }
-.swal2-popup.swal2-toast
-    .swal2-success
-    [class^='swal2-success-circular-line'][class$='right'] {
+.swal2-popup.swal2-toast .swal2-success [class^='swal2-success-circular-line'][class$='right'] {
     top: -0.25em;
     left: 0.9375em;
     transform-origin: 0 1.5em;
@@ -149,29 +141,21 @@
 .swal2-popup.swal2-toast .swal2-success [class^='swal2-success-line'] {
     height: 0.3125em;
 }
-.swal2-popup.swal2-toast
-    .swal2-success
-    [class^='swal2-success-line'][class$='tip'] {
+.swal2-popup.swal2-toast .swal2-success [class^='swal2-success-line'][class$='tip'] {
     top: 1.125em;
     left: 0.1875em;
     width: 0.75em;
 }
-.swal2-popup.swal2-toast
-    .swal2-success
-    [class^='swal2-success-line'][class$='long'] {
+.swal2-popup.swal2-toast .swal2-success [class^='swal2-success-line'][class$='long'] {
     top: 0.9375em;
     right: 0.1875em;
     width: 1.375em;
 }
-.swal2-popup.swal2-toast
-    .swal2-success.swal2-icon-show
-    .swal2-success-line-tip {
+.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip {
     -webkit-animation: swal2-toast-animate-success-line-tip 0.75s;
     animation: swal2-toast-animate-success-line-tip 0.75s;
 }
-.swal2-popup.swal2-toast
-    .swal2-success.swal2-icon-show
-    .swal2-success-line-long {
+.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long {
     -webkit-animation: swal2-toast-animate-success-line-long 0.75s;
     animation: swal2-toast-animate-success-line-long 0.75s;
 }
@@ -736,16 +720,14 @@
     transform: rotate(45deg);
     border-radius: 50%;
 }
-.swal2-icon.swal2-success
-    [class^='swal2-success-circular-line'][class$='left'] {
+.swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='left'] {
     top: -0.4375em;
     left: -2.0635em;
     transform: rotate(-45deg);
     transform-origin: 3.75em 3.75em;
     border-radius: 7.5em 0 0 7.5em;
 }
-.swal2-icon.swal2-success
-    [class^='swal2-success-circular-line'][class$='right'] {
+.swal2-icon.swal2-success [class^='swal2-success-circular-line'][class$='right'] {
     top: -0.6875em;
     left: 1.875em;
     transform: rotate(-45deg);
@@ -832,15 +814,11 @@
 .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step {
     background: #2778c4;
 }
-.swal2-progress-steps
-    .swal2-progress-step.swal2-active-progress-step
-    ~ .swal2-progress-step {
+.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step {
     background: #add8e6;
     color: #fff;
 }
-.swal2-progress-steps
-    .swal2-progress-step.swal2-active-progress-step
-    ~ .swal2-progress-step-line {
+.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step-line {
     background: #add8e6;
 }
 .swal2-progress-steps .swal2-progress-step-line {
@@ -1298,12 +1276,10 @@ body.swal2-no-backdrop .swal2-container .swal2-modal {
     body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) {
         overflow-y: scroll !important;
     }
-    body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)
-        > [aria-hidden='true'] {
+    body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) > [aria-hidden='true'] {
         display: none;
     }
-    body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)
-        .swal2-container {
+    body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container {
         position: static !important;
     }
 }

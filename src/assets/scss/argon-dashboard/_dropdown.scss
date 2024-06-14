@@ -42,10 +42,7 @@
             will-change: animation, box-shadow;
         }
 
-        &.dropdown-hover:hover
-            > .dropdown-menu
-            .dropdown-hover:hover
-            > .dropdown-menu,
+        &.dropdown-hover:hover > .dropdown-menu .dropdown-hover:hover > .dropdown-menu,
         .dropdown-menu.show {
             opacity: 1;
             pointer-events: auto;

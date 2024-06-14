@@ -34,11 +34,7 @@ defineProps({
             <h1 class="text-gradient" :class="`text-${color}`">
                 <span class="text-lg ms-n1">{{ prefix }}</span>
                 {{ '' }}
-                <countTo
-                    :start-val="0"
-                    :end-val="count"
-                    :duration="6000"
-                ></countTo>
+                <countTo :start-val="0" :end-val="count" :duration="6000"></countTo>
                 {{ '' }}
                 <span class="text-lg ms-n1">{{ suffix }}</span>
             </h1>

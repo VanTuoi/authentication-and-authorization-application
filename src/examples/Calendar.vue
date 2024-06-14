@@ -166,14 +166,10 @@ onBeforeUnmount(() => {
         <div class="p-3 pb-0 card-header">
             <h6 class="mb-0">{{ props.title }}</h6>
             <div class="d-flex">
-                <div
-                    class="mb-0 text-sm p font-weight-bold widget-calendar-day"
-                >
+                <div class="mb-0 text-sm p font-weight-bold widget-calendar-day">
                     {{ props.day }}
                 </div>
-                <div
-                    class="mb-1 text-sm p font-weight-bold widget-calendar-year"
-                >
+                <div class="mb-1 text-sm p font-weight-bold widget-calendar-year">
                     {{ props.year }}
                 </div>
             </div>

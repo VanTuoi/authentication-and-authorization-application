@@ -18,8 +18,7 @@
         -ms-transition: all 0.4s ease-in-out;
 
         &:hover {
-            transform: scale(1) perspective(2000px) rotateY(-15deg)
-                rotateX(0deg) rotate(0deg);
+            transform: scale(1) perspective(2000px) rotateY(-15deg) rotateX(0deg) rotate(0deg);
         }
     }
 
@@ -265,11 +264,7 @@ round-slider.scaling:hover {
 
 .landing {
     .landing-bg {
-        background-image: radial-gradient(
-            circle at bottom right,
-            #3c9add,
-            #191452
-        );
+        background-image: radial-gradient(circle at bottom right, #3c9add, #191452);
     }
 
     .navbar-vertical {

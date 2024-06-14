@@ -409,9 +409,7 @@
 .flatpickr-current-month .flatpickr-monthDropdown-months:hover {
     background: rgba(0, 0, 0, 0.05);
 }
-.flatpickr-current-month
-    .flatpickr-monthDropdown-months
-    .flatpickr-monthDropdown-month {
+.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month {
     background-color: transparent;
     outline: none;
     padding: 0;

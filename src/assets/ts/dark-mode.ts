@@ -4,9 +4,7 @@ const hr = document.querySelectorAll('div:not(.sidenav) > hr');
 const sidebarWhite = document.querySelectorAll('.sidenav.bg-white');
 const hr_card = document.querySelectorAll('div:not(.bg-gradient-dark) hr');
 const text_btn = document.querySelectorAll('button:not(.btn) > .text-dark');
-const text_span = document.querySelectorAll(
-    'span.text-dark, .breadcrumb .text-dark'
-);
+const text_span = document.querySelectorAll('span.text-dark, .breadcrumb .text-dark');
 const text_span_white = document.querySelectorAll('span.text-white');
 const text_strong = document.querySelectorAll('strong.text-dark');
 const text_strong_white = document.querySelectorAll('strong.text-white');
@@ -14,12 +12,8 @@ const text_nav_link = document.querySelectorAll('a.nav-link.text-dark');
 const secondary = document.querySelectorAll('.text-secondary');
 const bg_gray_100 = document.querySelectorAll('.bg-gray-100');
 const bg_gray_600 = document.querySelectorAll('.bg-gray-600');
-const btn_text_dark = document.querySelectorAll(
-    '.btn.btn-link.text-dark, .btn .ni.text-dark'
-);
-const btn_text_white = document.querySelectorAll(
-    '.btn.btn-link.text-white, .btn .ni.text-white'
-);
+const btn_text_dark = document.querySelectorAll('.btn.btn-link.text-dark, .btn .ni.text-dark');
+const btn_text_white = document.querySelectorAll('.btn.btn-link.text-white, .btn .ni.text-white');
 const card_border = document.querySelectorAll('.card.border');
 const card_border_dark = document.querySelectorAll('.card.border.border-dark');
 const svg = document.querySelectorAll('g');

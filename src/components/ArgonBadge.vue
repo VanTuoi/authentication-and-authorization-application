@@ -41,10 +41,7 @@ const getClasses = (variant, color, size, circular, floating) => {
 };
 </script>
 <template>
-    <span
-        class="badge"
-        :class="getClasses(variant, color, size, circular, floating)"
-    >
+    <span class="badge" :class="getClasses(variant, color, size, circular, floating)">
         <slot />
     </span>
 </template>

@@ -101,9 +101,7 @@ onMounted(() => {
         }
 
         function hasWebGL() {
-            const gl =
-                canvas.getContext('webgl') ||
-                canvas.getContext('experimental-webgl');
+            const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
             if (gl && gl instanceof WebGLRenderingContext) {
                 return true;
             } else {
