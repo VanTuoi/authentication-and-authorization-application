@@ -22,8 +22,7 @@
 @mixin make-col-ready($gutter: $grid-gutter-width) {
     // Add box sizing if only the grid is loaded
     box-sizing: if(
-        variable-exists(include-column-box-sizing) and
-            $include-column-box-sizing,
+        variable-exists(include-column-box-sizing) and $include-column-box-sizing,
         border-box,
         null
     );

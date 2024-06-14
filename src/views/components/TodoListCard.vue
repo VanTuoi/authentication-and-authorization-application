@@ -30,39 +30,25 @@
                             <small class="text-xs">11:00 AM</small>
                         </div>
                         <div class="form-check my-auto ms-auto">
-                            <input
-                                id="customCheck1"
-                                class="form-check-input"
-                                type="checkbox"
-                            />
+                            <input id="customCheck1" class="form-check-input" type="checkbox" />
                         </div>
                     </div>
                 </li>
                 <li class="checklist-entry list-group-item px-0">
                     <div class="checklist-item checklist-item-info d-flex">
                         <div class="checklist-info">
-                            <h6 class="checklist-title mb-0">
-                                Argon Dashboard Launch
-                            </h6>
+                            <h6 class="checklist-title mb-0">Argon Dashboard Launch</h6>
                             <small class="text-xs">02:00 PM</small>
                         </div>
                         <div class="form-check my-auto ms-auto">
-                            <input
-                                id="customCheck1"
-                                class="form-check-input"
-                                type="checkbox"
-                            />
+                            <input id="customCheck1" class="form-check-input" type="checkbox" />
                         </div>
                     </div>
                 </li>
                 <li class="checklist-entry list-group-item px-0">
-                    <div
-                        class="checklist-item checklist-item-danger checklist-item-checked d-flex"
-                    >
+                    <div class="checklist-item checklist-item-danger checklist-item-checked d-flex">
                         <div class="checklist-info">
-                            <h6 class="checklist-title mb-0">
-                                Winter Hackaton
-                            </h6>
+                            <h6 class="checklist-title mb-0">Winter Hackaton</h6>
                             <small>10:30 AM</small>
                         </div>
                         <div class="form-check my-auto ms-auto">

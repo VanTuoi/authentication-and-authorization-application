@@ -114,15 +114,15 @@
 
         &::before {
             right: 0;
-            border-width: ($popover-arrow-width * 0.5) 0
-                ($popover-arrow-width * 0.5) $popover-arrow-height;
+            border-width: ($popover-arrow-width * 0.5) 0 ($popover-arrow-width * 0.5)
+                $popover-arrow-height;
             border-left-color: $popover-arrow-outer-color;
         }
 
         &::after {
             right: $popover-border-width;
-            border-width: ($popover-arrow-width * 0.5) 0
-                ($popover-arrow-width * 0.5) $popover-arrow-height;
+            border-width: ($popover-arrow-width * 0.5) 0 ($popover-arrow-width * 0.5)
+                $popover-arrow-height;
             border-left-color: $popover-arrow-color;
         }
     }

@@ -57,9 +57,9 @@ $round-slider-transition: all 0.5s ease-out 0s !default;
 
 // Perspective
 
-$transform-perspective-right: scale(1) perspective(2000px) rotateY(-35deg)
-    rotateX(2deg) rotate(0deg) !default;
-$transform-perspective-right-sm: scale(0.7) perspective(2000px) rotateY(-32deg)
-    rotateX(2deg) rotate(0deg) !default;
-$transform-perspective-right-xs: scale(0.5) perspective(2000px) rotateY(-30deg)
-    rotateX(2deg) rotate(0deg) !default;
+$transform-perspective-right: scale(1) perspective(2000px) rotateY(-35deg) rotateX(2deg)
+    rotate(0deg) !default;
+$transform-perspective-right-sm: scale(0.7) perspective(2000px) rotateY(-32deg) rotateX(2deg)
+    rotate(0deg) !default;
+$transform-perspective-right-xs: scale(0.5) perspective(2000px) rotateY(-30deg) rotateX(2deg)
+    rotate(0deg) !default;

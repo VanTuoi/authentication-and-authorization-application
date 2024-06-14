@@ -4,9 +4,7 @@
             <div class="mb-2">
                 <sup class="text-white">$</sup>
                 <span class="h2 text-white">3,300</span>
-                <div class="text-white opacity-8 mt-2 text-sm">
-                    Your current balance
-                </div>
+                <div class="text-white opacity-8 mt-2 text-sm">Your current balance</div>
                 <div>
                     <span class="text-success font-weight-600">+ 15%</span>
                     <span class="text-white opacity-8">($250)</span>
@@ -19,19 +17,13 @@
                 <div class="col">
                     <small class="text-white opacity-8">Orders: 60%</small>
                     <div class="progress progress-xs my-2">
-                        <div
-                            class="progress-bar bg-success"
-                            style="width: 60%"
-                        ></div>
+                        <div class="progress-bar bg-success" style="width: 60%"></div>
                     </div>
                 </div>
                 <div class="col">
                     <small class="text-white opacity-8">Sales: 40%</small>
                     <div class="progress progress-xs my-2">
-                        <div
-                            class="progress-bar bg-warning"
-                            style="width: 40%"
-                        ></div>
+                        <div class="progress-bar bg-warning" style="width: 40%"></div>
                     </div>
                 </div>
             </div>

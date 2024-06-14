@@ -266,9 +266,7 @@ code,
 kbd,
 samp {
     font-family: $font-family-code;
-    @include font-size(
-        1em
-    ); // Correct the odd `em` font sizing in all browsers.
+    @include font-size(1em); // Correct the odd `em` font sizing in all browsers.
     direction: ltr #{'/* rtl:ignore */'};
     unicode-bidi: bidi-override;
 }

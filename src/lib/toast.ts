@@ -23,8 +23,7 @@ const notify = {
             // theme: darkMode.value ? "dark" : "light",
             autoClose: 3000,
             progressStyle: {
-                backgroundImage:
-                    'linear-gradient(310deg, #2dce89 0%, #2dcecc 100%)',
+                backgroundImage: 'linear-gradient(310deg, #2dce89 0%, #2dcecc 100%)',
             },
             ...options,
         });
@@ -34,8 +33,7 @@ const notify = {
             // theme: darkMode.value ? "dark" : "light",
             autoClose: 3000,
             progressStyle: {
-                backgroundImage:
-                    'linear-gradient(310deg, #ff9999 0%, #cc0000 100%)',
+                backgroundImage: 'linear-gradient(310deg, #ff9999 0%, #cc0000 100%)',
             },
             ...options,
         });

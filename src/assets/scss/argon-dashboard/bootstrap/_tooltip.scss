@@ -86,8 +86,8 @@
 
         &::before {
             left: -1px;
-            border-width: ($tooltip-arrow-width * 0.5) 0
-                ($tooltip-arrow-width * 0.5) $tooltip-arrow-height;
+            border-width: ($tooltip-arrow-width * 0.5) 0 ($tooltip-arrow-width * 0.5)
+                $tooltip-arrow-height;
             border-left-color: $tooltip-arrow-color;
         }
     }

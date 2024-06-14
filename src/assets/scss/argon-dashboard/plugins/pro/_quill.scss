@@ -58,8 +58,7 @@
 .ql-editor h6 {
     margin: 0;
     padding: 0;
-    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8
-        list-9;
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
 }
 .ql-editor ol,
 .ql-editor ul {
@@ -115,8 +114,7 @@
     padding-right: 1.5em;
 }
 .ql-editor ol li {
-    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8
-        list-9;
+    counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
     counter-increment: list-0;
 }
 .ql-editor ol li:before {
@@ -741,24 +739,12 @@
     top: 50%;
     width: 18px;
 }
-.ql-snow
-    .ql-picker.ql-header
-    .ql-picker-label[data-label]:not([data-label=''])::before,
-.ql-snow
-    .ql-picker.ql-font
-    .ql-picker-label[data-label]:not([data-label=''])::before,
-.ql-snow
-    .ql-picker.ql-size
-    .ql-picker-label[data-label]:not([data-label=''])::before,
-.ql-snow
-    .ql-picker.ql-header
-    .ql-picker-item[data-label]:not([data-label=''])::before,
-.ql-snow
-    .ql-picker.ql-font
-    .ql-picker-item[data-label]:not([data-label=''])::before,
-.ql-snow
-    .ql-picker.ql-size
-    .ql-picker-item[data-label]:not([data-label=''])::before {
+.ql-snow .ql-picker.ql-header .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-label[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-header .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-label]:not([data-label=''])::before,
+.ql-snow .ql-picker.ql-size .ql-picker-item[data-label]:not([data-label=''])::before {
     content: attr(data-label);
 }
 .ql-snow .ql-picker.ql-header {

@@ -43,9 +43,7 @@ const getIcon = (icon) => (icon ? icon : null);
             data-bs-dismiss="alert"
             aria-label="Close"
         >
-            <span aria-hidden="true" class="text-lg font-weight-bold"
-                >&times;</span
-            >
+            <span aria-hidden="true" class="text-lg font-weight-bold">&times;</span>
         </button>
     </div>
 </template>

@@ -108,11 +108,7 @@ $text-gradient-bg-primary: linear-gradient(
     $primary-gradient,
     $primary-gradient-state
 ) !default;
-$text-gradient-bg-info: linear-gradient(
-    310deg,
-    $info-gradient,
-    $info-gradient-state
-) !default;
+$text-gradient-bg-info: linear-gradient(310deg, $info-gradient, $info-gradient-state) !default;
 $text-gradient-bg-success: linear-gradient(
     310deg,
     $success-gradient,
@@ -128,11 +124,7 @@ $text-gradient-bg-danger: linear-gradient(
     $danger-gradient,
     $danger-gradient-state
 ) !default;
-$text-gradient-bg-dark: linear-gradient(
-    310deg,
-    $dark-gradient,
-    $dark-gradient-state
-) !default;
+$text-gradient-bg-dark: linear-gradient(310deg, $dark-gradient, $dark-gradient-state) !default;
 // Gradient Colors map
 $theme-gradient-colors: (
     'primary': (
@@ -313,11 +305,7 @@ $enable-important-utilities: true !default;
 //
 // The gradient which is added to components if `$enable-gradients` is `true`
 // This gradient is also added to elements with `.bg-gradient`
-$gradient: linear-gradient(
-    180deg,
-    rgba($white, 0.15),
-    rgba($white, 0)
-) !default;
+$gradient: linear-gradient(180deg, rgba($white, 0.15), rgba($white, 0)) !default;
 
 // Spacing
 //
@@ -342,11 +330,7 @@ $spacers: (
     12: $spacer * 16,
 ) !default;
 
-$negative-spacers: if(
-    $enable-negative-margins,
-    negativify-map($spacers),
-    null
-) !default;
+$negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) !default;
 
 // Position
 //
@@ -510,8 +494,8 @@ $aspect-ratios: (
 
 // stylelint-disable value-keyword-case
 $font-family-sans-serif: 'Open Sans', sans-serif !default;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace !default;
 // stylelint-enable value-keyword-case
 $font-family-base: var(--bs-font-sans-serif) !default;
 $font-family-code: var(--bs-font-monospace) !default;
@@ -737,10 +721,7 @@ $input-btn-line-height: 1.5 !default;
 
 $input-btn-focus-width: 0.2rem !default;
 $input-btn-focus-color-opacity: 0.25 !default;
-$input-btn-focus-color: rgba(
-    $component-active-bg,
-    $input-btn-focus-color-opacity
-) !default;
+$input-btn-focus-color: rgba($component-active-bg, $input-btn-focus-color-opacity) !default;
 $input-btn-focus-box-shadow: 0 0 0 $input-btn-focus-width $input-btn-focus-color !default;
 
 $input-btn-padding-y-sm: 0.25rem !default;
@@ -1027,13 +1008,11 @@ $form-select-indicator: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/20
 
 $form-select-feedback-icon-padding-right: add(
     1em * 0.75,
-    (2 * $form-select-padding-y * 0.75) + $form-select-padding-x +
-        $form-select-indicator-padding
+    (2 * $form-select-padding-y * 0.75) + $form-select-padding-x + $form-select-indicator-padding
 ) !default;
 $form-select-feedback-icon-position: center right
     ($form-select-padding-x + $form-select-indicator-padding) !default;
-$form-select-feedback-icon-size: $input-height-inner-half
-    $input-height-inner-half !default;
+$form-select-feedback-icon-size: $input-height-inner-half $input-height-inner-half !default;
 
 $form-select-border-width: $input-border-width !default;
 $form-select-border-color: $input-border-color !default;
@@ -1248,10 +1227,7 @@ $dropdown-bg: $white !default;
 $dropdown-border-color: transparent !default;
 $dropdown-border-radius: $border-radius-md !default;
 $dropdown-border-width: 0 !default;
-$dropdown-inner-border-radius: subtract(
-    $dropdown-border-radius,
-    $dropdown-border-width
-) !default;
+$dropdown-inner-border-radius: subtract($dropdown-border-radius, $dropdown-border-width) !default;
 $dropdown-transition-time: 0.3s ease !default;
 $dropdown-divider-bg: $dropdown-border-color !default;
 $dropdown-divider-margin-y: $spacer / 2 !default;
@@ -1332,10 +1308,7 @@ $card-title-spacer-y: $spacer / 2 !default;
 $card-border-width: 0 !default;
 $card-border-radius: 1rem !default;
 $card-border-color: rgba($black, 0.125) !default;
-$card-inner-border-radius: subtract(
-    $card-border-radius,
-    $card-border-width
-) !default;
+$card-inner-border-radius: subtract($card-border-radius, $card-border-width) !default;
 $card-cap-padding-y: $card-spacer-y / 2 !default;
 $card-cap-padding-x: $card-spacer-x !default;
 $card-cap-bg: $white !default;
@@ -1414,10 +1387,7 @@ $popover-max-width: 276px !default;
 $popover-border-width: 0px !default;
 $popover-border-color: rgba($black, 0.2) !default;
 $popover-border-radius: $border-radius-lg !default;
-$popover-inner-border-radius: subtract(
-    $popover-border-radius,
-    $popover-border-width
-) !default;
+$popover-inner-border-radius: subtract($popover-border-radius, $popover-border-width) !default;
 $popover-box-shadow: $box-shadow-sm !default;
 
 $popover-header-bg: $gray-200 !default;
