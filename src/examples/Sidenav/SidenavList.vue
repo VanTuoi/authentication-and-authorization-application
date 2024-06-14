@@ -16,10 +16,7 @@ const getRoute = () => {
 };
 </script>
 <template>
-    <div
-        id="sidenav-collapse-main"
-        class="collapse navbar-collapse w-auto h-auto h-100"
-    >
+    <div id="sidenav-collapse-main" class="collapse navbar-collapse w-auto h-auto h-100">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <sidenav-item
@@ -28,9 +25,7 @@ const getRoute = () => {
                     :nav-text="isRTL ? 'لوحة القيادة' : 'Dashboard'"
                 >
                     <template #icon>
-                        <i
-                            class="ni ni-tv-2 text-primary text-sm opacity-10"
-                        ></i>
+                        <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -42,9 +37,7 @@ const getRoute = () => {
                     :nav-text="isRTL ? 'الجداول' : 'Tables'"
                 >
                     <template #icon>
-                        <i
-                            class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"
-                        ></i>
+                        <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -56,9 +49,7 @@ const getRoute = () => {
                     :nav-text="isRTL ? 'الفواتیر' : 'Billing'"
                 >
                     <template #icon>
-                        <i
-                            class="ni ni-credit-card text-success text-sm opacity-10"
-                        ></i>
+                        <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -82,9 +73,7 @@ const getRoute = () => {
                     nav-text="RTL"
                 >
                     <template #icon>
-                        <i
-                            class="ni ni-world-2 text-danger text-sm opacity-10"
-                        ></i>
+                        <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -114,9 +103,7 @@ const getRoute = () => {
                     :nav-text="isRTL ? 'حساب تعريفي' : 'Users'"
                 >
                     <template #icon>
-                        <i
-                            class="ni ni-single-copy-04 text-dark text-sm opacity-10"
-                        ></i>
+                        <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -128,9 +115,19 @@ const getRoute = () => {
                     :nav-text="isRTL ? 'حساب تعريفي' : 'Roles'"
                 >
                     <template #icon>
-                        <i
-                            class="ni ni-single-copy-04 text-dark text-sm opacity-10"
-                        ></i>
+                        <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
+                    </template>
+                </sidenav-item>
+            </li>
+
+            <li class="nav-item">
+                <sidenav-item
+                    to="/manager-permission"
+                    :class="getRoute() === 'manager-permission' ? 'active' : ''"
+                    :nav-text="isRTL ? 'حساب تعريفي' : 'Permissions'"
+                >
+                    <template #icon>
+                        <i class="ni ni-single-copy-04 text-dark text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -160,9 +157,7 @@ const getRoute = () => {
                     :nav-text="isRTL ? 'حساب تعريفي' : 'Profile'"
                 >
                     <template #icon>
-                        <i
-                            class="ni ni-single-02 text-dark text-sm opacity-10"
-                        ></i>
+                        <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -174,9 +169,7 @@ const getRoute = () => {
                     :nav-text="isRTL ? 'تسجيل الدخول' : 'Sign In'"
                 >
                     <template #icon>
-                        <i
-                            class="ni ni-single-copy-04 text-danger text-sm opacity-10"
-                        ></i>
+                        <i class="ni ni-single-copy-04 text-danger text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>
@@ -188,9 +181,7 @@ const getRoute = () => {
                     :nav-text="isRTL ? 'اشتراك' : 'Sign Up'"
                 >
                     <template #icon>
-                        <i
-                            class="ni ni-collection text-info text-sm opacity-10"
-                        ></i>
+                        <i class="ni ni-collection text-info text-sm opacity-10"></i>
                     </template>
                 </sidenav-item>
             </li>

@@ -30,13 +30,8 @@ defineProps({
 </script>
 <template>
     <div class="mb-3 timeline-block">
-        <span
-            class="timeline-step p-3"
-            :class="`${$parent.dark ? 'bg-dark' : 'bg-'}${color}`"
-        >
-            <i
-                :class="`text-${icon.color} text-gradient ${icon.component}`"
-            ></i>
+        <span class="timeline-step p-3" :class="`${$parent.dark ? 'bg-dark' : 'bg-'}${color}`">
+            <i :class="`text-${icon.color} text-gradient ${icon.component}`"></i>
         </span>
         <div class="timeline-content">
             <h6

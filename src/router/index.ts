@@ -8,6 +8,7 @@ import VirtualReality from '@/views/VirtualReality.vue';
 import RTL from '@/views/Rtl.vue';
 import ManagerUser from '@/views/ManagerUser.vue';
 import ManagerRole from '@/views/ManagerRole.vue';
+import ManagerPermission from '@/views/ManagerPermission.vue';
 import Profile from '@/views/Profile.vue';
 import Signup from '@/views/Signup.vue';
 import Signin from '@/views/Signin.vue';
@@ -57,6 +58,11 @@ const routes = [
                 path: '/manager-role',
                 name: 'Role',
                 component: ManagerRole,
+            },
+            {
+                path: '/manager-permission',
+                name: 'Permission',
+                component: ManagerPermission,
             },
             {
                 path: '/miniGame',

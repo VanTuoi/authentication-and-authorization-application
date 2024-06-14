@@ -9,13 +9,10 @@ const store = useStore();
                 <div class="mb-4 col-lg-6 mb-lg-0">
                     <div
                         class="text-sm text-center copyright text-muted"
-                        :class="
-                            store.state.isRTL ? 'text-lg-end' : 'text-lg-start'
-                        "
+                        :class="store.state.isRTL ? 'text-lg-end' : 'text-lg-start'"
                     >
                         ©
-                        {{ new Date().getFullYear() }}, made with
-                        <i class="fa fa-heart"></i> by
+                        {{ new Date().getFullYear() }}, made with <i class="fa fa-heart"></i> by
                         <a
                             href="https://www.creative-tim.com"
                             class="font-weight-bold"
@@ -26,9 +23,7 @@ const store = useStore();
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <ul
-                        class="nav nav-footer justify-content-center justify-content-lg-end"
-                    >
+                    <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                         <li class="nav-item">
                             <a
                                 href="https://www.creative-tim.com"

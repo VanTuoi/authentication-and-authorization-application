@@ -1,18 +1,13 @@
 <template>
     <div>
         <Sidenav v-if="showSidenav" />
-        <main
-            class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
-        >
+        <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
             <Navbar v-if="showNavbar" :class="[navClasses]" />
             <router-view />
             <AppFooter v-show="showFooter" />
             <Configurator
                 :toggle="toggleConfigurator"
-                :class="[
-                    showConfig ? 'show' : '',
-                    hideConfigButton ? 'd-none' : '',
-                ]"
+                :class="[showConfig ? 'show' : '', hideConfigButton ? 'd-none' : '']"
             />
         </main>
     </div>

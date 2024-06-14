@@ -31,8 +31,7 @@ defineProps({
         <div
             class="overflow-hidden position-relative border-radius-xl"
             :style="{
-                backgroundImage:
-                    'url(' + require('@/assets/img/card-visa.jpg') + ')',
+                backgroundImage: 'url(' + require('@/assets/img/card-visa.jpg') + ')',
             }"
         >
             <span class="mask" :class="`bg-gradient-${card.background}`"></span>
@@ -64,11 +63,7 @@ defineProps({
                         class="w-20 d-flex align-items-end justify-content-end"
                         :class="isRTL ? 'me-auto' : 'ms-auto'"
                     >
-                        <argon-avatar
-                            class="w-60 mt-2"
-                            :image="img1"
-                            alt="logo"
-                        />
+                        <argon-avatar class="w-60 mt-2" :image="img1" alt="logo" />
                     </div>
                 </div>
             </div>

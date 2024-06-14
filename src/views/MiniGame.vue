@@ -9,9 +9,7 @@
         >
             <span class="mask bg-gradient-dark opacity-6"></span>
             <div class="container">
-                <div
-                    class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center"
-                >
+                <div class="row mt-lg-n10 mt-md-n11 mt-n10 justify-content-center">
                     <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
                         <div class="card z-index-0 border-radius-lg">
                             <div class="card-header text-center pt-4">
@@ -93,12 +91,7 @@ const startGame = () => {
         draw() {
             ctx.fillStyle = '#00FF00';
             this.body.forEach((segment) => {
-                ctx.fillRect(
-                    segment.x * scale,
-                    segment.y * scale,
-                    scale,
-                    scale
-                );
+                ctx.fillRect(segment.x * scale, segment.y * scale, scale, scale);
             });
         }
 
@@ -140,10 +133,7 @@ const startGame = () => {
             return (
                 this.body
                     .slice(1)
-                    .some(
-                        (segment) =>
-                            segment.x === head.x && segment.y === head.y
-                    ) ||
+                    .some((segment) => segment.x === head.x && segment.y === head.y) ||
                 head.x < 0 ||
                 head.x >= canvas.width / scale ||
                 head.y < 0 ||

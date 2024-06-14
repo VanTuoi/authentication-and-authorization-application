@@ -36,10 +36,7 @@ const closeMenu = () => {
         data-scroll="true"
     >
         <div class="px-3 py-1 container-fluid">
-            <breadcrumbs
-                :current-page="currentRouteName"
-                :current-directory="currentDirectory"
-            />
+            <breadcrumbs :current-page="currentRouteName" :current-directory="currentDirectory" />
 
             <div
                 id="navbar"
@@ -57,9 +54,7 @@ const closeMenu = () => {
                         <input
                             type="text"
                             class="form-control"
-                            :placeholder="
-                                isRTL ? 'أكتب هنا...' : 'Type here...'
-                            "
+                            :placeholder="isRTL ? 'أكتب هنا...' : 'Type here...'"
                         />
                     </div>
                 </div>
@@ -69,21 +64,12 @@ const closeMenu = () => {
                             :to="{ name: 'Signin' }"
                             class="px-0 nav-link font-weight-bold text-white"
                         >
-                            <i
-                                class="fa fa-user"
-                                :class="isRTL ? 'ms-sm-2' : 'me-sm-2'"
-                            ></i>
-                            <span v-if="isRTL" class="d-sm-inline d-none"
-                                >يسجل دخول</span
-                            >
-                            <span v-else class="d-sm-inline d-none"
-                                >Sign In</span
-                            >
+                            <i class="fa fa-user" :class="isRTL ? 'ms-sm-2' : 'me-sm-2'"></i>
+                            <span v-if="isRTL" class="d-sm-inline d-none">يسجل دخول</span>
+                            <span v-else class="d-sm-inline d-none">Sign In</span>
                         </router-link>
                     </li>
-                    <li
-                        class="nav-item d-xl-none ps-3 d-flex align-items-center"
-                    >
+                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                         <a
                             id="iconNavbarSidenav"
                             href="#"
@@ -98,13 +84,8 @@ const closeMenu = () => {
                         </a>
                     </li>
                     <li class="px-3 nav-item d-flex align-items-center">
-                        <a
-                            class="p-0 nav-link text-white"
-                            @click="toggleConfigurator"
-                        >
-                            <i
-                                class="cursor-pointer fa fa-cog fixed-plugin-button-nav"
-                            ></i>
+                        <a class="p-0 nav-link text-white" @click="toggleConfigurator">
+                            <i class="cursor-pointer fa fa-cog fixed-plugin-button-nav"></i>
                         </a>
                     </li>
                     <li
@@ -129,10 +110,7 @@ const closeMenu = () => {
                             aria-labelledby="dropdownMenuButton"
                         >
                             <li class="mb-2">
-                                <a
-                                    class="dropdown-item border-radius-md"
-                                    href="javascript:;"
-                                >
+                                <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="py-1 d-flex">
                                         <div class="my-auto">
                                             <img
@@ -141,20 +119,12 @@ const closeMenu = () => {
                                                 alt="user image"
                                             />
                                         </div>
-                                        <div
-                                            class="d-flex flex-column justify-content-center"
-                                        >
-                                            <h6
-                                                class="mb-1 text-sm font-weight-normal"
-                                            >
-                                                <span class="font-weight-bold"
-                                                    >New message</span
-                                                >
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-1 text-sm font-weight-normal">
+                                                <span class="font-weight-bold">New message</span>
                                                 from Laur
                                             </h6>
-                                            <p
-                                                class="mb-0 text-xs text-secondary"
-                                            >
+                                            <p class="mb-0 text-xs text-secondary">
                                                 <i class="fa fa-clock me-1"></i>
                                                 13 minutes ago
                                             </p>
@@ -163,10 +133,7 @@ const closeMenu = () => {
                                 </a>
                             </li>
                             <li class="mb-2">
-                                <a
-                                    class="dropdown-item border-radius-md"
-                                    href="javascript:;"
-                                >
+                                <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="py-1 d-flex">
                                         <div class="my-auto">
                                             <img
@@ -175,20 +142,12 @@ const closeMenu = () => {
                                                 alt="logo spotify"
                                             />
                                         </div>
-                                        <div
-                                            class="d-flex flex-column justify-content-center"
-                                        >
-                                            <h6
-                                                class="mb-1 text-sm font-weight-normal"
-                                            >
-                                                <span class="font-weight-bold"
-                                                    >New album</span
-                                                >
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-1 text-sm font-weight-normal">
+                                                <span class="font-weight-bold">New album</span>
                                                 by Travis Scott
                                             </h6>
-                                            <p
-                                                class="mb-0 text-xs text-secondary"
-                                            >
+                                            <p class="mb-0 text-xs text-secondary">
                                                 <i class="fa fa-clock me-1"></i>
                                                 1 day
                                             </p>
@@ -197,10 +156,7 @@ const closeMenu = () => {
                                 </a>
                             </li>
                             <li>
-                                <a
-                                    class="dropdown-item border-radius-md"
-                                    href="javascript:;"
-                                >
+                                <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="py-1 d-flex">
                                         <div
                                             class="my-auto avatar avatar-sm bg-gradient-secondary me-3"
@@ -246,17 +202,11 @@ const closeMenu = () => {
                                                 </g>
                                             </svg>
                                         </div>
-                                        <div
-                                            class="d-flex flex-column justify-content-center"
-                                        >
-                                            <h6
-                                                class="mb-1 text-sm font-weight-normal"
-                                            >
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-1 text-sm font-weight-normal">
                                                 Payment successfully completed
                                             </h6>
-                                            <p
-                                                class="mb-0 text-xs text-secondary"
-                                            >
+                                            <p class="mb-0 text-xs text-secondary">
                                                 <i class="fa fa-clock me-1"></i>
                                                 2 days
                                             </p>

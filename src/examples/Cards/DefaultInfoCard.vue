@@ -29,9 +29,7 @@ defineProps({
 </script>
 <template>
     <div class="card">
-        <div
-            class="p-3 mx-4 text-center card-header d-flex justify-content-center"
-        >
+        <div class="p-3 mx-4 text-center card-header d-flex justify-content-center">
             <div
                 :class="`icon icon-shape icon-lg shadow text-center border-radius-lg ${icon.background}`"
             >

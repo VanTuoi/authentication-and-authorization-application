@@ -17,15 +17,14 @@ export default function useUsers() {
             });
             if (response.status === 200) {
                 dataUsers.splice(0, dataUsers.length, ...response.data.result);
-                loading.value = false;
                 return true;
             }
-            loading.value = false;
             return false;
         } catch (e) {
             console.error('Error get all users: ', e);
-            loading.value = false;
             return false;
+        } finally {
+            loading.value = false;
         }
     };
 

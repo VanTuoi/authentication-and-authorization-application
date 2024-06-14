@@ -8,6 +8,7 @@ import './assets/css/nucleo-icons.css';
 import './assets/css/nucleo-svg.css';
 import Vue3Toastify, { type ToastContainerOptions } from 'vue3-toastify';
 import ArgonDashboard from './argon-dashboard';
+import Antd from 'ant-design-vue';
 
 const toastOptions: ToastContainerOptions = {
     autoClose: 3000,
@@ -25,4 +26,5 @@ appInstance.use(store);
 appInstance.use(router);
 appInstance.use(Vue3Toastify, toastOptions);
 appInstance.use(ArgonDashboard);
+appInstance.use(Antd);
 appInstance.mount('#app');

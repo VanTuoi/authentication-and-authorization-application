@@ -45,10 +45,7 @@ defineProps({
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
                         >
-                            <i
-                                class="fa fa-ellipsis-v text-secondary"
-                                aria-hidden="true"
-                            ></i>
+                            <i class="fa fa-ellipsis-v text-secondary" aria-hidden="true"></i>
                         </a>
                         <ul
                             class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5 text-end"
@@ -56,11 +53,9 @@ defineProps({
                             style
                         >
                             <li v-for="{ route, label } in action" :key="label">
-                                <a
-                                    class="dropdown-item border-radius-md"
-                                    :href="route"
-                                    >{{ label }}</a
-                                >
+                                <a class="dropdown-item border-radius-md" :href="route">{{
+                                    label
+                                }}</a>
                             </li>
                         </ul>
                     </div>
@@ -83,27 +78,15 @@ defineProps({
                     </thead>
                     <tbody>
                         <tr
-                            v-for="{
-                                logo,
-                                tool,
-                                teamMembers,
-                                price,
-                                progress,
-                            } in rows"
+                            v-for="{ logo, tool, teamMembers, price, progress } in rows"
                             :key="tool"
                         >
                             <td>
                                 <div class="d-flex py-1">
                                     <div>
-                                        <img
-                                            :src="logo"
-                                            class="avatar avatar-sm me-3"
-                                            alt="xd"
-                                        />
+                                        <img :src="logo" class="avatar avatar-sm me-3" alt="xd" />
                                     </div>
-                                    <div
-                                        class="d-flex flex-column justify-content-center"
-                                    >
+                                    <div class="d-flex flex-column justify-content-center">
                                         <h6 class="mb-0 text-sm me-3">
                                             {{ tool }}
                                         </h6>
@@ -127,16 +110,13 @@ defineProps({
                                 </div>
                             </td>
                             <td class="align-middle text-center text-sm">
-                                <span class="text-xs font-weight-bold">{{
-                                    price
-                                }}</span>
+                                <span class="text-xs font-weight-bold">{{ price }}</span>
                             </td>
                             <td class="align-middle">
                                 <div class="progress-wrapper w-75 mx-auto">
                                     <div class="progress-info">
                                         <div class="progress-percentage">
-                                            <span
-                                                class="text-xs font-weight-bold"
+                                            <span class="text-xs font-weight-bold"
                                                 >{{ progress }}%</span
                                             >
                                         </div>

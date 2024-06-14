@@ -51,9 +51,7 @@ onBeforeUnmount(() => {
         <navbar
             :min-nav="sidebarMinimize"
             :toggle="toggleConfigurator"
-            :class="`${store.state.isNavFixed ? store.state.navbarFixed_class : ''} ${
-                store.state.isNavFixed ? 'bg-white' : 'bg-success'
-            }`"
+            :class="`${store.state.isNavFixed ? store.state.navbarFixed_class : ''} ${store.state.isNavFixed ? 'bg-white' : 'bg-success'}`"
         />
     </div>
     <div
@@ -65,14 +63,10 @@ onBeforeUnmount(() => {
     >
         <sidenav />
         <main class="mt-1 main-content border-radius-lg">
-            <div
-                class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7"
-            >
+            <div class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7">
                 <div class="container-fluid">
                     <div class="pt-10 row">
-                        <div
-                            class="pt-5 text-center col-lg-1 col-md-1 pt-lg-0 ms-lg-5"
-                        >
+                        <div class="pt-5 text-center col-lg-1 col-md-1 pt-lg-0 ms-lg-5">
                             <a
                                 href="javascript:;"
                                 class="border-0 avatar avatar-md d-block"
@@ -117,14 +111,8 @@ onBeforeUnmount(() => {
                         <div class="col-lg-8 col-md-11">
                             <div class="d-flex">
                                 <div class="me-auto">
-                                    <h1
-                                        class="mb-0 display-1 font-weight-bold mt-n4"
-                                    >
-                                        12°C
-                                    </h1>
-                                    <h6 class="mb-0 text-uppercase ms-1">
-                                        Cloudy
-                                    </h6>
+                                    <h1 class="mb-0 display-1 font-weight-bold mt-n4">12°C</h1>
+                                    <h6 class="mb-0 text-uppercase ms-1">Cloudy</h6>
                                 </div>
                                 <div class="ms-auto">
                                     <img

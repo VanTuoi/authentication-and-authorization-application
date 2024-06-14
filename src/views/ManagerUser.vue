@@ -1,5 +1,4 @@
 <script setup>
-import AuthorsTable from './components/AuthorsTable.vue';
 import UserTable from '@/views/components/manager-user/index.vue';
 </script>
 <template>

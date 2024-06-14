@@ -9,6 +9,12 @@
                     <thead>
                         <tr>
                             <th
+                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 text-center"
+                            >
+                                No.
+                            </th>
+
+                            <th
                                 class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
                             >
                                 Username
@@ -33,15 +39,16 @@
                             >
                                 Role
                             </th>
-                            <th class="text-secondary opacity-7"></th>
+                            <th
+                                class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                            >
+                                Actions
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-if="loading">
-                            <td
-                                :colspan="6"
-                                style="text-align: center; height: 15vh"
-                            >
+                            <td :colspan="6" style="text-align: center; height: 15vh">
                                 <span
                                     class="spinner-border spinner-border-sm"
                                     style="width: 1.2rem; height: 1.2rem"
@@ -49,12 +56,19 @@
                                 ></span>
                             </td>
                         </tr>
-                        <tr v-for="user in dataUsers" v-else :key="user.id">
+                        <tr v-for="(user, index) in dataUsers" :key="user.id">
+                            <td>
+                                <div
+                                    class="d-flex px-2 py-1 justify-content-center align-items-center"
+                                >
+                                    <h6 class="mb-0 text-sm">
+                                        {{ index + 1 }}
+                                    </h6>
+                                </div>
+                            </td>
                             <td>
                                 <div class="d-flex px-2 py-1">
-                                    <div
-                                        class="d-flex flex-column justify-content-center"
-                                    >
+                                    <div class="d-flex flex-column justify-content-center">
                                         <h6 class="mb-0 text-sm">
                                             {{ user.username }}
                                         </h6>
@@ -75,12 +89,9 @@
                                 </p>
                             </td>
                             <td class="align-middle text-center">
-                                <span
-                                    class="text-secondary text-xs font-weight-bold"
-                                    >{{
-                                        dayjs(user.dob).format('DD/MM/YYYY')
-                                    }}</span
-                                >
+                                <span class="text-secondary text-xs font-weight-bold">{{
+                                    dayjs(user.dob).format('DD/MM/YYYY')
+                                }}</span>
                             </td>
                             <td class="align-middle text-center">
                                 <span
@@ -113,6 +124,7 @@
         </div>
     </div>
     <argon-dialog
+        :is-save="true"
         title="Edit roles"
         size="modal-sm"
         description=""
@@ -166,15 +178,11 @@ const handleEditClick = (userId) => {
 };
 
 const handleUpdateRole = async () => {
-    const selected = Object.keys(selectedRoles).filter(
-        (role) => selectedRoles[role]
-    );
+    const selected = Object.keys(selectedRoles).filter((role) => selectedRoles[role]);
     const isSuccess = await updateRoleUser(idUserSelect.value, selected);
     if (isSuccess) {
         notify.success(`Update role is successfully`);
-        const userIndex = dataUsers.findIndex(
-            (user) => user.id === idUserSelect.value
-        );
+        const userIndex = dataUsers.findIndex((user) => user.id === idUserSelect.value);
         if (userIndex !== -1) {
             dataUsers[userIndex].roles = selected.map((roleName) => ({
                 name: roleName,
@@ -194,3 +202,63 @@ const userHasRole = (roleName) => {
 const { dataUsers, updateRoleUser, getAllUsers, loading } = useUsers();
 const { dataRoles } = useRoles();
 </script>
+
+<!-- 
+<template>
+    <div class="card">
+        <div class="card-header pb-0">
+            <h6>User table</h6>
+        </div>
+        <div class="card-body px-0 pt-0 pb-2">
+            <a-table :data-source="dataSource" :columns="columns" row-key="id" />
+        </div>
+    </div>
+</template>
+
+
+<script setup>
+import { ref, watch } from 'vue';
+import useUsers from '@/services/useUsers';
+import dayjs from 'dayjs';
+
+const { dataUsers } = useUsers();
+
+const columns = ref([
+    {
+        title: 'Username',
+        dataIndex: 'username',
+        key: 'username',
+    },
+    {
+        title: 'First Name',
+        dataIndex: 'firstName',
+        key: 'firstName',
+    },
+    {
+        title: 'Last Name',
+        dataIndex: 'lastName',
+        key: 'lastName',
+    },
+    {
+        title: 'Date of Birth',
+        dataIndex: 'dob',
+        key: 'dob',
+        customRender: ({ text }) => dayjs(text).format('DD/MM/YYYY'),
+    },
+]);
+
+const dataSource = ref([]);
+
+watch(
+    dataUsers,
+    (newValue) => {
+        const formattedData = newValue.map((user) => ({
+            ...user,
+            roles: user.roles.map((role) => role.name).join(', '),
+        }));
+        dataSource.value = formattedData;
+        console.log('Data Source:', dataSource.value);
+    },
+    { immediate: true }
+);
+</script> -->

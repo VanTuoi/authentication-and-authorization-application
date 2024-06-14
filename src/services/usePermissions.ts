@@ -1,5 +1,5 @@
 import { ref, onMounted, reactive } from 'vue';
-import { getAllPermission } from '@/constant/api';
+import { getAllPermission, createPermission, deletePermission } from '@/constant/api';
 import axios from '@/lib/axios';
 import { Permission } from '@/interfaces/user';
 
@@ -16,11 +16,7 @@ export default function usePermissions() {
                 },
             });
             if (response.status === 200) {
-                dataPermissions.splice(
-                    0,
-                    dataPermissions.length,
-                    ...response.data.result
-                );
+                dataPermissions.splice(0, dataPermissions.length, ...response.data.result);
                 loading.value = false;
                 return true;
             }
@@ -32,10 +28,49 @@ export default function usePermissions() {
             return false;
         }
     };
+    const createPermissions = async (name: string, description: string) => {
+        const data = {
+            name: name,
+            description: description,
+        };
+
+        try {
+            const response = await axios.post(`${createPermission}`, data, {
+                headers: {
+                    includeAccessToken: true,
+                },
+            });
+            return response.status === 200;
+            // console.log('data', data);
+        } catch (e) {
+            console.error('Error add permission: ', e);
+            return false;
+        }
+    };
+
+    const deletePermissions = async (name: string) => {
+        try {
+            const response = await axios.delete(`${deletePermission}/${name}`, {
+                headers: {
+                    includeAccessToken: true,
+                },
+            });
+            return response.status === 200;
+        } catch (e) {
+            console.error('Error delete permission: ', e);
+            return false;
+        }
+    };
 
     onMounted(() => {
         getAllPermissions();
     });
 
-    return { loading, getAllPermissions, dataPermissions };
+    return {
+        loading,
+        getAllPermissions,
+        createPermissions,
+        deletePermissions,
+        dataPermissions,
+    };
 }

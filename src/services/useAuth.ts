@@ -17,10 +17,7 @@ export default function useAuth() {
             const response = await axios.post(authDangNhap, data);
             if (response.status === 200) {
                 localStorage.setItem('accessToken', response.data.result.token);
-                localStorage.setItem(
-                    'refreshToken',
-                    response.data.result.token
-                );
+                localStorage.setItem('refreshToken', response.data.result.token);
                 const info = await getUserInfo();
                 init(info);
                 return true;
@@ -62,15 +59,11 @@ export default function useAuth() {
             roles: ['USER'],
         };
         try {
-            const response = await axios.put(
-                `${authCapNhat}/${user.id}`,
-                data,
-                {
-                    headers: {
-                        includeAccessToken: true,
-                    },
-                }
-            );
+            const response = await axios.put(`${authCapNhat}/${user.id}`, data, {
+                headers: {
+                    includeAccessToken: true,
+                },
+            });
 
             return response.status === 200;
         } catch (e) {

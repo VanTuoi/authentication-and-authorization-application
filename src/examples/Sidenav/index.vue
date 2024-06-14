@@ -34,18 +34,12 @@ const darkMode = computed(() => store.state.darkMode);
 
             <router-link class="m-0 navbar-brand" to="/">
                 <img
-                    :src="
-                        darkMode || sidebarType === 'bg-default'
-                            ? logoWhite
-                            : logo
-                    "
+                    :src="darkMode || sidebarType === 'bg-default' ? logoWhite : logo"
                     class="navbar-brand-img h-100"
                     alt="main_logo"
                 />
 
-                <span class="ms-2 font-weight-bold me-2"
-                    >Argon Dashboard 2</span
-                >
+                <span class="ms-2 font-weight-bold me-2">Argon Dashboard 2</span>
             </router-link>
         </div>
 

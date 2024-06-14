@@ -44,10 +44,6 @@ const getClasses = (shadow, circular, borderRadius) => {
 </script>
 <template>
     <div class="avatar" :class="getSize(size)">
-        <img
-            :src="image"
-            :alt="alt"
-            :class="[getClasses(shadow, circular, borderRadius)]"
-        />
+        <img :src="image" :alt="alt" :class="[getClasses(shadow, circular, borderRadius)]" />
     </div>
 </template>
