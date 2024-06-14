@@ -1,71 +1,76 @@
 import { ref, onMounted, reactive } from 'vue';
-import { getAllRole, createRoles, deleteRole } from '@/constant/api';
+import { getAllPermission, createPermission, deletePermission } from '@/constant/api';
 import axios from '@/lib/axios';
-import { User, Role } from '@/interfaces/user';
+import { Permission } from '@/interfaces/user';
 
-export default function useRoles() {
+export default function usePermissions() {
     const loading = ref(false);
-    const dataRoles = reactive<Role[]>([]);
+    const dataPermissions = reactive<Permission[]>([]);
 
-    const getAllRoles = async () => {
+    const getAllPermissions = async () => {
         try {
             loading.value = true;
-            const response = await axios.get(getAllRole, {
+            const response = await axios.get(getAllPermission, {
                 headers: {
                     includeAccessToken: true,
                 },
             });
             if (response.status === 200) {
-                dataRoles.splice(0, dataRoles.length, ...response.data.result);
+                dataPermissions.splice(0, dataPermissions.length, ...response.data.result);
                 loading.value = false;
                 return true;
             }
             loading.value = false;
             return false;
         } catch (e) {
-            console.error('Error get all roles: ', e);
+            console.error('Error get all Permissions: ', e);
             loading.value = false;
             return false;
         }
     };
-
-    const createRole = async (name: string, description: string, permissions: any) => {
+    const createPermissions = async (name: string, description: string) => {
         const data = {
             name: name,
             description: description,
-            permissions: Object.keys(permissions).filter((key) => permissions[key] === true),
         };
 
         try {
-            const response = await axios.post(`${createRoles}`, data, {
+            const response = await axios.post(`${createPermission}`, data, {
                 headers: {
                     includeAccessToken: true,
                 },
             });
             return response.status === 200;
+            // console.log('data', data);
         } catch (e) {
-            console.error('Error updating role: ', e);
+            console.error('Error add permission: ', e);
             return false;
         }
     };
 
-    const deleteRoles = async (name: string) => {
+    const deletePermissions = async (name: string) => {
         try {
-            const response = await axios.delete(`${deleteRole}/${name}`, {
+            const response = await axios.delete(`${deletePermission}/${name}`, {
                 headers: {
                     includeAccessToken: true,
                 },
             });
             return response.status === 200;
         } catch (e) {
-            console.error('Error delete role: ', e);
+            console.error('Error delete permission: ', e);
             return false;
         }
     };
 
     onMounted(() => {
-        getAllRoles();
+        getAllPermissions();
     });
 
-    return { loading, getAllRoles, createRole, deleteRoles, dataRoles };
+    return {
+        loading,
+        getAllPermissions,
+        createPermissions,
+        deletePermissions,
+        dataPermissions,
+    };
 }

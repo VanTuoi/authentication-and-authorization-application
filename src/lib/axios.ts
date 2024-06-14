@@ -126,8 +126,8 @@ instance.interceptors.response.use(
 
         // return Promise.reject(error);
         // console.log(error.response);
-        notify.error(error.response.data.message)
-        return error.response
+        notify.error(error.response.data.message);
+        return error.response;
     }
 );
 

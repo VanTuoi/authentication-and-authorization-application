@@ -5,9 +5,7 @@
         </div>
         <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
-                <table
-                    class="table align-items-center justify-content-center mb-0"
-                >
+                <table class="table align-items-center justify-content-center mb-0">
                     <thead>
                         <tr>
                             <th
@@ -50,22 +48,14 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bold mb-0">
-                                    $2,500
-                                </p>
+                                <p class="text-sm font-weight-bold mb-0">$2,500</p>
                             </td>
                             <td>
-                                <span class="text-xs font-weight-bold"
-                                    >working</span
-                                >
+                                <span class="text-xs font-weight-bold">working</span>
                             </td>
                             <td class="align-middle text-center">
-                                <div
-                                    class="d-flex align-items-center justify-content-center"
-                                >
-                                    <span class="me-2 text-xs font-weight-bold"
-                                        >60%</span
-                                    >
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <span class="me-2 text-xs font-weight-bold">60%</span>
                                     <div>
                                         <div class="progress">
                                             <div
@@ -81,13 +71,8 @@
                                 </div>
                             </td>
                             <td class="align-middle">
-                                <button
-                                    class="btn btn-link text-secondary mb-0"
-                                >
-                                    <i
-                                        class="fa fa-ellipsis-v text-xs"
-                                        aria-hidden="true"
-                                    ></i>
+                                <button class="btn btn-link text-secondary mb-0">
+                                    <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
                                 </button>
                             </td>
                         </tr>
@@ -107,22 +92,14 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bold mb-0">
-                                    $5,000
-                                </p>
+                                <p class="text-sm font-weight-bold mb-0">$5,000</p>
                             </td>
                             <td>
-                                <span class="text-xs font-weight-bold"
-                                    >done</span
-                                >
+                                <span class="text-xs font-weight-bold">done</span>
                             </td>
                             <td class="align-middle text-center">
-                                <div
-                                    class="d-flex align-items-center justify-content-center"
-                                >
-                                    <span class="me-2 text-xs font-weight-bold"
-                                        >100%</span
-                                    >
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <span class="me-2 text-xs font-weight-bold">100%</span>
                                     <div>
                                         <div class="progress">
                                             <div
@@ -143,10 +120,7 @@
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                 >
-                                    <i
-                                        class="fa fa-ellipsis-v text-xs"
-                                        aria-hidden="true"
-                                    ></i>
+                                    <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
                                 </button>
                             </td>
                         </tr>
@@ -166,22 +140,14 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bold mb-0">
-                                    $3,400
-                                </p>
+                                <p class="text-sm font-weight-bold mb-0">$3,400</p>
                             </td>
                             <td>
-                                <span class="text-xs font-weight-bold"
-                                    >canceled</span
-                                >
+                                <span class="text-xs font-weight-bold">canceled</span>
                             </td>
                             <td class="align-middle text-center">
-                                <div
-                                    class="d-flex align-items-center justify-content-center"
-                                >
-                                    <span class="me-2 text-xs font-weight-bold"
-                                        >30%</span
-                                    >
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <span class="me-2 text-xs font-weight-bold">30%</span>
                                     <div>
                                         <div class="progress">
                                             <div
@@ -202,10 +168,7 @@
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                 >
-                                    <i
-                                        class="fa fa-ellipsis-v text-xs"
-                                        aria-hidden="true"
-                                    ></i>
+                                    <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
                                 </button>
                             </td>
                         </tr>
@@ -225,22 +188,14 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bold mb-0">
-                                    $1,000
-                                </p>
+                                <p class="text-sm font-weight-bold mb-0">$1,000</p>
                             </td>
                             <td>
-                                <span class="text-xs font-weight-bold"
-                                    >canceled</span
-                                >
+                                <span class="text-xs font-weight-bold">canceled</span>
                             </td>
                             <td class="align-middle text-center">
-                                <div
-                                    class="d-flex align-items-center justify-content-center"
-                                >
-                                    <span class="me-2 text-xs font-weight-bold"
-                                        >0%</span
-                                    >
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <span class="me-2 text-xs font-weight-bold">0%</span>
                                     <div>
                                         <div class="progress">
                                             <div
@@ -261,10 +216,7 @@
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                 >
-                                    <i
-                                        class="fa fa-ellipsis-v text-xs"
-                                        aria-hidden="true"
-                                    ></i>
+                                    <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
                                 </button>
                             </td>
                         </tr>
@@ -284,22 +236,14 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bold mb-0">
-                                    $14,000
-                                </p>
+                                <p class="text-sm font-weight-bold mb-0">$14,000</p>
                             </td>
                             <td>
-                                <span class="text-xs font-weight-bold"
-                                    >working</span
-                                >
+                                <span class="text-xs font-weight-bold">working</span>
                             </td>
                             <td class="align-middle text-center">
-                                <div
-                                    class="d-flex align-items-center justify-content-center"
-                                >
-                                    <span class="me-2 text-xs font-weight-bold"
-                                        >80%</span
-                                    >
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <span class="me-2 text-xs font-weight-bold">80%</span>
                                     <div>
                                         <div class="progress">
                                             <div
@@ -320,10 +264,7 @@
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                 >
-                                    <i
-                                        class="fa fa-ellipsis-v text-xs"
-                                        aria-hidden="true"
-                                    ></i>
+                                    <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
                                 </button>
                             </td>
                         </tr>
@@ -343,22 +284,14 @@
                                 </div>
                             </td>
                             <td>
-                                <p class="text-sm font-weight-bold mb-0">
-                                    $2,300
-                                </p>
+                                <p class="text-sm font-weight-bold mb-0">$2,300</p>
                             </td>
                             <td>
-                                <span class="text-xs font-weight-bold"
-                                    >done</span
-                                >
+                                <span class="text-xs font-weight-bold">done</span>
                             </td>
                             <td class="align-middle text-center">
-                                <div
-                                    class="d-flex align-items-center justify-content-center"
-                                >
-                                    <span class="me-2 text-xs font-weight-bold"
-                                        >100%</span
-                                    >
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <span class="me-2 text-xs font-weight-bold">100%</span>
                                     <div>
                                         <div class="progress">
                                             <div
@@ -379,10 +312,7 @@
                                     aria-haspopup="true"
                                     aria-expanded="false"
                                 >
-                                    <i
-                                        class="fa fa-ellipsis-v text-xs"
-                                        aria-hidden="true"
-                                    ></i>
+                                    <i class="fa fa-ellipsis-v text-xs" aria-hidden="true"></i>
                                 </button>
                             </td>
                         </tr>

@@ -46,11 +46,7 @@ import ArgonButton from '@/components/ArgonButton.vue';
                     <div
                         class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row"
                     >
-                        <img
-                            class="w-10 me-3 mb-0"
-                            src="@/assets/img/logos/visa.png"
-                            alt="logo"
-                        />
+                        <img class="w-10 me-3 mb-0" src="@/assets/img/logos/visa.png" alt="logo" />
                         <h6 class="mb-0">
                             ****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;****&nbsp;&nbsp;&nbsp;5248
                         </h6>

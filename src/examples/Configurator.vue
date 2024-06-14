@@ -50,9 +50,7 @@ const darkMode = () => {
                     :class="isRTL ? 'float-start' : 'float-end'"
                     @click="toggleConfigurator"
                 >
-                    <button
-                        class="p-0 btn btn-link text-dark fixed-plugin-close-button"
-                    >
+                    <button class="p-0 btn btn-link text-dark fixed-plugin-close-button">
                         <i class="fa fa-close"></i>
                     </button>
                 </div>
@@ -65,10 +63,7 @@ const darkMode = () => {
                     <h6 class="mb-0">Sidebar Colors</h6>
                 </div>
                 <a href="#" class="switch-trigger background-color">
-                    <div
-                        class="my-2 badge-colors"
-                        :class="isRTL ? 'text-end' : ' text-start'"
-                    >
+                    <div class="my-2 badge-colors" :class="isRTL ? 'text-end' : ' text-start'">
                         <span
                             class="badge filter bg-gradient-primary active"
                             data-color="primary"
@@ -104,9 +99,7 @@ const darkMode = () => {
                 <!-- Sidenav Type -->
                 <div class="mt-3">
                     <h6 class="mb-0">Sidenav Type</h6>
-                    <p class="text-sm">
-                        Choose between 2 different sidenav types.
-                    </p>
+                    <p class="text-sm">Choose between 2 different sidenav types.</p>
                 </div>
                 <div class="d-flex gap-2">
                     <button
@@ -155,9 +148,7 @@ const darkMode = () => {
 
                 <hr class="horizontal dark my-4" />
                 <div class="mt-2 mb-5 d-flex">
-                    <h6 class="mb-0" :class="isRTL ? 'ms-2' : ''">
-                        Light / Dark
-                    </h6>
+                    <h6 class="mb-0" :class="isRTL ? 'ms-2' : ''">Light / Dark</h6>
                     <div class="form-check form-switch ps-0 ms-auto my-auto">
                         <input
                             class="form-check-input mt-1 ms-auto"

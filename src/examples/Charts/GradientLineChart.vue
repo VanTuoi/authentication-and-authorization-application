@@ -225,19 +225,11 @@ onMounted(() => {
         <div class="pb-0 card-header mb-0">
             <h6>{{ props.title }}</h6>
             <!--  eslint-disable-next-line vue/no-v-html -->
-            <p
-                v-if="props.description"
-                class="text-sm"
-                v-html="props.description"
-            />
+            <p v-if="props.description" class="text-sm" v-html="props.description" />
         </div>
         <div class="p-3 card-body">
             <div class="chart">
-                <canvas
-                    :id="props.id"
-                    class="chart-canvas"
-                    :height="props.height"
-                ></canvas>
+                <canvas :id="props.id" class="chart-canvas" :height="props.height"></canvas>
             </div>
         </div>
     </div>

@@ -33,8 +33,7 @@ defineProps({
             <ul :class="`list-group ${isRTL ? 'pe-0' : ''}`">
                 <li
                     v-for="(
-                        { icon: { component, background }, label, description },
-                        index
+                        { icon: { component, background }, label, description }, index
                     ) of categories"
                     :key="index"
                     :class="`mb-2 border-0 list-group-item d-flex justify-content-between border-radius-lg
@@ -42,13 +41,9 @@ defineProps({
                 >
                     <div class="d-flex align-items-center">
                         <div
-                            :class="`text-center shadow icon icon-shape icon-sm bg-gradient-${background} ${
-                                isRTL ? 'ms-3' : 'me-3'
-                            }`"
+                            :class="`text-center shadow icon icon-shape icon-sm bg-gradient-${background} ${isRTL ? 'ms-3' : 'me-3'}`"
                         >
-                            <i
-                                :class="`${component} text-white opacity-10`"
-                            ></i>
+                            <i :class="`${component} text-white opacity-10`"></i>
                         </div>
                         <div class="d-flex flex-column">
                             <h6 class="mb-1 text-sm text-dark">{{ label }}</h6>

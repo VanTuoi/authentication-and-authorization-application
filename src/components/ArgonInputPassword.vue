@@ -104,11 +104,7 @@ const inputType = computed(() => {
                 class="input-group-text password-toggle"
                 @click="togglePasswordVisibility"
             >
-                <i
-                    :class="
-                        !passwordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'
-                    "
-                ></i>
+                <i :class="!passwordVisible ? 'fas fa-eye-slash' : 'fas fa-eye'"></i>
             </span>
             <span v-if="iconDir === 'right'" class="input-group-text">
                 <i :class="getIcon(icon)"></i>

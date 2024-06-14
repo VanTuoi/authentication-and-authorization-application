@@ -21,11 +21,7 @@ defineProps({
 });
 </script>
 <template>
-    <div
-        v-show="layout !== 'landing'"
-        id="sidenavCard"
-        class="card card-plain shadow-none"
-    >
+    <div v-show="layout !== 'landing'" id="sidenavCard" class="card card-plain shadow-none">
         <div class="p-3 card-body text-center w-100 pt-0">
             <img
                 class="w-50 mx-auto"
@@ -37,9 +33,7 @@ defineProps({
 
             <h6 v-else class="mb-0 text-dark up">Need Help ?</h6>
 
-            <p v-if="isRTL" class="text-xs font-weight-bold">
-                يرجى التحقق من مستنداتنا
-            </p>
+            <p v-if="isRTL" class="text-xs font-weight-bold">يرجى التحقق من مستنداتنا</p>
 
             <p v-else class="text-xs font-weight-bold">Please check our docs</p>
         </div>

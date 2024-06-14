@@ -47,10 +47,7 @@ defineProps({
                 {{ currentPage }}
             </li>
         </ol>
-        <h6
-            class="mb-0 font-weight-bolder"
-            :class="isNavFixed ? 'text-dark' : 'text-white'"
-        >
+        <h6 class="mb-0 font-weight-bolder" :class="isNavFixed ? 'text-dark' : 'text-white'">
             {{ currentDirectory }}
         </h6>
     </nav>

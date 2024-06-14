@@ -9,10 +9,7 @@
         >
             <div class="modalBackdrop" @click="toggleModal"></div>
             <div class="modal-dialog" :class="[size]">
-                <div
-                    class="modal-content"
-                    :class="`${darkMode ? 'bg-default' : 'bg-light'}`"
-                >
+                <div class="modal-content" :class="`${darkMode ? 'bg-default' : 'bg-light'}`">
                     <div class="modal-header">
                         <h5 class="modal-title">{{ title }}</h5>
                         <button
@@ -22,27 +19,15 @@
                         ></button>
                     </div>
                     <div class="modal-body">
-                        <p
-                            v-if="description"
-                            class="mt-2 mb-0"
-                            v-html="description"
-                        ></p>
+                        <p v-if="description" class="mt-2 mb-0" v-html="description"></p>
                         <slot></slot>
                     </div>
                     <div class="modal-footer">
-                        <button
-                            type="button"
-                            class="btn btn-sm btn-secondary"
-                            @click="toggleModal"
-                        >
+                        <button type="button" class="btn btn-sm btn-secondary" @click="toggleModal">
                             Cancel
                         </button>
-                        <button
-                            type="button"
-                            class="btn btn-sm btn-primary"
-                            @click="handleSave"
-                        >
-                            Save
+                        <button type="button" class="btn btn-sm btn-primary" @click="handleSave">
+                            {{ isSave ? 'Save' : 'Create' }}
                         </button>
                     </div>
                 </div>
@@ -77,6 +62,10 @@ const props = defineProps({
     handleSave: {
         type: Function,
         default: null,
+    },
+    isSave: {
+        type: Boolean,
+        default: false,
     },
 });
 

@@ -95,20 +95,12 @@ onBeforeUnmount(() => {
                         <div class="col-auto my-auto">
                             <div class="h-100">
                                 <h5 class="mb-1">
-                                    {{
-                                        InfoUserChange?.firstName +
-                                        ' ' +
-                                        InfoUserChange.lastName
-                                    }}
+                                    {{ InfoUserChange?.firstName + ' ' + InfoUserChange.lastName }}
                                 </h5>
-                                <p class="mb-0 font-weight-bold text-sm">
-                                    Public Relations
-                                </p>
+                                <p class="mb-0 font-weight-bold text-sm">Public Relations</p>
                             </div>
                         </div>
-                        <div
-                            class="mx-auto mt-3 col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0"
-                        >
+                        <div class="mx-auto mt-3 col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0">
                             <div class="nav-wrapper position-relative end-0">
                                 <ul
                                     class="p-1 bg-transparent nav nav-pills nav-fill"
@@ -293,23 +285,16 @@ onBeforeUnmount(() => {
                         <div class="card-header pb-0">
                             <div class="d-flex align-items-center">
                                 <p class="mb-0">Edit Profile</p>
-                                <argon-button
-                                    color="success"
-                                    size="sm"
-                                    class="ms-auto"
+                                <argon-button color="success" size="sm" class="ms-auto"
                                     >Settings</argon-button
                                 >
                             </div>
                         </div>
                         <div class="card-body">
-                            <p class="text-uppercase text-sm">
-                                User Information
-                            </p>
+                            <p class="text-uppercase text-sm">User Information</p>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <label
-                                        for="example-text-input"
-                                        class="form-control-label"
+                                    <label for="example-text-input" class="form-control-label"
                                         >Username</label
                                     >
                                     <argon-input
@@ -320,20 +305,13 @@ onBeforeUnmount(() => {
                                     />
                                 </div>
                                 <div class="col-md-6">
-                                    <label
-                                        for="example-text-input"
-                                        class="form-control-label"
+                                    <label for="example-text-input" class="form-control-label"
                                         >Date of birthday</label
                                     >
-                                    <argon-datepicker
-                                        v-model="InfoUserChange.dob"
-                                        type="text"
-                                    />
+                                    <argon-datepicker v-model="InfoUserChange.dob" type="text" />
                                 </div>
                                 <div class="col-md-6">
-                                    <label
-                                        for="example-text-input"
-                                        class="form-control-label"
+                                    <label for="example-text-input" class="form-control-label"
                                         >First name</label
                                     >
                                     <input
@@ -344,9 +322,7 @@ onBeforeUnmount(() => {
                                     />
                                 </div>
                                 <div class="col-md-6">
-                                    <label
-                                        for="example-text-input"
-                                        class="form-control-label"
+                                    <label for="example-text-input" class="form-control-label"
                                         >Last name</label
                                     >
                                     <argon-input
@@ -357,14 +333,10 @@ onBeforeUnmount(() => {
                                 </div>
                             </div>
                             <hr class="horizontal dark" />
-                            <p class="text-uppercase text-sm">
-                                Contact Information
-                            </p>
+                            <p class="text-uppercase text-sm">Contact Information</p>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label
-                                        for="example-text-input"
-                                        class="form-control-label"
+                                    <label for="example-text-input" class="form-control-label"
                                         >Address</label
                                     >
                                     <argon-input
@@ -373,28 +345,19 @@ onBeforeUnmount(() => {
                                     />
                                 </div>
                                 <div class="col-md-4">
-                                    <label
-                                        for="example-text-input"
-                                        class="form-control-label"
+                                    <label for="example-text-input" class="form-control-label"
                                         >City</label
                                     >
                                     <argon-input type="text" value="New York" />
                                 </div>
                                 <div class="col-md-4">
-                                    <label
-                                        for="example-text-input"
-                                        class="form-control-label"
+                                    <label for="example-text-input" class="form-control-label"
                                         >Country</label
                                     >
-                                    <argon-input
-                                        type="text"
-                                        value="United States"
-                                    />
+                                    <argon-input type="text" value="United States" />
                                 </div>
                                 <div class="col-md-4">
-                                    <label
-                                        for="example-text-input"
-                                        class="form-control-label"
+                                    <label for="example-text-input" class="form-control-label"
                                         >Postal code</label
                                     >
                                     <argon-input type="text" value="437300" />
@@ -404,9 +367,7 @@ onBeforeUnmount(() => {
                             <p class="text-uppercase text-sm">About me</p>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <label
-                                        for="example-text-input"
-                                        class="form-control-label"
+                                    <label for="example-text-input" class="form-control-label"
                                         >About me</label
                                     >
                                     <argon-input
@@ -416,9 +377,7 @@ onBeforeUnmount(() => {
                                 </div>
                             </div>
                             <div class="row">
-                                <div
-                                    class="col-md-12 d-flex justify-content-center"
-                                >
+                                <div class="col-md-12 d-flex justify-content-center">
                                     <argon-button
                                         :loading="isLoading"
                                         full-width

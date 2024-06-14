@@ -96,21 +96,13 @@ onBeforeUnmount(() => {
             <div class="page-header min-vh-100">
                 <div class="container">
                     <div class="row">
-                        <div
-                            class="mx-auto col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0"
-                        >
+                        <div class="mx-auto col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0">
                             <div class="card card-plain">
                                 <div class="pb-0 card-header text-start">
-                                    <p class="mb-0">
-                                        Enter your username and password to sign
-                                        in
-                                    </p>
+                                    <p class="mb-0">Enter your username and password to sign in</p>
                                 </div>
                                 <div class="card-body">
-                                    <form
-                                        role="form"
-                                        @submit.prevent="() => {}"
-                                    >
+                                    <form role="form" @submit.prevent="() => {}">
                                         <div class="mb-3">
                                             <argon-input
                                                 id="email"
@@ -166,9 +158,7 @@ onBeforeUnmount(() => {
                                         </div>
                                     </form>
                                 </div>
-                                <div
-                                    class="px-1 pt-0 text-center card-footer px-lg-2"
-                                >
+                                <div class="px-1 pt-0 text-center card-footer px-lg-2">
                                     <p class="mx-auto mb-4 text-sm">
                                         Don't have an account?
                                         <router-link
@@ -191,18 +181,10 @@ onBeforeUnmount(() => {
                                     background-size: cover;
                                 "
                             >
-                                <span
-                                    class="mask bg-gradient-success opacity-6"
-                                ></span>
-                                <h4
-                                    class="mt-5 text-white font-weight-bolder position-relative"
-                                >
+                                <span class="mask bg-gradient-success opacity-6"></span>
+                                <h4 class="mt-5 text-white font-weight-bolder position-relative">
                                     "Hello
-                                    {{
-                                        userStore.user.firstName +
-                                        ' ' +
-                                        userStore.user.lastName
-                                    }}"
+                                    {{ userStore.user.firstName + ' ' + userStore.user.lastName }}"
                                 </h4>
                                 <p class="text-white position-relative">
                                     Chúc bạn một ngày tốt lành 😜.
