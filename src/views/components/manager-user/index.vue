@@ -2,6 +2,34 @@
     <div class="card">
         <div class="card-header pb-0">
             <h6>User table</h6>
+            <div class="d-flex justify-content-between align-items-baseline mb-3">
+                <div class="d-flex align-items-end gap-2">
+                    <argon-input
+                        id="name"
+                        v-model="nameUserFind"
+                        style="width: 200px"
+                        type="text"
+                        placeholder="Find user..."
+                        name="name"
+                        size="md"
+                    />
+                    <argon-select
+                        v-model:selectedValue="selectedOption"
+                        default-value=""
+                        :options="selectOptions"
+                        select-class="form-select custom-select-class"
+                        aria-label="Choose an option"
+                        label-select="Find by role"
+                    ></argon-select>
+                </div>
+                <argon-button
+                    variant="gradient"
+                    color="success"
+                    size="md"
+                    @click="handleAddNewUser()"
+                    >Add new user</argon-button
+                >
+            </div>
         </div>
         <div class="card-body px-0 pt-0 pb-2">
             <div class="table-responsive p-0">
@@ -47,8 +75,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-if="loading">
-                            <td :colspan="6" style="text-align: center; height: 15vh">
+                        <tr v-if="loading && dataUsers.length === 0">
+                            <td :colspan="7" style="text-align: center; height: 15vh">
                                 <span
                                     class="spinner-border spinner-border-sm"
                                     style="width: 1.2rem; height: 1.2rem"
@@ -56,13 +84,13 @@
                                 ></span>
                             </td>
                         </tr>
-                        <tr v-for="(user, index) in dataUsers" :key="user.id">
+                        <tr v-for="(user, index) in filteredUsers" :key="user.id">
                             <td>
                                 <div
                                     class="d-flex px-2 py-1 justify-content-center align-items-center"
                                 >
                                     <h6 class="mb-0 text-sm">
-                                        {{ index + 1 }}
+                                        {{ pageSize * currentPage + index + 1 }}
                                     </h6>
                                 </div>
                             </td>
@@ -119,6 +147,46 @@
                             </td>
                         </tr>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="7" class="text-center">
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <argon-button
+                                        :loading="loading && currentAction === 'Previous'"
+                                        :disabled="currentPage === 0 || loading"
+                                        variant="gradient"
+                                        color="info"
+                                        size="sm"
+                                        class="me-2"
+                                        @click="
+                                            () => {
+                                                currentAction = 'Previous';
+                                                currentPage--;
+                                            }
+                                        "
+                                    >
+                                        Previous page
+                                    </argon-button>
+                                    <span class="me-2">Page {{ currentPage + 1 }}</span>
+                                    <argon-button
+                                        :loading="loading && currentAction === 'Next'"
+                                        :disabled="dataUsers.length < pageSize || loading"
+                                        variant="gradient"
+                                        color="info"
+                                        size="sm"
+                                        @click="
+                                            () => {
+                                                currentAction = 'Next';
+                                                currentPage++;
+                                            }
+                                        "
+                                    >
+                                        Next page
+                                    </argon-button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
@@ -145,17 +213,74 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted } from 'vue';
+import { ref, reactive, onMounted, computed, watch } from 'vue';
+import ArgonDialog from '@/components/ArgonDialog.vue';
+import ArgonSelect from '@/components/ArgonSelect.vue';
+import ArgonCheckbox from '@/components/ArgonCheckbox.vue';
+import ArgonInput from '@/components/ArgonInput.vue';
+import ArgonButton from '@/components/ArgonButton.vue';
+import notify from '@/lib/toast';
+import dayjs from 'dayjs';
 import useUsers from '@/services/useUsers';
 import useRoles from '@/services/useRoles';
-import ArgonDialog from '@/components/ArgonDialog.vue';
-import ArgonCheckbox from '@/components/ArgonCheckbox.vue';
-import dayjs from 'dayjs';
-import notify from '@/lib/toast';
 
+// Data
+const { dataUsers, updateRoleUser, getAllUsers, loading } = useUsers();
+const { dataRoles, getAllRoles } = useRoles();
+
+// Page Break
+const currentPage = ref(0);
+const pageSize = ref(5);
+const currentAction = ref('');
+
+// Edit User
 const modalVisible = ref(false);
 const idUserSelect = ref('');
 const selectedRoles = reactive({});
+
+// Options Find
+const nameUserFind = ref('');
+const selectedOption = ref('');
+const selectOptions = ref([]);
+
+const loadUsers = async () => {
+    await getAllUsers(currentPage.value, pageSize.value);
+};
+
+onMounted(() => {
+    loadUsers();
+});
+
+watch([currentPage, pageSize], () => {
+    loadUsers();
+});
+
+onMounted(() => {
+    getAllRoles().then(() => {
+        if (dataRoles.length > 0) {
+            selectOptions.value = dataRoles.map((role) => ({
+                id: role.name,
+                value: `${role.name}`,
+            }));
+        }
+    });
+});
+
+const filteredUsers = computed(() => {
+    const searchLower = nameUserFind.value ? nameUserFind.value.toLowerCase() : '';
+    const selectedRole = selectedOption.value;
+    return dataUsers.filter((user) => {
+        const matchesName = user.username.toLowerCase().includes(searchLower);
+        const matchesRole = selectedRole
+            ? user.roles.some((role) => role.name === selectedRole)
+            : true;
+        return matchesName && matchesRole;
+    });
+});
+
+const handleAddNewUser = async () => {
+    // Coding...
+};
 
 const updateModal = (value) => {
     modalVisible.value = value;
@@ -198,9 +323,6 @@ const userHasRole = (roleName) => {
     const user = dataUsers.find((user) => user.id === idUserSelect.value);
     return user && user.roles.some((role) => role.name === roleName);
 };
-
-const { dataUsers, updateRoleUser, getAllUsers, loading } = useUsers();
-const { dataRoles } = useRoles();
 </script>
 
 <!-- 

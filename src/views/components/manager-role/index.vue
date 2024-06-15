@@ -51,7 +51,7 @@
                     </thead>
                     <tbody>
                         <tr v-if="loadingRoles || loadingPermissions">
-                            <td :colspan="4" style="text-align: center; height: 15vh">
+                            <td :colspan="5" style="text-align: center; height: 15vh">
                                 <span
                                     class="spinner-border spinner-border-sm"
                                     style="width: 1.2rem; height: 1.2rem"
