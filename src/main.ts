@@ -19,12 +19,12 @@ const toastOptions: ToastContainerOptions = {
 };
 
 const appInstance = createApp(App);
+appInstance.use(Vue3Toastify, toastOptions);
 const pinia = createPinia();
 appInstance.use(pinia);
 pinia.use(piniaPluginPersistedstate);
 appInstance.use(store);
 appInstance.use(router);
-appInstance.use(Vue3Toastify, toastOptions);
 appInstance.use(ArgonDashboard);
 appInstance.use(Antd);
 appInstance.mount('#app');

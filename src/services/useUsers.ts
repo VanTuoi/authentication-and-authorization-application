@@ -2,27 +2,32 @@ import { ref, reactive, onMounted } from 'vue';
 import { getAllUser, updateRole } from '@/constant/api';
 import axios from '@/lib/axios';
 import { User, Role } from '@/interfaces/user';
+import notify from '@/lib/toast';
 
 export default function useUsers() {
     const loading = ref(false);
     const dataUsers = reactive<User[]>([]);
+    const totalRecords = ref(0);
 
-    const getAllUsers = async () => {
+    const getAllUsers = async (page: number, size: number) => {
         try {
             loading.value = true;
             const response = await axios.get(getAllUser, {
                 headers: {
                     includeAccessToken: true,
                 },
+                params: {
+                    page: page,
+                    size: size,
+                },
             });
             if (response.status === 200) {
                 dataUsers.splice(0, dataUsers.length, ...response.data.result);
-                return true;
+                totalRecords.value = response.data.result.totalElements;
             }
-            return false;
         } catch (e) {
             console.error('Error get all users: ', e);
-            return false;
+            notify.error('Failed to load users. Please try again later.');
         } finally {
             loading.value = false;
         }
@@ -47,7 +52,7 @@ export default function useUsers() {
     };
 
     onMounted(() => {
-        getAllUsers();
+        // getAllUsers(0, 2);
     });
 
     return { loading, getAllUsers, updateRoleUser, dataUsers };

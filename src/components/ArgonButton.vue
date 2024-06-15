@@ -55,7 +55,7 @@ const getClasses = (variant, color, size, fullWidth, active) => {
         <span
             v-if="loading"
             class="spinner-border spinner-border-sm"
-            style="width: 1.2rem; height: 1.2rem"
+            style="width: 1rem; height: 1rem"
             role="status"
             aria-hidden="true"
         ></span>
