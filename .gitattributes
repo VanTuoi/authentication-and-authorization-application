@@ -1,0 +1,9 @@
+# Make sure all text uses LF for line endings
+* text=auto eol=lf
+
+# Ensure binary files do not change
+*.jpg binary
+*.png binary
+*.pdf binary
+*.zip binary
+*.exe binary
