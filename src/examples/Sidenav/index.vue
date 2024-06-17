@@ -21,7 +21,7 @@ const darkMode = computed(() => store.state.darkMode);
 
     <aside
         id="sidenav-main"
-        class="z-index-0 my-3 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl"
+        class="z-index-1 my-3 overflow-auto border-0 sidenav navbar navbar-vertical navbar-expand-xs border-radius-xl"
         :class="`${isRTL ? 'me-3 rotate-caret fixed-end' : 'fixed-start ms-3'}    
       ${layout === 'landing' ? 'bg-transparent shadow-none' : ' '} ${sidebarType}`"
     >
