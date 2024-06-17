@@ -1,7 +1,6 @@
 <script setup>
 import { onBeforeUnmount, onBeforeMount, ref, watch } from 'vue';
 import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
 import { computed } from 'vue';
 import Navbar from '@/examples/PageLayout/Navbar.vue';
 import ArgonInput from '@/components/ArgonInput.vue';
@@ -10,11 +9,23 @@ import ArgonButton from '@/components/ArgonButton.vue';
 import ArgonInputPassword from '@/components/ArgonInputPassword.vue';
 import notify from '@/lib/toast';
 import useAuth from '@/services/useAuth';
-import { useUserStore } from '@/store-pinia/useUserStore';
 import { useRememberAccountStore } from '@/store-pinia/useAuth';
 const body = document.getElementsByTagName('body')[0];
 
+import { useRouter } from 'vue-router';
+import { useUserStore } from '@/store-pinia/useUserStore';
 const router = useRouter();
+
+onBeforeMount(() => {
+    // if (userStore?.user.username !== '') {
+    //     router.push('/dashboard-default');
+    // }
+    // Or kiểm tra ở localStogare
+    const token = localStorage.getItem('accessToken');
+    if (token !== null) {
+        // router.push('/dashboard-default');
+    }
+});
 
 const store = useStore();
 const userStore = useUserStore();
@@ -50,12 +61,6 @@ const showInfo = async () => {
         notify.error('Get info in failed');
     }
 };
-
-onBeforeMount(() => {
-    if (userStore?.user.username !== '') {
-        // router.push('/dashboard-default');
-    }
-});
 
 onBeforeMount(() => {
     isCheck.value = computed(() => {

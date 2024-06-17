@@ -22,11 +22,7 @@
                         label-select="Find by role"
                     ></argon-select>
                 </div>
-                <argon-button
-                    variant="gradient"
-                    color="success"
-                    size="md"
-                    @click="handleAddNewUser()"
+                <argon-button variant="gradient" color="success" size="md" @click="AddNewUser(true)"
                     >Add new user</argon-button
                 >
             </div>
@@ -136,52 +132,96 @@
                                 >
                             </td>
                             <td class="align-middle">
-                                <a
-                                    data-toggle="tooltip"
-                                    style="cursor: pointer"
-                                    class="text-secondary font-weight-bold text-xs"
-                                    data-original-title="Edit user"
-                                    @click="handleEditClick(user.id)"
-                                    >Edit roles</a
-                                >
+                                <div class="align-items-center d-flex justify-content-start gap-2">
+                                    <argon-button
+                                        variant="gradient"
+                                        color="success"
+                                        size="sm"
+                                        @click="[handleEditClick(user.id)]"
+                                        >Edit roles</argon-button
+                                    >
+                                    <argon-button
+                                        variant="gradient"
+                                        color="danger"
+                                        size="sm"
+                                        @click="handleClickDelete(user.id)"
+                                    >
+                                        Delete
+                                    </argon-button>
+                                </div>
                             </td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
                             <td colspan="7" class="text-center">
-                                <div class="d-flex justify-content-end align-items-center">
+                                <div class="d-flex justify-content-end align-items-center gap-1">
                                     <argon-button
-                                        :loading="loading && currentAction === 'Previous'"
+                                        :loading="loading && currentAction === 'First'"
                                         :disabled="currentPage === 0 || loading"
-                                        variant="gradient"
+                                        variant="text"
+                                        color="info"
+                                        size="sm"
+                                        class="me-2"
+                                        @click="
+                                            () => {
+                                                currentAction = 'First';
+                                                currentPage = 0;
+                                            }
+                                        "
+                                    >
+                                        <i class="fas fa-angle-double-left"></i>
+                                    </argon-button>
+                                    <argon-button
+                                        icon="angle-left"
+                                        icon-position="before"
+                                        :loading="loading && currentAction === 'Previous'"
+                                        :disabled="!canGoToPreviousPage || loading"
+                                        variant="text"
                                         color="info"
                                         size="sm"
                                         class="me-2"
                                         @click="
                                             () => {
                                                 currentAction = 'Previous';
-                                                currentPage--;
+                                                if (currentPage > 0) currentPage--;
                                             }
                                         "
                                     >
-                                        Previous page
                                     </argon-button>
-                                    <span class="me-2">Page {{ currentPage + 1 }}</span>
+                                    <span class="me-2"
+                                        >Page {{ currentPage + 1 }} of {{ totalPages }}</span
+                                    >
                                     <argon-button
+                                        icon="angle-right"
+                                        icon-position="after"
                                         :loading="loading && currentAction === 'Next'"
-                                        :disabled="dataUsers.length < pageSize || loading"
-                                        variant="gradient"
+                                        :disabled="!canGoToNextPage || loading"
+                                        variant="text"
                                         color="info"
                                         size="sm"
                                         @click="
                                             () => {
                                                 currentAction = 'Next';
-                                                currentPage++;
+                                                if (currentPage < totalPages - 1) currentPage++;
                                             }
                                         "
                                     >
-                                        Next page
+                                    </argon-button>
+                                    <argon-button
+                                        :loading="loading && currentAction === 'Last'"
+                                        :disabled="currentPage >= totalPages - 1 || loading"
+                                        variant="text"
+                                        color="info"
+                                        size="sm"
+                                        @click="
+                                            () => {
+                                                currentAction = 'Last';
+                                                currentPage = totalPages - 1;
+                                            }
+                                        "
+                                    >
+                                        <i class="fas fa-angle-double-right"></i>
                                     </argon-button>
                                 </div>
                             </td>
@@ -210,6 +250,55 @@
             {{ role.name }} ({{ role.description }})
         </argon-checkbox>
     </argon-dialog>
+    <argon-dialog
+        :is-save="false"
+        title="Add new User"
+        size="modal-md"
+        description=""
+        position="center"
+        :show-modal="modalAddNewUserVisible"
+        :handle-save="handleAddNewUser"
+        @update:show-modal="AddNewUser"
+    >
+        <argon-input
+            id="username"
+            v-model="userInfo.username"
+            type="text"
+            placeholder="Username"
+            name="username"
+            size="md"
+        />
+        <argon-input
+            id="password"
+            v-model="userInfo.password"
+            type="password"
+            placeholder="Password"
+            name="password"
+            size="md"
+        />
+        <argon-input
+            id="firstName"
+            v-model="userInfo.firstName"
+            type="text"
+            placeholder="First Name"
+            name="firstName"
+            size="md"
+        />
+        <argon-input
+            id="lastName"
+            v-model="userInfo.lastName"
+            type="text"
+            placeholder="Last Name"
+            name="lastName"
+            size="md"
+        />
+        <a-date-picker
+            v-model:value="userInfo.dob"
+            placeholder="Date of Birthday"
+            size="large"
+            format="DD/MM/YYYY"
+        />
+    </argon-dialog>
 </template>
 
 <script setup>
@@ -219,13 +308,15 @@ import ArgonSelect from '@/components/ArgonSelect.vue';
 import ArgonCheckbox from '@/components/ArgonCheckbox.vue';
 import ArgonInput from '@/components/ArgonInput.vue';
 import ArgonButton from '@/components/ArgonButton.vue';
+import ArgonConfirmButton from '@/components/ArgonConfirmButton.vue';
 import notify from '@/lib/toast';
 import dayjs from 'dayjs';
 import useUsers from '@/services/useUsers';
 import useRoles from '@/services/useRoles';
 
 // Data
-const { dataUsers, updateRoleUser, getAllUsers, loading } = useUsers();
+const { dataUsers, totalRecords, updateRoleUser, createUser, getAllUsers, deleteUser, loading } =
+    useUsers();
 const { dataRoles, getAllRoles } = useRoles();
 
 // Page Break
@@ -238,10 +329,30 @@ const modalVisible = ref(false);
 const idUserSelect = ref('');
 const selectedRoles = reactive({});
 
+// Add new user
+const userInfo = reactive({
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    dob: '',
+});
+const modalAddNewUserVisible = ref(false);
+const AddNewUser = (value) => {
+    modalAddNewUserVisible.value = value;
+};
+
 // Options Find
 const nameUserFind = ref('');
 const selectedOption = ref('');
 const selectOptions = ref([]);
+
+const totalPages = computed(() => {
+    return Math.ceil(totalRecords.value / pageSize.value);
+});
+
+const canGoToPreviousPage = computed(() => currentPage.value > 0);
+const canGoToNextPage = computed(() => currentPage.value < totalPages.value - 1);
 
 const loadUsers = async () => {
     await getAllUsers(currentPage.value, pageSize.value);
@@ -279,7 +390,61 @@ const filteredUsers = computed(() => {
 });
 
 const handleAddNewUser = async () => {
-    // Coding...
+    const newUser = await createUser(userInfo);
+    if (newUser != null) {
+        notify.success('Create user is successfully');
+        if (currentPage.value === totalPages.value - 1 && dataUsers.length < pageSize.value) {
+            dataUsers.push({
+                id: newUser.id,
+                username: newUser.username,
+                firstName: newUser.firstName,
+                lastName: newUser.lastName,
+                dob: newUser.dob,
+                roles: newUser.roles ? newUser.roles : [],
+            });
+        } else {
+            notify.info(
+                'User created successfully but not added to the current list due to pagination.'
+            );
+            currentPage.value = totalPages.value - 1;
+            loadUsers(currentPage.value);
+        }
+        resetUserInfo();
+        modalAddNewUserVisible.value = false;
+    } else {
+        notify.error('Create user is failed');
+    }
+};
+
+const handleClickDelete = async (id) => {
+    const isSuccess = await deleteUser(id);
+    if (isSuccess) {
+        notify.success('Delete user is successfully');
+        const userIndex = dataUsers.findIndex((user) => user.id === id);
+
+        if (userIndex !== -1) {
+            dataUsers.splice(userIndex, 1);
+            if (currentPage.value === totalPages.value - 1 && dataUsers.length < pageSize.value) {
+                loadUsers(currentPage.value);
+            } else if (dataUsers.length === 0 && currentPage.value > 0) {
+                currentPage.value--;
+                loadUsers(currentPage.value);
+            } else {
+                // Tải lại trang hiện tại
+                loadUsers(currentPage.value);
+            }
+        }
+    } else {
+        notify.error('Delete user is failed');
+    }
+};
+
+const resetUserInfo = () => {
+    userInfo.username = '';
+    userInfo.password = '';
+    userInfo.firstName = '';
+    userInfo.lastName = '';
+    userInfo.dob = '';
 };
 
 const updateModal = (value) => {
@@ -383,4 +548,21 @@ watch(
     },
     { immediate: true }
 );
+</script> -->
+<!-- <template>
+    <div>
+        <a-date-picker v-model:value="startDate" format="DD/MM/YYYY" />
+    </div>
+</template>
+
+<script setup>
+import { ref, watch } from 'vue';
+import dayjs from 'dayjs';
+
+let objectUserSelect = {}; // Đối tượng user được chọn
+let startDate = ref(dayjs('2024-06-13T12:40:30.000Z', 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
+
+watch(objectUserSelect, () => {
+    startDate.value = objectUserSelect?.dateOfBrith; // lấy ngày sinh
+});
 </script> -->
