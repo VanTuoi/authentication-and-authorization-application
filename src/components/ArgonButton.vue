@@ -24,6 +24,14 @@ defineProps({
         type: Boolean,
         default: false,
     },
+    icon: {
+        type: String,
+        default: null,
+    },
+    iconPosition: {
+        type: String,
+        default: 'before', // 'before' or 'after'
+    },
 });
 const getClasses = (variant, color, size, fullWidth, active) => {
     let colorValue, sizeValue, fullWidthValue, activeValue;
@@ -33,17 +41,17 @@ const getClasses = (variant, color, size, fullWidth, active) => {
         colorValue = `bg-gradient-${color}`;
     } else if (variant === 'outline') {
         colorValue = `btn-outline-${color}`;
+    } else if (variant === 'text') {
+        colorValue = `btn-${color}-text`; // Apply text only color
     } else {
         colorValue = `btn-${color}`;
     }
 
     sizeValue = size ? `btn-${size}` : null;
-
     fullWidthValue = fullWidth ? `w-100` : null;
-
     activeValue = active ? `active` : null;
 
-    return `${colorValue} ${sizeValue} ${fullWidthValue} ${activeValue}`;
+    return `${colorValue} ${sizeValue} ${fullWidthValue} ${activeValue}`.trim();
 };
 </script>
 <template>
@@ -60,7 +68,14 @@ const getClasses = (variant, color, size, fullWidth, active) => {
             aria-hidden="true"
         ></span>
         <span v-else>
-            <slot></slot>
+            <template v-if="iconPosition === 'before'">
+                <i v-if="icon" :class="`fa fa-${icon} me-2`"></i>
+                <slot></slot>
+            </template>
+            <template v-else>
+                <slot></slot>
+                <i v-if="icon" :class="`fa fa-${icon} ms-2`"></i>
+            </template>
         </span>
     </button>
 </template>

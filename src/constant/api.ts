@@ -8,6 +8,8 @@ export const authCapNhat = '/users';
 
 // quản lý
 export const getAllUser = '/users';
+export const createUsers = '/users';
+export const deleteUsers = '/users';
 
 // Quyền
 export const getAllRole = '/roles';
