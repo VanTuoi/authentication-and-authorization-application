@@ -389,6 +389,85 @@ const filteredUsers = computed(() => {
     });
 });
 
+const handleClickDelete = async (id) => {
+    let millisecondsDelay = 5000;
+    let isDelete = true;
+    let userToDelete = null;
+    let userIndexToDelete = -1;
+
+    const delay = () => {
+        return new Promise((resolve, reject) => {
+            const timer = setTimeout(resolve, millisecondsDelay);
+            const checkDeleteStatus = setInterval(() => {
+                if (!isDelete) {
+                    clearTimeout(timer);
+                    clearInterval(checkDeleteStatus);
+                    reject(new Error('Delete cancelled'));
+                }
+            }, 100);
+        });
+    };
+
+    const userIndex = dataUsers.findIndex((user) => user.id === id);
+    if (userIndex !== -1) {
+        userToDelete = dataUsers[userIndex];
+        userIndexToDelete = userIndex;
+        dataUsers.splice(userIndex, 1); // Remove the user from the list
+    }
+
+    // Show custom notification with undo option
+    notify.custom(
+        'Delete user is successfully.',
+        () => {
+            isDelete = false;
+            // Restore the user to the original position if delete is cancelled
+            if (userToDelete) {
+                dataUsers.splice(userIndexToDelete, 0, userToDelete);
+                userToDelete = null;
+                userIndexToDelete = -1;
+            }
+            millisecondsDelay = 0; // Set delay to 0 to prevent timeout
+        },
+        { timeClose: millisecondsDelay } // Set the delay time for the notification
+    );
+
+    try {
+        // Await the delay Promise or timeout
+        await Promise.race([
+            delay(),
+            new Promise((resolve) => setTimeout(resolve, millisecondsDelay, 'Timeout')),
+        ]);
+
+        if (!isDelete) {
+            console.log('Delete was cancelled');
+            return; // Exit if delete was cancelled
+        }
+
+        // Proceed to call the API to delete the user if confirmed
+        let status = await deleteUser(id);
+        if (!status) {
+            notify.error('Delete user is failed');
+            // Restore the user if the delete action failed
+            if (userToDelete) {
+                dataUsers.splice(userIndexToDelete, 0, userToDelete);
+                userToDelete = null;
+                userIndexToDelete = -1;
+            }
+        } else {
+            // Reload the user list based on the current page
+            if (currentPage.value === totalPages.value - 1 && dataUsers.length < pageSize.value) {
+                loadUsers(currentPage.value);
+            } else if (dataUsers.length === 0 && currentPage.value > 0) {
+                currentPage.value--;
+                loadUsers(currentPage.value);
+            } else {
+                loadUsers(currentPage.value);
+            }
+        }
+    } catch (error) {
+        console.log(error.message); // Log any errors
+    }
+};
 const handleAddNewUser = async () => {
     const newUser = await createUser(userInfo);
     if (newUser != null) {
@@ -413,29 +492,6 @@ const handleAddNewUser = async () => {
         modalAddNewUserVisible.value = false;
     } else {
         notify.error('Create user is failed');
-    }
-};
-
-const handleClickDelete = async (id) => {
-    const isSuccess = await deleteUser(id);
-    if (isSuccess) {
-        notify.success('Delete user is successfully');
-        const userIndex = dataUsers.findIndex((user) => user.id === id);
-
-        if (userIndex !== -1) {
-            dataUsers.splice(userIndex, 1);
-            if (currentPage.value === totalPages.value - 1 && dataUsers.length < pageSize.value) {
-                loadUsers(currentPage.value);
-            } else if (dataUsers.length === 0 && currentPage.value > 0) {
-                currentPage.value--;
-                loadUsers(currentPage.value);
-            } else {
-                // Tải lại trang hiện tại
-                loadUsers(currentPage.value);
-            }
-        }
-    } else {
-        notify.error('Delete user is failed');
     }
 };
 
@@ -550,19 +606,116 @@ watch(
 );
 </script> -->
 <!-- <template>
-    <div>
-        <a-date-picker v-model:value="startDate" format="DD/MM/YYYY" />
+    <div class="d-flex gap-1">
+        <a-select
+            v-model:value="selectedValue"
+            size="large"
+            placeholder="Please select"
+            style="width: 100px"
+            @change="handleChange"
+        >
+            <a-select-option value="date">Date</a-select-option>
+            <a-select-option value="week">Week</a-select-option>
+            <a-select-option value="month">Month</a-select-option>
+            <a-select-option value="quarter">Quarter</a-select-option>
+            <a-select-option value="year">Year</a-select-option>
+        </a-select>
+        <a-range-picker
+            v-model="dateRange"
+            placement="bottomRight"
+            size="large"
+            :picker="selectedValue"
+            format="DD/MM/YYYY"
+            @change="handleDateChange"
+        />
+        <a-button size="large" @click="restoreAlerts">Restore</a-button>
+    </div>
+    <div class="mt-3 d-flex gap-1">
+        <div
+            v-if="showStartDateAlert"
+            style="width: 300px"
+            class="alert alert-info alert-dismissible fade show"
+            role="alert"
+        >
+            startDate: {{ startDate.format('DD/MM/YYYY') }}
+            <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                @click="closeStartDateAlert"
+            ></button>
+        </div>
+        <div
+            v-if="showEndDateAlert"
+            style="width: 300px"
+            class="alert alert-warning alert-dismissible fade show"
+            role="alert"
+        >
+            endDate: {{ endDate.format('DD/MM/YYYY') }}
+            <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                @click="closeEndDateAlert"
+            ></button>
+        </div>
     </div>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 import dayjs from 'dayjs';
 
-let objectUserSelect = {}; // Đối tượng user được chọn
-let startDate = ref(dayjs('2024-06-13T12:40:30.000Z', 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
+const selectedValue = ref('date');
+const dateRange = ref([dayjs('2024-06-13T12:40:30.000Z'), dayjs('2024-06-13T12:40:30.000Z')]);
+const startDate = ref(dayjs());
+const endDate = ref(dayjs());
 
-watch(objectUserSelect, () => {
-    startDate.value = objectUserSelect?.dateOfBrith; // lấy ngày sinh
-});
-</script> -->
+const showStartDateAlert = ref(true);
+const showEndDateAlert = ref(true);
+
+const handleChange = (value) => {
+    console.log('Selected Value:', value);
+};
+
+function handleDateChange(value) {
+    if (value && value.length === 2) {
+        startDate.value = value[0];
+        endDate.value = value[1];
+        showStartDateAlert.value = true;
+        showEndDateAlert.value = true;
+    }
+}
+
+function restoreAlerts() {
+    showStartDateAlert.value = true;
+    showEndDateAlert.value = true;
+    print();
+}
+
+function closeStartDateAlert() {
+    showStartDateAlert.value = false;
+}
+
+function closeEndDateAlert() {
+    showEndDateAlert.value = false;
+}
+
+function print() {
+    // call api here
+    console.log('startDate: ', startDate.value.format('DD/MM/YYYY'));
+    console.log('endDate: ', endDate.value.format('DD/MM/YYYY'));
+}
+</script>
+
+<style scoped>
+.d-flex {
+    display: flex;
+}
+.gap-1 > * + * {
+    margin-left: 1rem; /* Adjust this value as needed */
+}
+.mt-3 {
+    margin-top: 1rem;
+}
+</style> -->

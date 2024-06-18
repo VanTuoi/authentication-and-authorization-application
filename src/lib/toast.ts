@@ -1,14 +1,13 @@
-/* eslint-disable prettier/prettier */
 import { toast, ToastOptions } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
-// Define a type for the notify functions
-type NotifyFunction = (message: string, options?: ToastOptions) => void;
+import { h } from 'vue';
+import CustomToast from './CustomToast.vue';
 
-// Define custom toast functions
+type ActionCallback = () => void;
+
 const notify = {
     info: (message: string, options: ToastOptions = {}) => {
         toast.info(message, {
-            // theme:  ? "dark" : "light",
             autoClose: 3000,
             ...options,
         });
@@ -31,12 +30,35 @@ const notify = {
             ...options,
         });
     },
-
     warn: (message: string, options: ToastOptions = {}) => {
         toast.warn(message, {
             autoClose: 3000,
             ...options,
         });
+    },
+    custom: (
+        message: string,
+        onUndo: ActionCallback,
+        options: ToastOptions & { timeClose?: number } = {}
+    ) => {
+        const timeClose = options.timeClose || 3000;
+        const toastId = toast(
+            h(CustomToast, {
+                message,
+                timeClose,
+                actionCallback: () => {
+                    toast.remove(toastId);
+                    onUndo();
+                },
+            }),
+            {
+                autoClose: timeClose,
+                progressStyle: {
+                    backgroundImage: 'linear-gradient(310deg, #add8e6 0%, #1189ef 100%)',
+                },
+                ...options,
+            }
+        );
     },
 };
 
