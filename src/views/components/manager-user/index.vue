@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="card">
         <div class="card-header pb-0">
             <h6>User table</h6>
@@ -544,7 +544,7 @@ const userHasRole = (roleName) => {
     const user = dataUsers.find((user) => user.id === idUserSelect.value);
     return user && user.roles.some((role) => role.name === roleName);
 };
-</script>
+</script> -->
 
 <!-- 
 <template>
@@ -719,3 +719,92 @@ function print() {
     margin-top: 1rem;
 }
 </style> -->
+
+<!-- <script lang="ts" setup>
+import { ref, watch } from 'vue';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
+import weekday from 'dayjs/plugin/weekday';
+import quarterOfYear from 'dayjs/plugin/quarterOfYear';
+dayjs.extend(customParseFormat);
+dayjs.extend(isSameOrAfter);
+dayjs.extend(isSameOrBefore);
+dayjs.extend(weekday);
+dayjs.extend(quarterOfYear);
+
+const data = ref<[Dayjs, Dayjs] | null>(null);
+const picker = ref<'week' | 'month' | 'quarter' | 'year'>('week');
+const startDate = ref<Dayjs | null>(null);
+const endDate = ref<Dayjs | null>(null);
+
+const handleDateChange = (value: [Dayjs, Dayjs]) => {
+    data.value = value;
+    if (data.value) {
+        const [start, end] = data.value;
+        switch (picker.value) {
+            case 'week':
+                startDate.value = dayjs(start).startOf('week');
+                endDate.value = dayjs(end).endOf('week');
+                console.log('Start of week:', startDate.value.format('YYYY-MM-DD'));
+                console.log('End of week:', endDate.value.format('YYYY-MM-DD'));
+                break;
+            case 'month':
+                startDate.value = dayjs(start).startOf('month');
+                endDate.value = dayjs(end).endOf('month');
+                console.log('Start of month:', startDate.value.format('YYYY-MM-DD'));
+                console.log('End of month:', endDate.value.format('YYYY-MM-DD'));
+                break;
+            case 'quarter':
+                startDate.value = dayjs(start).startOf('quarter');
+                endDate.value = dayjs(end).endOf('quarter');
+                console.log('Start of quarter:', startDate.value.format('YYYY-MM-DD'));
+                console.log('End of quarter:', endDate.value.format('YYYY-MM-DD'));
+                break;
+            case 'year':
+                startDate.value = dayjs(start).startOf('year');
+                endDate.value = dayjs(end).endOf('year');
+                console.log('Start of year:', startDate.value.format('YYYY-MM-DD'));
+                console.log('End of year:', endDate.value.format('YYYY-MM-DD'));
+                break;
+            default:
+                console.log(
+                    'data',
+                    dayjs(start).format('YYYY-MM-DD'),
+                    dayjs(end).format('YYYY-MM-DD')
+                );
+        }
+    }
+};
+
+interface DateRange {
+    startDate: string;
+    endDate: string;
+}
+
+// Watch picker changes to handle specific cases
+watch(picker, (newPicker) => {
+    if (data.value) {
+        handleDateChange(data.value);
+    }
+});
+</script>
+
+<template>
+    <a-radio-group v-model:value="picker">
+        <a-radio-button value="week">Week</a-radio-button>
+        <a-radio-button value="month">Month</a-radio-button>
+        <a-radio-button value="quarter">Quarter</a-radio-button>
+        <a-radio-button value="year">Year</a-radio-button>
+    </a-radio-group>
+    <br />
+    <br />
+    <a-space direction="vertical" :size="12">
+        <a-range-picker v-model:value="data" :picker="picker" @change="handleDateChange" />
+    </a-space>
+</template> -->
+<template>
+    <div></div>
+</template>
