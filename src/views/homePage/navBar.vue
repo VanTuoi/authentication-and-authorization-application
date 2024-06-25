@@ -6,7 +6,7 @@
         <nav id="navbar-custom" class="navbar navbar-expand-lg">
             <div id="progress-bar" class=""></div>
             <div class="container-fluid">
-                <div class="col-4 d-flex justify-content-center">
+                <div class="col-3 d-flex justify-content-center">
                     <router-link to="/" class="navbar-brand">
                         <img
                             style="height: 40px; width: 40px; cursor: pointer"
@@ -15,7 +15,8 @@
                         />
                     </router-link>
                 </div>
-                <div class="col-8">
+                <div class="col-2"></div>
+                <div class="col-7">
                     <button
                         class="navbar-toggler"
                         type="button"
@@ -218,7 +219,7 @@ onMounted(() => {
     top: 0;
     left: 0;
     width: 0;
-    height: 4px;
+    height: 3px;
     background-image: linear-gradient(310deg, #2dce89 0%, #2dcecc 100%);
     transition: width 1s;
     border-radius: 8px;
@@ -235,6 +236,7 @@ onMounted(() => {
 .navbar-short {
     background: #fff;
     height: 70px; /* Chiều cao khi cuộn xuống */
+    box-shadow: none !important; /* Tắt bóng đổ */
 }
 
 /* Đảm bảo rằng dropdown không bị ẩn */

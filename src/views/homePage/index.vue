@@ -197,17 +197,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="card" data-aos="fade-up" data-aos-delay="100">
-                            <div
-                                class="card-body"
-                                style="
-                                    text-align: center;
-                                    height: 50vh;
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    align-items: center;
-                                "
-                            >
+                            <div class="card-body">
                                 <img
                                     style="height: 150px; width: 150px"
                                     alt="moving-image"
@@ -222,17 +212,7 @@
                     </div>
                     <div class="col">
                         <div class="card" data-aos="fade-up" data-aos-delay="200">
-                            <div
-                                class="card-body"
-                                style="
-                                    text-align: center;
-                                    height: 50vh;
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    align-items: center;
-                                "
-                            >
+                            <div class="card-body">
                                 <img
                                     style="height: 150px; width: 150px"
                                     alt="moving-image"
@@ -247,17 +227,7 @@
                     </div>
                     <div class="col">
                         <div class="card" data-aos="fade-up" data-aos-delay="300">
-                            <div
-                                class="card-body"
-                                style="
-                                    text-align: center;
-                                    height: 50vh;
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    align-items: center;
-                                "
-                            >
+                            <div class="card-body">
                                 <img
                                     style="height: 150px; width: 150px"
                                     alt="moving-image"
@@ -272,17 +242,7 @@
                     </div>
                     <div class="col">
                         <div class="card" data-aos="fade-up" data-aos-delay="400">
-                            <div
-                                class="card-body"
-                                style="
-                                    text-align: center;
-                                    height: 50vh;
-                                    display: flex;
-                                    flex-direction: column;
-                                    justify-content: center;
-                                    align-items: center;
-                                "
-                            >
+                            <div class="card-body">
                                 <img
                                     style="height: 150px; width: 150px"
                                     alt="moving-image"
@@ -296,11 +256,235 @@
                 </div>
             </div>
         </section>
+        <section id="section-4" class="section">
+            <div class="container">
+                <div class="row p-5" data-aos="fade-right">
+                    <h2>Outstanding products</h2>
+                </div>
+                <div class="row">
+                    <div class="col-4 ms-auto">
+                        <div class="card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card-body">
+                                <div
+                                    style="
+                                        border-radius: 0.5rem;
+                                        background-image: url('images/special/thumbnail_BHL.png');
+                                        background-size: cover;
+                                        background-position: center;
+                                        height: 320px;
+                                        width: 365px;
+                                    "
+                                ></div>
+                                <h6 class="card-title p-3">Set of electronic learning materials</h6>
+                                <div class="d-flex justify-content-center w-100">
+                                    <div
+                                        v-for="(value, index) in timeParts"
+                                        :key="index"
+                                        class="text-center"
+                                        :class="index % 2 === 0 ? 'boxStyle' : 'separatorStyle'"
+                                    >
+                                        {{ value }}
+                                    </div>
+                                </div>
+                                <p class="p-1">(Special price in)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 ms-auto">
+                        <div
+                            class="card"
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                            style="background-color: rgb(239, 214, 255)"
+                        >
+                            <div class="card-body">
+                                <div
+                                    style="
+                                        border-radius: 0.5rem;
+                                        background-image: url('images/special/thumbnail_maytinh.png');
+                                        background-size: cover;
+                                        background-position: center;
+                                        height: 320px;
+                                        width: 365px;
+                                    "
+                                ></div>
+                                <h6 class="card-title p-3">Device</h6>
+                                <div class="d-flex justify-content-center w-100">
+                                    <div
+                                        v-for="(value, index) in timeParts"
+                                        :key="index"
+                                        class="text-center"
+                                        :class="index % 2 === 0 ? 'boxStyle' : 'separatorStyle'"
+                                    >
+                                        {{ value }}
+                                    </div>
+                                </div>
+                                <p class="p-1">(Special price in)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4 ms-auto">
+                        <div
+                            class=""
+                            data-aos="fade-up"
+                            data-aos-delay="100"
+                            style="background-color: white"
+                        >
+                            <div class="">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="d-flex flex-wrap">
+                                            <div
+                                                class="flex-grow-1 mx-2 mb-2"
+                                                style="
+                                                    border: 1px solid gainsboro;
+                                                    border-radius: 8px;
+                                                "
+                                            >
+                                                <div
+                                                    class="text-center d-flex flex-column justify-content-center align-items-center"
+                                                >
+                                                    <div
+                                                        class="image-container"
+                                                        style="
+                                                            height: 125px;
+                                                            width: 125px;
+                                                            margin: 10px;
+                                                            overflow: hidden;
+                                                            border-radius: 8px;
+                                                        "
+                                                    >
+                                                        <div
+                                                            class="image-background"
+                                                            style="
+                                                                height: 100%;
+                                                                width: 100%;
+                                                                background-image: url('images/special/thumbnail_thietke.png');
+                                                                background-size: cover;
+                                                                background-position: center;
+                                                            "
+                                                        ></div>
+                                                    </div>
+                                                    <p class="card-title">Editorial design</p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="flex-grow-1 mx-2 mb-2"
+                                                style="
+                                                    border: 1px solid gainsboro;
+                                                    border-radius: 8px;
+                                                "
+                                            >
+                                                <div
+                                                    class="text-center d-flex flex-column justify-content-center align-items-center"
+                                                >
+                                                    <div
+                                                        class="image-container"
+                                                        style="
+                                                            height: 125px;
+                                                            width: 125px;
+                                                            margin: 10px;
+                                                            overflow: hidden;
+                                                            border-radius: 8px;
+                                                        "
+                                                    >
+                                                        <div
+                                                            class="image-background"
+                                                            style="
+                                                                height: 100%;
+                                                                width: 100%;
+                                                                background-image: url('images/special/thumbnail_video.png');
+                                                                background-size: cover;
+                                                                background-position: center;
+                                                            "
+                                                        ></div>
+                                                    </div>
+                                                    <p class="card-title">Video editing</p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="flex-grow-1 mx-2 mb-2"
+                                                style="
+                                                    border: 1px solid gainsboro;
+                                                    border-radius: 8px;
+                                                "
+                                            >
+                                                <div
+                                                    class="text-center d-flex flex-column justify-content-center align-items-center"
+                                                >
+                                                    <div
+                                                        class="image-container"
+                                                        style="
+                                                            height: 125px;
+                                                            width: 125px;
+                                                            margin: 10px;
+                                                            overflow: hidden;
+                                                            border-radius: 8px;
+                                                        "
+                                                    >
+                                                        <div
+                                                            class="image-background"
+                                                            style="
+                                                                height: 100%;
+                                                                width: 100%;
+                                                                background-image: url('images/special/thumbnail_mascot.png');
+                                                                background-size: cover;
+                                                                background-position: center;
+                                                            "
+                                                        ></div>
+                                                    </div>
+                                                    <p class="card-title">2D 3D drawing</p>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="flex-grow-1 mx-2 mb-2"
+                                                style="
+                                                    border: 1px solid gainsboro;
+                                                    border-radius: 8px;
+                                                "
+                                            >
+                                                <div
+                                                    class="text-center d-flex flex-column justify-content-center align-items-center"
+                                                >
+                                                    <div
+                                                        class="image-container"
+                                                        style="
+                                                            height: 125px;
+                                                            width: 125px;
+                                                            margin: 10px;
+                                                            overflow: hidden;
+                                                            border-radius: 8px;
+                                                        "
+                                                    >
+                                                        <div
+                                                            class="image-background"
+                                                            style="
+                                                                height: 100%;
+                                                                width: 100%;
+                                                                background-image: url('images/special/thumbnail_logo.png');
+                                                                background-size: cover;
+                                                                background-position: center;
+                                                            "
+                                                        ></div>
+                                                    </div>
+                                                    <p class="card-title">Logo design</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="section-5" class="section"></section>
     </div>
 </template>
 
 <script setup>
-import { onMounted, ref, onUnmounted, watch, onBeforeUnmount } from 'vue';
+import { onMounted, ref, onUnmounted, watch, computed, onBeforeUnmount } from 'vue';
 import navBar from './navBar.vue';
 import 'aos/dist/aos.css'; // Ensure you import AOS CSS
 import ArgonButton from '@/components/ArgonButton.vue';
@@ -500,6 +684,62 @@ onMounted(() => {
 
     window.addEventListener('scroll', updateCounts);
 });
+
+// section 4
+const getSavedCountdownTime = () => {
+    const savedTime = localStorage.getItem('countdownTime');
+    return savedTime !== null ? parseInt(savedTime, 10) : 48 * 60 * 60;
+};
+
+const countdownTime = ref(getSavedCountdownTime());
+
+const getFormattedTime = (timeInSeconds) => {
+    const days = Math.floor(timeInSeconds / (24 * 60 * 60));
+    const hours = Math.floor((timeInSeconds % (24 * 60 * 60)) / (60 * 60));
+    const minutes = Math.floor((timeInSeconds % (60 * 60)) / 60);
+    const seconds = timeInSeconds % 60;
+    return {
+        days: String(days).padStart(2, '0'),
+        hours: String(hours).padStart(2, '0'),
+        minutes: String(minutes).padStart(2, '0'),
+        seconds: String(seconds).padStart(2, '0'),
+    };
+};
+
+const currentTime = ref(getFormattedTime(countdownTime.value));
+
+const updateTime = () => {
+    if (countdownTime.value > 0) {
+        countdownTime.value--;
+        currentTime.value = getFormattedTime(countdownTime.value);
+    }
+};
+
+let interval = null;
+
+onMounted(() => {
+    interval = setInterval(updateTime, 1000);
+    window.addEventListener('beforeunload', saveCountdownTime);
+});
+
+onUnmounted(() => {
+    clearInterval(interval);
+    window.removeEventListener('beforeunload', saveCountdownTime);
+});
+
+const saveCountdownTime = () => {
+    localStorage.setItem('countdownTime', countdownTime.value);
+};
+
+const timeParts = computed(() => [
+    currentTime.value.days,
+    ':',
+    currentTime.value.hours,
+    ':',
+    currentTime.value.minutes,
+    ':',
+    currentTime.value.seconds,
+]);
 </script>
 <style scoped>
 .landing-page {
@@ -590,5 +830,113 @@ onMounted(() => {
     align-items: left-start;
     justify-content: flex-start;
     height: 70vh;
+}
+
+#section-3 .card {
+    text-align: center;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1; /* Đặt z-index cho phần tử .card */
+}
+
+#section-3 .card:hover {
+    transition:
+        transform 0.2s ease 0s,
+        box-shadow 0.2s ease 0s;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #67b4ff; /*#67b4ff */
+    z-index: 2; /* Tăng z-index khi hover để phần tử lên trên */
+}
+
+#section-3 .card .card-body {
+    position: relative;
+    z-index: 1;
+}
+
+#section-3 .card:hover::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-image: linear-gradient(310deg, #2dce89 0%, #2dcecc 100%);  */
+    opacity: 0.7;
+    border-radius: 1rem;
+    transition: opacity 0.3s ease;
+    z-index: -100; /* Đặt phần tử giả phía sau phần tử chính */
+    box-shadow: 0px 8px 20px -5px #67b4ff; /* Sử dụng màu gradient như màu bóng */
+    pointer-events: none; /* Ngăn chặn phần tử giả chặn tương tác chuột */
+}
+
+#section-4 .card {
+    background-color: rgb(209, 233, 252);
+    text-align: center;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1; /* Đặt z-index cho phần tử .card */
+}
+
+#section-4 .card:hover {
+    transition:
+        transform 0.2s ease 0s,
+        box-shadow 0.1s ease 0s;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px #67b4ff; /*#67b4ff */
+    z-index: 2; /* Tăng z-index khi hover để phần tử lên trên */
+}
+
+#section-4 .card .card-body {
+    position: relative;
+    z-index: 1;
+}
+
+#section-4 .card:hover::before {
+    display: inline-block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-image: linear-gradient(310deg, #2dce89 0%, #2dcecc 100%); */
+    opacity: 0.7;
+    border-radius: 1rem;
+    transition: opacity 0.3s ease;
+    z-index: -100; /* Đặt phần tử giả phía sau phần tử chính */
+    box-shadow: 0px 8px 20px -5px #67b4ff; /* Sử dụng màu gradient như màu bóng */
+    pointer-events: none; /* Ngăn chặn phần tử giả chặn tương tác chuột */
+}
+.boxStyle {
+    color: #fff;
+    height: 45px;
+    width: 50px;
+    border-radius: 0.7rem;
+    background-color: rgb(33, 43, 54);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.separatorStyle {
+    color: black;
+    height: 45px;
+    width: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 </style>
