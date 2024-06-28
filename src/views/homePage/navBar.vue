@@ -193,7 +193,6 @@ onMounted(() => {
         const scrollPercent = (scrollTop / docHeight) * 100;
         document.getElementById('progress-bar').style.width = `${scrollPercent}%`;
 
-        // Thay đổi chiều cao của navbar
         const navbar = document.getElementById('navbar-custom');
         if (window.scrollY < 2) {
             navbar.classList.remove('navbar-short');
@@ -205,8 +204,6 @@ onMounted(() => {
     };
 
     window.addEventListener('scroll', updateProgressBar);
-
-    // Clean up event listener on component unmount
     onBeforeUnmount(() => {
         window.removeEventListener('scroll', updateProgressBar);
     });
@@ -225,36 +222,33 @@ onMounted(() => {
     border-radius: 8px;
 }
 #navbar-custom {
-    transition: height 0.5s ease; /* Thêm transition cho height */
+    transition: height 0.5s ease;
 }
 
 .navbar-tall {
     background: transparent;
-    height: 80px; /* Chiều cao khi đầu trang */
+    height: 80px;
 }
 
 .navbar-short {
     background: #fff;
-    height: 70px; /* Chiều cao khi cuộn xuống */
-    box-shadow: none !important; /* Tắt bóng đổ */
+    height: 70px;
+    box-shadow: none !important;
 }
 
-/* Đảm bảo rằng dropdown không bị ẩn */
 .navbar-nav .nav-item {
-    margin-right: 25px; /* Điều chỉnh giá trị theo nhu cầu */
+    margin-right: 25px;
 }
 .navbar .dropdown-menu {
     display: none;
 }
 
-/* Hiển thị dropdown khi hover vào phần tử điều khiển */
 .navbar .dropdown:hover .dropdown-menu {
     display: block;
 }
 
-/* Đảm bảo dropdown hiển thị đúng vị trí */
 .navbar .dropdown-menu {
-    margin-top: 0; /* Tùy chọn: Điều chỉnh margin nếu cần */
+    margin-top: 0;
 }
 .fa-spin {
     animation: spin 10s infinite linear;

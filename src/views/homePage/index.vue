@@ -131,9 +131,9 @@
             data-aos-offset="100"
             data-aos-easing="ease-in-sine"
             data-aos-delay="000"
-            style="height: 70vh !important"
+            style="height: 80vh !important"
         >
-            <div class="row" style="height: 80vh">
+            <div class="row" style="height: 90vh">
                 <div class="col-6">
                     <div class="text-container-section-2">
                         <h1 style="font-size: 2.75rem">
@@ -186,7 +186,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6"></div>
+                <div class="col-6">
+                    <div class="image-container-section-2">
+                        <img
+                            alt="mascot-image"
+                            src="images/mascot.png"
+                            style="
+                                height: 115%;
+                                width: auto;
+                                object-fit: cover;
+                                vertical-align: top;
+                            "
+                        />
+                    </div>
+                </div>
             </div>
         </section>
         <section id="section-3" class="section">
@@ -479,7 +492,7 @@
                 </div>
             </div>
         </section>
-        <section id="section-5" class="section"></section>
+        <!-- <section id="section-5" class="section"></section> -->
     </div>
 </template>
 
@@ -504,37 +517,34 @@ onMounted(() => {
         const element = document.getElementById('moving-images');
         const elementSection1 = document.getElementById('section-1');
         if (element && elementSection1) {
-            const maxScrollY = window.innerHeight; // Chiều cao của cửa sổ trình duyệt, xem như cuộn hết 1 trang
-            const minSkewX = -16; // Giá trị skewX mặc định
-            const maxSkewX = -20; // Giá trị skewX khi cuộn hết 1 trang
-            const minSkewY = 4; // Giá trị skewY mặc định
-            const maxSkewY = 0; // Giá trị skewY khi cuộn hết 1 trang
+            const maxScrollY = window.innerHeight;
+            const minSkewX = -16;
+            const maxSkewX = -20;
+            const minSkewY = 4;
+            const maxSkewY = 0;
 
             const scrollY = Math.min(window.scrollY, maxScrollY);
             const skewX = minSkewX + (maxSkewX - minSkewX) * (scrollY / maxScrollY);
             const skewY = minSkewY + (maxSkewY - minSkewY) * (scrollY / maxScrollY);
 
-            // Cập nhật transform cho moving-images
+            // update transform
             element.style.transition = 'transform 0.3s ease-out';
             element.style.transform = `skew(${skewX}deg, ${skewY}deg)`;
 
-            // Cập nhật độ mờ cho section-1 khi scrollY = 0
             if (scrollY === 0) {
                 elementSection1.style.transition = 'opacity 0.3s ease-out';
                 elementSection1.style.opacity = '1';
             } else {
-                // Cập nhật độ mờ ngược lại khi scrollY khác 0
-                const opacity = 1 - (scrollY / maxScrollY) * 0.85; // 0.7 là độ mờ tối đa (70%)
+                const opacity = 1 - (scrollY / maxScrollY) * 0.85;
                 elementSection1.style.transition = 'opacity 0.3s ease-out';
                 elementSection1.style.opacity = opacity.toString();
             }
         }
     };
 
-    // Cuộn trang lên đầu khi load hoàn tất
     window.onload = () => {
         window.scrollTo(0, 0);
-        updateSkew(); // Cập nhật lại skew và opacity sau khi cuộn lên đầu
+        updateSkew();
     };
 
     const throttleUpdateSkew = () => {
@@ -563,7 +573,7 @@ let animationFrameId2;
 
 const animateImage1 = () => {
     let start = performance.now();
-    const initialTranslateY = -70; // Bắt đầu từ cuối ảnh (100% chiều cao)
+    const initialTranslateY = -70;
     const duration = 200000;
 
     const moveImage1 = (timestamp) => {
@@ -645,7 +655,6 @@ onMounted(() => {
         const viewportHeight = window.innerHeight;
 
         if (elementTop < viewportHeight) {
-            // Hiệu ứng tăng số liệu từ 0 đến 13 cho numberCount
             let count1 = 0;
             const interval1 = setInterval(() => {
                 if (count1 <= 13) {
@@ -655,8 +664,6 @@ onMounted(() => {
                     clearInterval(interval1);
                 }
             }, 100);
-
-            // Hiệu ứng tăng số liệu từ 0 đến 59 cho softwareCount
             let count2 = 0;
             const interval2 = setInterval(() => {
                 if (count2 <= 59) {
@@ -666,8 +673,6 @@ onMounted(() => {
                     clearInterval(interval2);
                 }
             }, 30);
-
-            // Hiệu ứng tăng số liệu từ 0 đến 139 cho deviceCount
             let count3 = 0;
             const interval3 = setInterval(() => {
                 if (count3 <= 139) {
@@ -678,7 +683,7 @@ onMounted(() => {
                 }
             }, 15);
 
-            window.removeEventListener('scroll', updateCounts); // Gỡ bỏ event listener sau khi hoàn thành
+            window.removeEventListener('scroll', updateCounts);
         }
     };
 
@@ -829,6 +834,15 @@ const timeParts = computed(() => [
     flex-direction: column;
     align-items: left-start;
     justify-content: flex-start;
+    height: 90vh;
+}
+
+.image-container-section-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    /* border: 1px solid red; */
     height: 70vh;
 }
 
@@ -841,7 +855,7 @@ const timeParts = computed(() => [
     align-items: center;
     transition: transform 0.3s ease;
     position: relative;
-    z-index: 1; /* Đặt z-index cho phần tử .card */
+    z-index: 1;
 }
 
 #section-3 .card:hover {
@@ -850,7 +864,7 @@ const timeParts = computed(() => [
         box-shadow 0.2s ease 0s;
     transform: scale(1.05);
     box-shadow: 0 0 20px #67b4ff; /*#67b4ff */
-    z-index: 2; /* Tăng z-index khi hover để phần tử lên trên */
+    z-index: 2;
 }
 
 #section-3 .card .card-body {
@@ -870,9 +884,9 @@ const timeParts = computed(() => [
     opacity: 0.7;
     border-radius: 1rem;
     transition: opacity 0.3s ease;
-    z-index: -100; /* Đặt phần tử giả phía sau phần tử chính */
-    box-shadow: 0px 8px 20px -5px #67b4ff; /* Sử dụng màu gradient như màu bóng */
-    pointer-events: none; /* Ngăn chặn phần tử giả chặn tương tác chuột */
+    z-index: -100;
+    box-shadow: 0px 8px 20px -5px #67b4ff;
+    pointer-events: none;
 }
 
 #section-4 .card {
@@ -885,7 +899,7 @@ const timeParts = computed(() => [
     align-items: center;
     transition: transform 0.3s ease;
     position: relative;
-    z-index: 1; /* Đặt z-index cho phần tử .card */
+    z-index: 1;
 }
 
 #section-4 .card:hover {
@@ -894,7 +908,7 @@ const timeParts = computed(() => [
         box-shadow 0.1s ease 0s;
     transform: scale(1.02);
     box-shadow: 0 0 20px #67b4ff; /*#67b4ff */
-    z-index: 2; /* Tăng z-index khi hover để phần tử lên trên */
+    z-index: 2;
 }
 
 #section-4 .card .card-body {
@@ -914,9 +928,9 @@ const timeParts = computed(() => [
     opacity: 0.7;
     border-radius: 1rem;
     transition: opacity 0.3s ease;
-    z-index: -100; /* Đặt phần tử giả phía sau phần tử chính */
-    box-shadow: 0px 8px 20px -5px #67b4ff; /* Sử dụng màu gradient như màu bóng */
-    pointer-events: none; /* Ngăn chặn phần tử giả chặn tương tác chuột */
+    z-index: -100;
+    box-shadow: 0px 8px 20px -5px #67b4ff;
+    pointer-events: none;
 }
 .boxStyle {
     color: #fff;
