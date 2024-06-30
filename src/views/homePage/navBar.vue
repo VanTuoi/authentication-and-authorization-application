@@ -6,7 +6,7 @@
         <nav id="navbar-custom" class="navbar navbar-expand-lg">
             <div id="progress-bar" class=""></div>
             <div class="container-fluid">
-                <div class="col-3 d-flex justify-content-center">
+                <div class="col-3 d-none d-sm-block d-flex justify-content-center">
                     <router-link to="/" class="navbar-brand">
                         <img
                             style="height: 40px; width: 40px; cursor: pointer"
@@ -15,19 +15,24 @@
                         />
                     </router-link>
                 </div>
-                <div class="col-2"></div>
+                <div class="col-2 d-none d-sm-block"></div>
                 <div class="col-7">
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    <div class="d-flex flex-row-end">
+                        <argon-button
+                            class="navbar-toggler btn btn-outline-success"
+                            icon="fas fa-stream"
+                            variant="text"
+                            color="success"
+                            type="button"
+                            size="lg"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                        </argon-button>
+                    </div>
                     <div
                         id="navbarSupportedContent"
                         class="collapse navbar-collapse collapse-custom"

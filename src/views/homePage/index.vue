@@ -2,26 +2,37 @@
     <div class="landing-page" style="width: 100%">
         <navBar></navBar>
         <section id="section-1" class="section" data-aos="zoom-in">
-            <div class="row" style="height: 90vh">
-                <div class="col-6">
+            <div class="row" style="height: 85vh">
+                <div class="col-lg-6 col-12">
                     <div class="text-container">
-                        <h1 style="font-size: 2.75rem">
+                        <h1 class="fs-10 fs-md-10 fs-lg-4 fs-xl-1">
                             Source of <br />
                             creative inspiration
                         </h1>
-                        <h1 class="custom-text-logo">IIT</h1>
-                        <p style="font-weight: 400">
+                        <h1
+                            class="custom-text-logo display-1 display-md-2 display-lg-1 display-xl-1"
+                        >
+                            IIT
+                        </h1>
+                        <p
+                            style="
+                                padding-left: 5vw;
+                                padding-right: 5vw;
+                                font-weight: 400;
+                                text-align: center;
+                            "
+                        >
                             Always listen and commit to providing the best quality of every service.
-                            Your satisfaction is our creative inspiration!.
+                            Your satisfaction is our creative inspiration!
                         </p>
-                        <div class="d-flex gap-2 m-3" style="color: #f9ae00">
+                        <div class="d-flex gap-2 m-2 mb-4" style="color: #f9ae00">
                             <i
                                 v-for="star in [1, 2, 3, 4, 5]"
                                 :key="star"
                                 class="fas fa-lg fa-star"
                             ></i>
                         </div>
-                        <div class="d-flex gap-3">
+                        <div class="d-flex gap-3 flex-column flex-md-row">
                             <argon-button
                                 icon="fa-solid fa-phone"
                                 variant="gradient"
@@ -33,7 +44,7 @@
                                 Contact
                             </argon-button>
                             <argon-button
-                                icon="fas fa-box"
+                                icon="fas fa-box-open"
                                 variant="outline"
                                 color="success"
                                 size="lg"
@@ -45,7 +56,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="image-container" class="col-6">
+                <div id="image-container" class="col-lg-6 d-none d-lg-block">
                     <div id="moving-images">
                         <div class="moving-image-1">
                             <img
@@ -131,12 +142,12 @@
             data-aos-offset="100"
             data-aos-easing="ease-in-sine"
             data-aos-delay="000"
-            style="height: 80vh !important"
+            style="height: 75vh !important"
         >
-            <div class="row" style="height: 90vh">
-                <div class="col-6">
+            <div class="row">
+                <div class="col-lg-6 col-12">
                     <div class="text-container-section-2">
-                        <h1 style="font-size: 2.75rem">
+                        <h1 class="fs-10 fs-md-10 fs-lg-4 fs-xl-1 text-center text-md-left">
                             The
                             <span style="color: gray">satisfied is</span><br />
                             <span class="text-success text-gradient text-decoration-underline"
@@ -145,11 +156,11 @@
                             <br />
                             ours
                         </h1>
-                        <p style="font-weight: 400" class="p-3 ps-0">
+                        <p style="font-weight: 400" class="text-center p-3 ps-0">
                             Providing digital transformation solutions, optimal technology solutions
                             that are easy to use for businesses and business households
                         </p>
-                        <div class="d-flex gap-3">
+                        <div class="d-flex gap-3 flex-column flex-md-row justify-content-center">
                             <argon-button
                                 variant="gradient"
                                 color="dark"
@@ -170,7 +181,7 @@
                                 See more
                             </argon-button>
                         </div>
-                        <div class="d-flex gap-5 pt-5">
+                        <div class="d-flex gap-5 pt-5 justify-content-center">
                             <div id="animatedDiv" class="d-flex flex-column text-center">
                                 <h3>{{ numberCount }}k+</h3>
                                 <p>Pictures and videos</p>
@@ -186,7 +197,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-6">
+                <div class="col-6 d-none d-lg-block">
                     <div class="image-container-section-2">
                         <img
                             alt="mascot-image"
@@ -203,11 +214,11 @@
             </div>
         </section>
         <section id="section-3" class="section">
-            <div class="container">
+            <div class="container" style="padding-left: 2vw; padding-right: 2vw">
                 <div class="row p-5" data-aos="fade-right">
                     <h2>Provide services</h2>
                 </div>
-                <div class="row">
+                <div class="row gap-4">
                     <div class="col">
                         <div class="card" data-aos="fade-up" data-aos-delay="100">
                             <div class="card-body">
@@ -270,12 +281,12 @@
             </div>
         </section>
         <section id="section-4" class="section">
-            <div class="container">
-                <div class="row p-5" data-aos="fade-right">
+            <div class="container" style="min-height: 85vh">
+                <div class="row pt-5 pb-5" data-aos="fade-right">
                     <h2>Outstanding products</h2>
                 </div>
-                <div class="row">
-                    <div class="col-4 ms-auto">
+                <div class="row gap-4">
+                    <div class="col ms-auto">
                         <div class="card" data-aos="fade-up" data-aos-delay="100">
                             <div class="card-body">
                                 <div
@@ -284,8 +295,9 @@
                                         background-image: url('images/special/thumbnail_BHL.png');
                                         background-size: cover;
                                         background-position: center;
-                                        height: 320px;
-                                        width: 365px;
+                                        height: 280px;
+                                        min-width: 280px;
+                                        width: auto;
                                     "
                                 ></div>
                                 <h6 class="card-title p-3">Set of electronic learning materials</h6>
@@ -303,7 +315,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 ms-auto">
+                    <div class="col ms-auto">
                         <div
                             class="card"
                             data-aos="fade-up"
@@ -317,8 +329,9 @@
                                         background-image: url('images/special/thumbnail_maytinh.png');
                                         background-size: cover;
                                         background-position: center;
-                                        height: 320px;
-                                        width: 365px;
+                                        height: 280px;
+                                        min-width: 280px;
+                                        width: auto;
                                     "
                                 ></div>
                                 <h6 class="card-title p-3">Device</h6>
@@ -336,7 +349,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 ms-auto">
+                    <div class="col ms-auto">
                         <div
                             class=""
                             data-aos="fade-up"
@@ -344,144 +357,130 @@
                             style="background-color: white"
                         >
                             <div class="">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="d-flex flex-wrap">
+                                <div class="row">
+                                    <div class="d-flex flex-wrap">
+                                        <div
+                                            class="flex-grow-1 mx-2 mb-2"
+                                            style="border: 1px solid gainsboro; border-radius: 8px"
+                                        >
                                             <div
-                                                class="flex-grow-1 mx-2 mb-2"
-                                                style="
-                                                    border: 1px solid gainsboro;
-                                                    border-radius: 8px;
-                                                "
+                                                class="text-center d-flex flex-column justify-content-center align-items-center"
                                             >
                                                 <div
-                                                    class="text-center d-flex flex-column justify-content-center align-items-center"
+                                                    class="image-container"
+                                                    style="
+                                                        height: 125px;
+                                                        width: 125px;
+                                                        margin: 10px;
+                                                        overflow: hidden;
+                                                        border-radius: 8px;
+                                                    "
                                                 >
                                                     <div
-                                                        class="image-container"
+                                                        class="image-background"
                                                         style="
-                                                            height: 125px;
-                                                            width: 125px;
-                                                            margin: 10px;
-                                                            overflow: hidden;
-                                                            border-radius: 8px;
+                                                            height: 100%;
+                                                            width: 100%;
+                                                            background-image: url('images/special/thumbnail_thietke.png');
+                                                            background-size: cover;
+                                                            background-position: center;
                                                         "
-                                                    >
-                                                        <div
-                                                            class="image-background"
-                                                            style="
-                                                                height: 100%;
-                                                                width: 100%;
-                                                                background-image: url('images/special/thumbnail_thietke.png');
-                                                                background-size: cover;
-                                                                background-position: center;
-                                                            "
-                                                        ></div>
-                                                    </div>
-                                                    <p class="card-title">Editorial design</p>
+                                                    ></div>
                                                 </div>
+                                                <p class="card-title">Editorial design</p>
                                             </div>
+                                        </div>
+                                        <div
+                                            class="flex-grow-1 mx-2 mb-2"
+                                            style="border: 1px solid gainsboro; border-radius: 8px"
+                                        >
                                             <div
-                                                class="flex-grow-1 mx-2 mb-2"
-                                                style="
-                                                    border: 1px solid gainsboro;
-                                                    border-radius: 8px;
-                                                "
+                                                class="text-center d-flex flex-column justify-content-center align-items-center"
                                             >
                                                 <div
-                                                    class="text-center d-flex flex-column justify-content-center align-items-center"
+                                                    class="image-container"
+                                                    style="
+                                                        height: 125px;
+                                                        width: 125px;
+                                                        margin: 10px;
+                                                        overflow: hidden;
+                                                        border-radius: 8px;
+                                                    "
                                                 >
                                                     <div
-                                                        class="image-container"
+                                                        class="image-background"
                                                         style="
-                                                            height: 125px;
-                                                            width: 125px;
-                                                            margin: 10px;
-                                                            overflow: hidden;
-                                                            border-radius: 8px;
+                                                            height: 100%;
+                                                            width: 100%;
+                                                            background-image: url('images/special/thumbnail_video.png');
+                                                            background-size: cover;
+                                                            background-position: center;
                                                         "
-                                                    >
-                                                        <div
-                                                            class="image-background"
-                                                            style="
-                                                                height: 100%;
-                                                                width: 100%;
-                                                                background-image: url('images/special/thumbnail_video.png');
-                                                                background-size: cover;
-                                                                background-position: center;
-                                                            "
-                                                        ></div>
-                                                    </div>
-                                                    <p class="card-title">Video editing</p>
+                                                    ></div>
                                                 </div>
+                                                <p class="card-title">Video editing</p>
                                             </div>
+                                        </div>
+                                        <div
+                                            class="flex-grow-1 mx-2 mb-2"
+                                            style="border: 1px solid gainsboro; border-radius: 8px"
+                                        >
                                             <div
-                                                class="flex-grow-1 mx-2 mb-2"
-                                                style="
-                                                    border: 1px solid gainsboro;
-                                                    border-radius: 8px;
-                                                "
+                                                class="text-center d-flex flex-column justify-content-center align-items-center"
                                             >
                                                 <div
-                                                    class="text-center d-flex flex-column justify-content-center align-items-center"
+                                                    class="image-container"
+                                                    style="
+                                                        height: 125px;
+                                                        width: 125px;
+                                                        margin: 10px;
+                                                        overflow: hidden;
+                                                        border-radius: 8px;
+                                                    "
                                                 >
                                                     <div
-                                                        class="image-container"
+                                                        class="image-background"
                                                         style="
-                                                            height: 125px;
-                                                            width: 125px;
-                                                            margin: 10px;
-                                                            overflow: hidden;
-                                                            border-radius: 8px;
+                                                            height: 100%;
+                                                            width: 100%;
+                                                            background-image: url('images/special/thumbnail_mascot.png');
+                                                            background-size: cover;
+                                                            background-position: center;
                                                         "
-                                                    >
-                                                        <div
-                                                            class="image-background"
-                                                            style="
-                                                                height: 100%;
-                                                                width: 100%;
-                                                                background-image: url('images/special/thumbnail_mascot.png');
-                                                                background-size: cover;
-                                                                background-position: center;
-                                                            "
-                                                        ></div>
-                                                    </div>
-                                                    <p class="card-title">2D 3D drawing</p>
+                                                    ></div>
                                                 </div>
+                                                <p class="card-title">2D 3D drawing</p>
                                             </div>
+                                        </div>
+                                        <div
+                                            class="flex-grow-1 mx-2 mb-2"
+                                            style="border: 1px solid gainsboro; border-radius: 8px"
+                                        >
                                             <div
-                                                class="flex-grow-1 mx-2 mb-2"
-                                                style="
-                                                    border: 1px solid gainsboro;
-                                                    border-radius: 8px;
-                                                "
+                                                class="text-center d-flex flex-column justify-content-center align-items-center"
                                             >
                                                 <div
-                                                    class="text-center d-flex flex-column justify-content-center align-items-center"
+                                                    class="image-container"
+                                                    style="
+                                                        height: 125px;
+                                                        width: 125px;
+                                                        margin: 10px;
+                                                        overflow: hidden;
+                                                        border-radius: 8px;
+                                                    "
                                                 >
                                                     <div
-                                                        class="image-container"
+                                                        class="image-background"
                                                         style="
-                                                            height: 125px;
-                                                            width: 125px;
-                                                            margin: 10px;
-                                                            overflow: hidden;
-                                                            border-radius: 8px;
+                                                            height: 100%;
+                                                            width: 100%;
+                                                            background-image: url('images/special/thumbnail_logo.png');
+                                                            background-size: cover;
+                                                            background-position: center;
                                                         "
-                                                    >
-                                                        <div
-                                                            class="image-background"
-                                                            style="
-                                                                height: 100%;
-                                                                width: 100%;
-                                                                background-image: url('images/special/thumbnail_logo.png');
-                                                                background-size: cover;
-                                                                background-position: center;
-                                                            "
-                                                        ></div>
-                                                    </div>
-                                                    <p class="card-title">Logo design</p>
+                                                    ></div>
                                                 </div>
+                                                <p class="card-title">Logo design</p>
                                             </div>
                                         </div>
                                     </div>
@@ -754,12 +753,11 @@ const timeParts = computed(() => [
 }
 
 .section {
-    height: 100vh;
+    min-height: 80vh;
     /* background-color: #f0f0f0; */
     /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 .custom-text-logo {
-    font-size: 6rem;
     font-weight: bold;
     background: -webkit-linear-gradient(
         300deg,
@@ -789,7 +787,7 @@ const timeParts = computed(() => [
 
 .text-container {
     text-align: center;
-    padding: 80px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -828,8 +826,8 @@ const timeParts = computed(() => [
     margin-left: -40px;
 }
 .text-container-section-2 {
-    text-align: left;
-    padding-left: 120px;
+    padding-left: 5vw;
+    padding-right: 5vw;
     display: flex;
     flex-direction: column;
     align-items: left-start;
@@ -892,7 +890,7 @@ const timeParts = computed(() => [
 #section-4 .card {
     background-color: rgb(209, 233, 252);
     text-align: center;
-    height: 70vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
