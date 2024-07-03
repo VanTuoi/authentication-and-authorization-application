@@ -15,9 +15,9 @@
                         />
                     </router-link>
                 </div>
-                <div class="col-2 d-none d-sm-block"></div>
+                <div class="col-2 d-none d-sm-block d-md-block"></div>
                 <div class="col-7">
-                    <div class="d-flex flex-row-end">
+                    <div class="d-flex flex-row-end justify-content-start justify-content-sm-end">
                         <argon-button
                             class="navbar-toggler btn btn-outline-success"
                             icon="fas fa-stream"
@@ -227,17 +227,18 @@ onMounted(() => {
     border-radius: 8px;
 }
 #navbar-custom {
-    transition: height 0.5s ease;
+    min-height: 80px;
+    transition: min-height 0.5s ease;
 }
 
 .navbar-tall {
     background: transparent;
-    height: 80px;
+    min-height: 80px !important;
 }
 
 .navbar-short {
     background: #fff;
-    height: 70px;
+    min-height: 70px !important;
     box-shadow: none !important;
 }
 
