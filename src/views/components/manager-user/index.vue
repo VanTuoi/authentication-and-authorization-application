@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
     <div class="card">
         <div class="card-header pb-0">
             <h6>User table</h6>
@@ -544,7 +544,7 @@ const userHasRole = (roleName) => {
     const user = dataUsers.find((user) => user.id === idUserSelect.value);
     return user && user.roles.some((role) => role.name === roleName);
 };
-</script> -->
+</script>
 
 <!-- 
 <template>
@@ -805,6 +805,6 @@ watch(picker, (newPicker) => {
         <a-range-picker v-model:value="data" :picker="picker" @change="handleDateChange" />
     </a-space>
 </template> -->
-<template>
+<!-- <template>
     <div></div>
-</template>
+</template> -->
